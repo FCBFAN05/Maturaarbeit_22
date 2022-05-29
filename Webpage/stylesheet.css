@@ -1,0 +1,7 @@
+/* Stylesheet für Webseite */
+input[type='button']{
+    background-color: #c2eafc;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px #555555;
+    margin: 0 1% 0 0;
+}
