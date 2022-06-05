@@ -50,7 +50,8 @@
 
         <div id = "Simple-DES">
             <h3>Simple-DES</h3>
-            <img src="jetbrains://idea/navigate/reference?project=knowledge.js&path=Webpage/data/img.png" alt="Schema Simple-DES">
+            <img id="schema S-DES" src="data/Schema%20S-DES.png" alt="Schema Simple-DES">
+            <p>Schema Simple-DES</p>
             <h5>Klartext</h5>
             <label for="klartext_S-DES"></label><textarea id="klartext_S-DES"></textarea>
             <p>Zur Vereinfachung muss die Eingabe hier exakt ein Buchstabe betragen</p>
@@ -73,6 +74,8 @@
             <input type="button" value="Expandieren" onclick="">
             <h5>Expansion</h5>
             <label for="expansion_S-DES"></label><textarea id="expansion_S-DES"></textarea>
+            <br>
+            <img src="data/Expansion.png" alt="Expansion 8 bit">
 
             <div id = "K1_S-DES">
                 <h4>Schlüsselraum</h4>
@@ -101,6 +104,8 @@
             <h5>Verrechnung mit S-Boxen</h5>
             <label for="s-box_S-DES"></label><textarea id="s-box_S-DES"></textarea>
             <br>
+            <img src="data/S-Boxen-S-DES.png" alt="S-Boxen S-DES">
+            <br>
             <input type="button" value="Permutieren" onclick="">
             <h5>Permutation</h5>
             <label for="p4_S-DES"></label><textarea id="p4_S-DES"></textarea>
@@ -109,7 +114,7 @@
             <h5>XOR-Verrechnung mit linker Hälfte</h5>
             <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
             <label for="XOR-L-Half_S-DES"></label><textarea id="XOR-L-Half_S-DES"></textarea>
-            <p>Nun wird gemäss Schema die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
+            <p>Nun wird gemäss <a href="#schema S-DES">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
             Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
                 Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.</p>
             <p>Zum Schluss werden die beiden Hälfte zusammengefügt und es wird die zur initialen Permutation inverse Permutation durchgeführt:</p>
