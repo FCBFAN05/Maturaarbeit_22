@@ -12,18 +12,126 @@
     <h1><a href="">Verschlüsselung</a></h1>
     <nav id="navbar">
         <ul>
-            <li><a href="">Verschlüsselung</a></li>
-            <li><a href="">Infos über Website</a></li>
-            <li><a href="">Über mich</a></li>
+            <li><a href="#start-header">Start</a></li>
+            <li><a href="#grundlagen-header">Grundlagen und Begriffe</a></li>
+            <li><a href="#verschlüsselung-header">Verschlüsseln</a></li>
+            <li><a href="#infos-header">Infos über Website</a></li>
+            <li><a href="#about-header">Über mich</a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <label for="klartext"></label><textarea id="klartext"></textarea>
-    <br>
-    <input type="button" value="Verschlüsseln" onclick="encode()">
-    <br>
-    <label for="chiffrentext"></label><textarea id="chiffrentext"></textarea>
+    <div id="start-header">
+        <h2>Website zur Erklärung verschiedener Verschlüsselungstechniken</h2>
+        <p>Auf dieser Website können verschiedene Verschlüsselungstechniken ausprobiert werden.
+            Dabei werden sie anschaulich und Schritt für Schritt erklärt.</p>
+    </div>
+
+    <div id = "grundlagen-header">
+        <h2>Grundlagen und Begriffe</h2>
+    </div>
+
+    <div id="verschlüsselung-header">
+        <h2>Verschlüsseln</h2>
+
+        <div id = "caesar-cipher">
+            <h3>Cäsar-Chiffre</h3>
+            <h5>Klartext</h5>
+            <label for="klartext_caesar"></label><textarea id="klartext_caesar"></textarea>
+            <h5>Verschiebung</h5>
+            <label for="verschiebung_caesar"></label><textarea id="verschiebung_caesar"></textarea>
+            <p>Stellen, um die die Buchstaben des Texts im Alphabet verschoben werden.</p>
+            <br>
+            <input type="button" value="Verschlüsseln" onclick="caesar()">
+            <br>
+            <h5>Chiffrentext</h5>
+            <label for="chiffrentext_caesar"></label><textarea id="chiffrentext_caesar"></textarea>
+        </div>
+
+        <div id = "Simple-DES">
+            <h3>Simple-DES</h3>
+            <img src="jetbrains://idea/navigate/reference?project=knowledge.js&path=Webpage/data/img.png" alt="Schema Simple-DES">
+            <h5>Klartext</h5>
+            <label for="klartext_S-DES"></label><textarea id="klartext_S-DES"></textarea>
+            <p>Zur Vereinfachung muss die Eingabe hier exakt ein Buchstabe betragen</p>
+            <input type="button" value="Umwandeln" onclick="">
+            <h5>Umwandlung in Bits</h5>
+            <label for="Bits_S-DES"></label><textarea id="Bits_S-DES"></textarea>
+            <br>
+            <input type="button" value="Permutieren" onclick="">
+            <h5>Initiale Permutation</h5>
+            <label for="initial permutation_S-DES"></label><textarea id="initial permutation_S-DES"></textarea>
+            <p>Verschiebung von jeweils 8 Bits an die eingebenen Positionen.
+            Positionen vor Permutation: 12345678</p>
+            <p>Bsp. für eine Eingabe für die Initiale Permutation: 54721863</p>
+            <br>
+            <label for="L-Half_S-DES"></label><textarea id="L-Half_S-DES"></textarea>
+            <p>Linke Hälfte der permutierten 8 Bits</p>
+            <label for="R-Half_S-DES"></label><textarea id="R-Half_S-DES"></textarea>
+            <p>Rechte Hälfte der permutierten 8 Bits</p>
+            <br>
+            <input type="button" value="Expandieren" onclick="">
+            <h5>Expansion</h5>
+            <label for="expansion_S-DES"></label><textarea id="expansion_S-DES"></textarea>
+
+            <div id = "K1_S-DES">
+                <h4>Schlüsselraum</h4>
+                <h6>Eingabe Hauptschlüssel</h6>
+                <label for="main key_S-DES"></label><textarea id="main key_S-DES"></textarea>
+                <br>
+                <input type="button" value="Permutieren" onclick="">
+                <h6>Permutation</h6>
+                <label for="p10_S-DES"></label><textarea id="p10_S-DES"></textarea>
+                <br>
+                <input type="button" value="Rotieren" onclick="">
+                <h6>1-Bit-Links-Shift/ Rotation</h6>
+                <label for="1-L-Shift_S-DES"></label><textarea id="1-L-Shift_S-DES"></textarea>
+                <br>
+                <input type="button" value="Permutieren" onclick="">
+                <h6>Permutation</h6>
+                <label for="p8_S-DES"></label><textarea id="p8_S-DES"></textarea>
+                <p>Dies ist nun der erste Schlüssel.</p>
+            </div>
+
+            <input type="button" value="Verrechnen" onclick="">
+            <h5>XOR-Verrechnung mit Schlüssel</h5>
+            <label for="XOR-k1_S-DES"></label><textarea id="XOR-k1_S-DES"></textarea>
+            <br>
+            <input type="button" value="Verrechnen" onclick="">
+            <h5>Verrechnung mit S-Boxen</h5>
+            <label for="s-box_S-DES"></label><textarea id="s-box_S-DES"></textarea>
+            <br>
+            <input type="button" value="Permutieren" onclick="">
+            <h5>Permutation</h5>
+            <label for="p4_S-DES"></label><textarea id="p4_S-DES"></textarea>
+            <br>
+            <input type="button" value="Verrechnen" onclick="">
+            <h5>XOR-Verrechnung mit linker Hälfte</h5>
+            <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
+            <label for="XOR-L-Half_S-DES"></label><textarea id="XOR-L-Half_S-DES"></textarea>
+            <p>Nun wird gemäss Schema die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
+            Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
+                Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.</p>
+            <p>Zum Schluss werden die beiden Hälfte zusammengefügt und es wird die zur initialen Permutation inverse Permutation durchgeführt:</p>
+            <h5>Inverse Initiale Permutation</h5>
+            <input type="button" value="Permutieren" onclick="">
+            <br>
+            <label for="ip-1_S-DES_S-DES"></label><textarea id="ip-1_S-DES_S-DES"></textarea>
+            <p>Dies ist nun der verschlüsselte Text in ASCII-Code</p>
+            <input type="button" value="Als Buchstabe ausgeben" onclick="">
+            <h5>Chiffrentext</h5>
+            <label for="chiffrentext_S-DES"></label><textarea id="chiffrentext_S-DES"></textarea>
+            <p>Dies ist der verschlüsselte Buchstabe.</p>
+        </div>
+    </div>
+
+    <div id="infos-header">
+        <h2>Infos über Website</h2>
+    </div>
+
+    <div id="about-header">
+        <h2>Über mich</h2>
+    </div>
 </main>
 <br>
 <footer>&copy; 2022 Melvin Trösch
