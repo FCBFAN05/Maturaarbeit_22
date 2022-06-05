@@ -396,7 +396,6 @@ const recordCollection2 = {
     }
 };
 
-// Only change code below this line
 function updateRecords2(records, id, prop, value) {
     if (value === '') {
         delete records[id][prop];
@@ -422,7 +421,7 @@ function multiplyAll(arr) {
 
 multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
 
-/* parseInt Function with radix */
+/* Int Function with radix */
 function convertToInteger(str) {
     return parseInt(str, 2);
 }
