@@ -24,7 +24,16 @@ function caesar(){
         ascii[i] = clearText.charCodeAt(i)
     }
     for (let i=0; i<ascii.length; i++) {
-        cipherText += String.fromCharCode(ascii[i]+movement)
+        if (ascii[i]+movement > 122)
+            cipherText += String.fromCharCode(96+(ascii[i]+movement-122))
+        else if (ascii[i]+movement > 90)
+            cipherText += String.fromCharCode(64+(ascii[i]+movement-90))
+        else
+            cipherText += String.fromCharCode(ascii[i]+movement)
     }
     document.getElementById("chiffrentext_caesar").value = cipherText
+}
+
+function convertToBits() {
+    document.getElementById("bits_S-DES").value = parseInt(document.getElementById("klartext_S-DES").value,2).toString()
 }
