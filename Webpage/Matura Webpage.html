@@ -48,13 +48,15 @@
             <label for="chiffrentext_caesar_textarea"></label><textarea id="chiffrentext_caesar_textarea"></textarea>
         </div>
 
-        <div id = "Simple-DES_section">
+        <div id = "Simple-DES_division">
             <h3>Simple-DES</h3>
             <img id="schema S-DES_image" src="data/Schema%20S-DES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
             <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
             <h5>Klartext</h5>
             <label for="klartext_S-DES_textarea"></label><textarea id="klartext_S-DES_textarea"></textarea>
             <p>Pro eingegebenem Buchstaben werden unten 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+            <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
+            <br>
             <input type="button" value="Umwandeln" onclick="convertToBits()">
             <h5>Umwandlung in Bits</h5>
             <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
