@@ -20,7 +20,7 @@ function timesFive(num) {
 
 const result = timesFive(5);
 
-/* Global scope with functions*/
+/* global scope with functions*/
 let myGlobal = 10;
 
 function fun1() {

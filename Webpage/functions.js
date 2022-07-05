@@ -36,8 +36,6 @@ function caesar(){
     document.getElementById("chiffrentext_caesar_textarea").value = cipherText
 }
 
-
-
 function convertToBits() {
     document.getElementById("bits_S-DES_textarea").value = ""
     let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
@@ -62,7 +60,47 @@ function convertToBits() {
     //console.log(parseInt(document.getElementById("klartext_S-DES").value.toUpperCase().charCodeAt(0).toString(),2).toString())
     //document.getElementById("bits_S-DES").value = parseInt(document.getElementById("klartext_S-DES").value,2).toString()
 
+function initialpermutation() {
+    let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
+    let parity = document.getElementById("evenoroddparityinput_textarea").value
+    let bitcodeOutOfText = [text.length][8]
+    let ckecksum = 0
 
+    for (let i = 0; i < text.length; i++) {
+        for (let j = 0; j < 8; j++) {
+            ckecksum += parseInt(text.substr(i, text.length))
+            if ((ckecksum % 2) === 0 && parity === "e") {
+                bitcodeOutOfText[i][j] = parseInt(text.charCodeAt(i).toString(2) + "0") // Funktionen/ Methoden von Grund auf machen
+            } else if ((ckecksum % 2) !== 0 && parity === "e") {
+                bitcodeOutOfText[i][j] = parseInt(text.charCodeAt(i).toString(2) + "1")
+            } else if ((ckecksum % 2) === 0 && parity === "o") {
+                bitcodeOutOfText[i][j] = parseInt(text.charCodeAt(i).toString(2) + "1")
+            } else {
+                bitcodeOutOfText[i][j] = parseInt(text.charCodeAt(i).toString(2) + "0")
+            }
+        }
+
+        const permutator = (inputArr) => {
+            let result = []
+
+            const permute = (arr, m = []) => {
+                if (arr.length === 0) {
+                    result.push(m)
+                } else {
+                    for (let i = 0; i < arr.length; i++) {
+                        let curr = arr.slice()
+                        let next = curr.splice(i, 1)
+                        permute(curr.slice(), m.concat(next))
+                    }
+                }
+            }
+            permute(inputArr)
+            return result
+        }
+        permutator(bitcodeOutOfText[i])
+        document.getElementById("initial permutation_S-DES_textarea").value += result
+    }
+}
 
 function runAll() {
 

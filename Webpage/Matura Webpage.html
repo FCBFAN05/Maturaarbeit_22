@@ -71,20 +71,21 @@
             <h5>Umwandlung in Bits</h5>
             <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
             <br>
-            <input type="button" value="Permutieren" onclick="">
+            <input type="button" value="Permutieren" onclick="initialpermutation()">
             <h5>Initiale Permutation</h5>
+            <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
+            <p>Positionen vor Permutation: 12345678</p>
+            <p>Positionen nach Permutation: 26314857</p>
             <label for="initial permutation_S-DES_textarea"></label><textarea id="initial permutation_S-DES_textarea"></textarea>
-            <p>Verschiebung von jeweils 8 Bits an die eingegebenen Positionen.
-            Positionen vor Permutation: 12345678</p>
-            <p>Bsp. für eine Eingabe für die Initiale Permutation: 54721863</p>
             <br>
+            <h5>Linke Hälfte der permutierten 8 Bits</h5>
             <label for="L-Half_S-DES_textarea"></label><textarea id="L-Half_S-DES_textarea"></textarea>
-            <p>Linke Hälfte der permutierten 8 Bits</p>
+            <h5>Rechte Hälfte der permutierten 8 Bits</h5>
             <label for="R-Half_S-DES_textarea"></label><textarea id="R-Half_S-DES_textarea"></textarea>
-            <p>Rechte Hälfte der permutierten 8 Bits</p>
             <br>
             <input type="button" value="Expandieren" onclick="">
             <h5>Expansion</h5>
+            <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
             <label for="expansion_S-DES_textarea"></label><textarea id="expansion_S-DES_textarea"></textarea>
             <br>
             <img id="Expansion_8bit_image" src="data/Expansion.png" alt="Expansion 8 bit">
