@@ -45,7 +45,6 @@ function convertToBits() {
     let bitcode = [text.length]
     let ckecksum = 0
 
-
     for (let i = 0; i < text.length; i++) {
         ckecksum += parseInt(text.substr(i,text.length))
         if ((ckecksum % 2) === 0 && parity === "e") {
@@ -62,6 +61,7 @@ function convertToBits() {
 }
     //console.log(parseInt(document.getElementById("klartext_S-DES").value.toUpperCase().charCodeAt(0).toString(),2).toString())
     //document.getElementById("bits_S-DES").value = parseInt(document.getElementById("klartext_S-DES").value,2).toString()
+
 
 
 function runAll() {

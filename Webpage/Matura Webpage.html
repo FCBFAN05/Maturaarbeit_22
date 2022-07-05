@@ -29,6 +29,13 @@
 
     <div id = "grundlagen-header_division">
         <h2>Grundlagen und Begriffe</h2>
+
+        <h3 id="parity-check_title">Paritäts-Check/ Paritätsbit</h3>
+        <p>Beim Paritäts-Check  geht es darum, wie viele Bits eines Bytes mit Einsen besetzt sind.
+            Das Paritätsbit wird dann ergänzt als 0 oder 1, um die Anzahl Einsen gerade oder ungerade zu machen, je nachdem ob es sich um eine Odd-Parity (dt. ungerade Parität) oder Even-Parity (gerade Parität) handelt.
+            Die Odd- oder Even-Parity wird jeweils von Sender und Empfänger gemeinsam im Vornhinein abgemacht.</p>
+        <p>Die folgende Tabelle bietet eine Veranschaulichung des Paritäts-Checks:</p>
+        <img id="parity-check_image" src="data/Paritaets-Check.png" alt="Tabelle Paritäts-Check">
     </div>
 
     <div id="verschlüsselung-header_division">
@@ -54,7 +61,10 @@
             <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
             <h5>Klartext</h5>
             <label for="klartext_S-DES_textarea"></label><textarea id="klartext_S-DES_textarea"></textarea>
-            <p>Pro eingegebenem Buchstaben werden unten 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+            <p>Pro eingegebenem Buchstaben werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+            <h5>Gerade oder ungerade Parität</h5>
+            <p>e eingeben für "Even-Parity" und o für "Odd-Parity".
+            Erklärungen s. <a href="#parity-check_title">Paritätscheck</a> unter <a href="#grundlagen-header_division">Grundlagen und Begriffe</a>.</p>
             <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
             <br>
             <input type="button" value="Umwandeln" onclick="convertToBits()">
