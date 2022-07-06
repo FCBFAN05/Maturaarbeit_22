@@ -98,9 +98,9 @@ function initialpermutation() {
             return result
         }
         permutator(bitcodeOutOfText[i])
-        document.getElementById("initial permutation_S-DES_textarea").value += result
     }
 }
+document.getElementById("initial permutation_S-DES_textarea").value = permutator(bitcodeOutOfText[Math.random()*text.length])
 
 function runAll() {
 
