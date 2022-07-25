@@ -1,0 +1,66 @@
+Index: public_html/js/functions.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* Funktionen für die Webseite */\r\n\r\n/* Funktionen zur Verschlüsselung */\r\n\r\n/* Beispiel-Funktionen:\r\n\r\nfunction copy(){\r\n    document.getElementById(\"L-Half_S-DES-u\").value = document.getElementById(\"L-Half_S-DES\").value\r\n}\r\n\r\nfunction encode(){\r\n\r\n    let text = document.getElementById(\"klartext\").value\r\n    let firstPart = text.substring(0, text.length/2)\r\n    let secondPart = text.substring(text.length/2, text.length)\r\n    document.getElementById(\"chiffrentext\").value = secondPart.concat(firstPart)\r\n\r\n}\r\n\r\n */\r\n\r\nfunction fakultaet(n) {\r\n    let result = 1;\r\n    for (let i = 1; i <= n; i++) {\r\n        result = result * i;\r\n    }\r\n    return result;\r\n}\r\n\r\nconst permutator = (inputArr) => {\r\n    let result = [];\r\n\r\n    const permute = (arr, m = []) => {\r\n        if (arr.length === 0) {\r\n            result.push(m)\r\n        } else {\r\n            for (let i = 0; i < arr.length; i++) {\r\n                let curr = arr.slice();\r\n                let next = curr.splice(i, 1);\r\n                permute(curr.slice(), m.concat(next))\r\n            }\r\n        }\r\n    }\r\n\r\n    permute(inputArr)\r\n\r\n    return result;\r\n}\r\n\r\n\r\nfunction caesar(){\r\n    let clearText = document.getElementById(\"klartext_caesar_textarea\").value // Namen anschreiben --> WElches Element die Variable vertritt\r\n    let movement = parseInt(document.getElementById(\"verschiebung_caesar_textarea\").value)\r\n    let cipherText = \"\"\r\n    let ascii = [clearText.length]\r\n\r\n    for (let i=0; i<clearText.length; i++) {\r\n        ascii[i] = clearText.toUpperCase().charCodeAt(i)\r\n        let newChar = ((ascii[i]+movement-65)%26)+65\r\n        console.log(newChar)\r\n        cipherText += String.fromCharCode(newChar)\r\n        console.log(cipherText)\r\n    }\r\n    document.getElementById(\"chiffrentext_caesar_textarea\").value = cipherText\r\n}\r\n\r\nfunction convertToBits() {\r\n    document.getElementById(\"bits_S-DES_textarea\").value = \"\"\r\n    let text = document.getElementById(\"klartext_S-DES_textarea\").value.toUpperCase()\r\n    let parity = document.getElementById(\"evenoroddparityinput_textarea\").value\r\n    let bitcode = [text.length]\r\n    let ckecksum = 0\r\n\r\n    for (let i = 0; i < text.length; i++) {\r\n        ckecksum += parseInt(text.substr(i,text.length))\r\n        if ((ckecksum % 2) === 0 && parity === \"e\") {\r\n            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + \"0\") // Funktionen/ Methoden von Grund auf machen\r\n        } else if ((ckecksum % 2) !== 0 && parity === \"e\") {\r\n            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + \"1\")\r\n        } else if ((ckecksum % 2) === 0 && parity === \"o\") {\r\n            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + \"1\")\r\n        } else if ((ckecksum % 2) !== 0 && parity === \"o\"){\r\n            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + \"0\")\r\n        } else {\r\n            document.getElementById(\"bits_S-DES_textarea\").value = \"parity \"\r\n        }\r\n        document.getElementById(\"bits_S-DES_textarea\").value += (bitcode[i] + \" \")\r\n    }\r\n}\r\n    //console.log(parseInt(document.getElementById(\"klartext_S-DES\").value.toUpperCase().charCodeAt(0).toString(),2).toString())\r\n    //document.getElementById(\"bits_S-DES\").value = parseInt(document.getElementById(\"klartext_S-DES\").value,2).toString()\r\n\r\nfunction initialpermutation() {\r\n    let text = document.getElementById(\"klartext_S-DES_textarea\").value.toUpperCase()\r\n    let parity = document.getElementById(\"evenoroddparityinput_textarea\").value\r\n    let bitcodeOutOfText = [text.length]\r\n    let bitcodeSplitArray = [8]\r\n    let resultArray = [fakultaet(8)]\r\n    let ckecksum = 0\r\n\r\n\r\n\r\n    for (let i = 0; i < text.length; i++) {\r\n            ckecksum += parseInt(text.substr(i, text.length))\r\n            if ((ckecksum % 2) === 0 && parity === \"e\") {\r\n                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + \"0\") // Funktionen/ Methoden von Grund auf machen\r\n            } else if ((ckecksum % 2) !== 0 && parity === \"e\") {\r\n                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + \"1\")\r\n            } else if ((ckecksum % 2) === 0 && parity === \"o\") {\r\n                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + \"1\")\r\n            } else {\r\n                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + \"0\")\r\n            }\r\n            for (let j = 0; j < 8; j++) {\r\n                let bitcodeSplit = bitcodeOutOfText[i].toString().substring(j,j+1)\r\n                console.log(bitcodeSplit)\r\n                bitcodeSplitArray[j] = bitcodeSplit\r\n                parseInt(bitcodeSplit)\r\n            }\r\n            for (let k = 0; k < fakultaet(8); k++) {\r\n                resultArray[k] = permutator(bitcodeSplitArray)\r\n            }\r\n            document.getElementById(\"initialpermutation_S-DES_textarea\").value += resultArray[Math.random()*fakultaet(8)]\r\n    }\r\n}\r\n\r\nfunction runAll() {\r\n\r\n}\r\n\r\n/* function run(checkbox[true]) {\r\n\r\n} // Mit Checkboxes anwählen was angezeigt/ ausgeführt wird und was nicht\r\n\r\n\r\n */\r\n\r\n// Mails verschicken für Kommunikation miteinander
+===================================================================
+diff --git a/public_html/js/functions.js b/public_html/js/functions.js
+--- a/public_html/js/functions.js	
++++ b/public_html/js/functions.js	
+@@ -93,36 +93,32 @@
+ function initialpermutation() {
+     let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
+     let parity = document.getElementById("evenoroddparityinput_textarea").value
+-    let bitcodeOutOfText = [text.length]
+-    let bitcodeSplitArray = [8]
+-    let resultArray = [fakultaet(8)]
++    let bitcode = [text.length]
+     let ckecksum = 0
+-
+-
++    let bits = [text.length]
+ 
+     for (let i = 0; i < text.length; i++) {
+-            ckecksum += parseInt(text.substr(i, text.length))
+-            if ((ckecksum % 2) === 0 && parity === "e") {
+-                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + "0") // Funktionen/ Methoden von Grund auf machen
+-            } else if ((ckecksum % 2) !== 0 && parity === "e") {
+-                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+-            } else if ((ckecksum % 2) === 0 && parity === "o") {
+-                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+-            } else {
+-                bitcodeOutOfText[i] = parseInt(text.charCodeAt(i).toString(2) + "0")
+-            }
+-            for (let j = 0; j < 8; j++) {
+-                let bitcodeSplit = bitcodeOutOfText[i].toString().substring(j,j+1)
+-                console.log(bitcodeSplit)
+-                bitcodeSplitArray[j] = bitcodeSplit
+-                parseInt(bitcodeSplit)
+-            }
+-            for (let k = 0; k < fakultaet(8); k++) {
+-                resultArray[k] = permutator(bitcodeSplitArray)
+-            }
+-            document.getElementById("initialpermutation_S-DES_textarea").value += resultArray[Math.random()*fakultaet(8)]
++        ckecksum += parseInt(text.substr(i,text.length))
++        if ((ckecksum % 2) === 0 && parity === "e") {
++            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0") // Funktionen/ Methoden von Grund auf machen
++        } else if ((ckecksum % 2) !== 0 && parity === "e") {
++            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
++        } else if ((ckecksum % 2) === 0 && parity === "o") {
++            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
++        } else if ((ckecksum % 2) !== 0 && parity === "o"){
++            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0")
++        } else {
++            document.getElementById("bits_S-DES_textarea").value = "parity "
++        }
++        for (let j=0; j<8; j++) {
++            bits[i] = [bitcode[i].toString().length]
++            bits[i][j] = bitcode[i].toString().substring(j,j+1)
++            console.log(bits[i][j])
++        }
++        document.getElementById("initialpermutation_S-DES_textarea").value += (bits[i][1].concat(bits[i][5]).concat(bits[i][2]).concat(bits[i][0]).concat(bits[i][3]).concat(bits[i][7]).concat(bits[i][4]).concat(bits[i][6]) + " ")
+     }
+ }
++
+ 
+ function runAll() {
+ 
