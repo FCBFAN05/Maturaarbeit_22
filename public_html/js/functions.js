@@ -112,7 +112,8 @@ function initialpermutation() {
         }
         console.log(bitcode)
         for (let j = 0; j < 8; j++) {
-            bits[i] = [bitcode[i].toString().substring(j, j+1)]
+            bits[i] = []
+            bits[i] += [parseInt(bitcode[i].toString().substring(j, j+1))]
             console.log(bits[i])
         }
         console.log(bits[i][1])
