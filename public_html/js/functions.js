@@ -27,6 +27,26 @@ function fakultaet(n) {
     return result;
 }
 
+const permutator = (inputArr) => {
+    let result = [];
+
+    const permute = (arr, m = []) => {
+        if (arr.length === 0) {
+            result.push(m)
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                let curr = arr.slice();
+                let next = curr.splice(i, 1);
+                permute(curr.slice(), m.concat(next))
+            }
+        }
+    }
+
+    permute(inputArr)
+
+    return result;
+}
+
 
 function caesar(){
     let clearText = document.getElementById("klartext_caesar_textarea").value // Namen anschreiben --> WElches Element die Variable vertritt
@@ -59,8 +79,10 @@ function convertToBits() {
             bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
         } else if ((ckecksum % 2) === 0 && parity === "o") {
             bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
-        } else {
+        } else if ((ckecksum % 2) !== 0 && parity === "o"){
             bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0")
+        } else {
+            document.getElementById("bits_S-DES_textarea").value = "parity "
         }
         document.getElementById("bits_S-DES_textarea").value += (bitcode[i] + " ")
     }
@@ -76,25 +98,7 @@ function initialpermutation() {
     let resultArray = [fakultaet(8)]
     let ckecksum = 0
 
-    const permutator = (inputArr) => {
-        let result = [];
 
-        const permute = (arr, m = []) => {
-            if (arr.length === 0) {
-                result.push(m)
-            } else {
-                for (let i = 0; i < arr.length; i++) {
-                    let curr = arr.slice();
-                    let next = curr.splice(i, 1);
-                    permute(curr.slice(), m.concat(next))
-                }
-            }
-        }
-
-        permute(inputArr)
-
-        return result;
-    }
 
     for (let i = 0; i < text.length; i++) {
             ckecksum += parseInt(text.substr(i, text.length))
