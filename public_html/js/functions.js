@@ -91,6 +91,7 @@ function convertToBits() {
     //document.getElementById("bits_S-DES").value = parseInt(document.getElementById("klartext_S-DES").value,2).toString()
 
 function initialpermutation() {
+    document.getElementById("initialpermutation_S-DES_textarea").value =""
     let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
     let parity = document.getElementById("evenoroddparityinput_textarea").value
     let bitcode = []
@@ -112,12 +113,9 @@ function initialpermutation() {
         }
         console.log(bitcode)
         for (let j = 0; j < 8; j++) {
-            bits[i] = []
-            bits[i] += [parseInt(bitcode[i].toString().substring(j, j+1))]
-            console.log(bits[i])
+            bits[j] = parseInt(bitcode[i].toString().substring(j, j+1))
         }
-        console.log(bits[i][1])
-        document.getElementById("initialpermutation_S-DES_textarea").value += (bits[i][1].toString().concat(bits[i][5]).concat(bits[i][2]).concat(bits[i][0]).concat(bits[i][3]).concat(bits[i][7]).concat(bits[i][4]).concat(bits[i][6]) + " ")
+        document.getElementById("initialpermutation_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()).concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
     }
 }
 
