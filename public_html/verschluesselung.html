@@ -50,11 +50,11 @@
             Erklärungen s. Paritätscheck unter <a href="grundlagen.html">Grundlagen und Begriffe</a>.</p>
         <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
         <br>
-        <input type="button" value="Umwandeln" onclick="convertToBits()"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
+        <input type="button" value="Umwandeln" onclick="SDES(1)"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
         <h4>Umwandlung in Bits</h4>
         <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Permutieren" onclick="initialpermutation()">
+        <input type="button" value="Permutieren" onclick="SDES(2)">
         <h4>Initiale Permutation</h4>
         <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
         <p>Beispiel für die Initiale Permutation:</p>
@@ -67,7 +67,7 @@
         <h4>Rechte Hälfte der permutierten 8 Bits</h4>
         <label for="R-Half_S-DES_textarea"></label><textarea id="R-Half_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Expandieren" onclick="expansion()">
+        <input type="button" value="Expandieren" onclick="SDES(3)">
         <h4>Expansion</h4>
         <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
         <label for="expansion_S-DES_textarea"></label><textarea id="expansion_S-DES_textarea"></textarea>
@@ -81,19 +81,19 @@
             <p>Bsp. 1001101000</p>
             <label for="main key_S-DES_textarea_input"></label><textarea id="main key_S-DES_textarea_input"></textarea>
             <br>
-            <input type="button" value="Permutieren" onclick="permutation10BitKey()">
+            <input type="button" value="Permutieren" onclick="keySDES(1)">
             <h5>Permutation</h5>
             <p>Positionen nach Permutation:</p>
             <p>3,5,2,7,4,10,1,9,8,6</p>
             <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
             <br>
-            <input type="button" value="Rotieren" onclick="onebitrotation()">
+            <input type="button" value="Rotieren" onclick="keySDES(2)">
             <h5>1-Bit-Links-Shift/ Rotation</h5>
             <img id="1-Bit-LeftShift_rotation_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift/ Rotation">
             <br>
             <label for="1-L-Shift_S-DES_key_textarea"></label><textarea id="1-L-Shift_S-DES_key_textarea"></textarea>
             <br>
-            <input type="button" value="Permutieren" onclick="permutation8BitKey()">
+            <input type="button" value="Permutieren" onclick="keySDES(3)">
             <h5>Permutation</h5>
             <p>Die ersten beiden Bits werden ausgelassen. Die restlichen 8 Bits werden an folgende Positionen gebracht:</p>
             <p>6,3,7,4,8,5,10,9</p>
