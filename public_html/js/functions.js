@@ -215,16 +215,17 @@ function xorKey() {
         }
         for (let j = 0; j < 8; j++) {
             bits[j] = parseInt(bitcode[i].toString().substring(j, j + 1))
+            console.log(bits[j])
         }
-        expandedBitcode[i] = parseInt(bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()).concat(bits[3].toString()))
+        expandedBitcode = bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()).concat(bits[3].toString())
+        console.log(bitcode[i], expandedBitcode)
         for (let k = 0; k < 10; k++) {
             keyBits[k] = parseInt(mainKey.substring(k, k + 1))
         }
-        definiteKeyBitcode[i] = parseInt(keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5].toString()))
-        console.log(definiteKeyBitcode[i], expandedBitcode[i])
+        definiteKeyBitcode = keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5].toString())
         for (let k = 0; k < 8; k++) {
-            expandedBits[k] = parseInt(expandedBitcode[i].toString().substring(k, k+1))
-            definiteKeyBits[k] = parseInt(definiteKeyBitcode[i].toString().substring(k, k+1))
+            expandedBits[k] = parseInt(expandedBitcode.substring(k, k+1))
+            definiteKeyBits[k] = parseInt(definiteKeyBitcode.substring(k, k+1))
             if (expandedBits[k] === definiteKeyBits[k]) {
                 XORBits[k] = 0
             } else {
