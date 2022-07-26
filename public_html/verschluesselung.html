@@ -26,15 +26,15 @@
 
     <div id = "caesar-cipher_division">
         <h3>Cäsar-Chiffre</h3>
-        <h5>Klartext</h5>
+        <h4>Klartext</h4>
         <label for="klartext_caesar_textarea"></label><textarea id="klartext_caesar_textarea"></textarea>
-        <h5>Verschiebung</h5>
+        <h4>Verschiebung</h4>
         <label for="verschiebung_caesar_textarea"></label><textarea id="verschiebung_caesar_textarea"></textarea>
         <p>Stellen, um die die Buchstaben des Texts im Alphabet verschoben werden.</p>
         <br>
         <input type="button" value="Verschlüsseln" onclick="caesar()">
         <br>
-        <h5>Chiffrentext</h5>
+        <h4>Chiffrentext</h4>
         <label for="chiffrentext_caesar_textarea"></label><textarea id="chiffrentext_caesar_textarea"></textarea>
     </div>
 
@@ -42,86 +42,90 @@
         <h3>Simple-DES</h3>
         <img id="schema S-DES_image" src="data/Schema%20S-DES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
         <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
-        <h5>Klartext</h5>
+        <h4>Klartext</h4>
         <label for="klartext_S-DES_textarea"></label><textarea id="klartext_S-DES_textarea"></textarea>
         <p>Pro eingegebenem Buchstaben werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
-        <h5>Gerade oder ungerade Parität</h5>
+        <h4>Gerade oder ungerade Parität</h4>
         <p>e eingeben für "Even-Parity" und o für "Odd-Parity".
             Erklärungen s. Paritätscheck unter <a href="grundlagen.html">Grundlagen und Begriffe</a>.</p>
         <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
         <br>
         <input type="button" value="Umwandeln" onclick="convertToBits()"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
-        <h5>Umwandlung in Bits</h5>
+        <h4>Umwandlung in Bits</h4>
         <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
         <br>
         <input type="button" value="Permutieren" onclick="initialpermutation()">
-        <h5>Initiale Permutation</h5>
+        <h4>Initiale Permutation</h4>
         <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
-        <p>Beispiel für eine Permutation:</p>
-        <p>Positionen vor Permutation: 12345678</p>
-        <p>Positionen nach Permutation: 26314857</p>
+        <p>Beispiel für die Initiale Permutation:</p>
+        <p>Positionen vor Permutation: 1,2,3,4,5,6,7,8</p>
+        <p>Positionen nach Permutation: 2,6,3,1,4,8,5,7</p>
         <label for="initialpermutation_S-DES_textarea"></label><textarea id="initialpermutation_S-DES_textarea"></textarea>
         <br>
-        <h5>Linke Hälfte der permutierten 8 Bits</h5>
+        <h4>Linke Hälfte der permutierten 8 Bits</h4>
         <label for="L-Half_S-DES_textarea"></label><textarea id="L-Half_S-DES_textarea"></textarea>
-        <h5>Rechte Hälfte der permutierten 8 Bits</h5>
+        <h4>Rechte Hälfte der permutierten 8 Bits</h4>
         <label for="R-Half_S-DES_textarea"></label><textarea id="R-Half_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Expandieren" onclick="">
-        <h5>Expansion</h5>
+        <input type="button" value="Expandieren" onclick="expansion()">
+        <h4>Expansion</h4>
         <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
         <label for="expansion_S-DES_textarea"></label><textarea id="expansion_S-DES_textarea"></textarea>
         <br>
         <img id="Expansion_8bit_image" src="data/Expansion.png" alt="Expansion 8 bit">
 
         <div id = "K1_S-DES_division">
-            <h4>Schlüsselraum</h4>
-            <h6>Eingabe Hauptschlüssel</h6>
-            <label for="main key_S-DES_textarea"></label><textarea id="main key_S-DES_textarea"></textarea>
+            <h4>Schlüsselerzeugung</h4>
+            <h5>Eingabe Hauptschlüssel</h5>
+            <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
+            <p>Bsp. 1001101000</p>
+            <label for="main key_S-DES_textarea_input"></label><textarea id="main key_S-DES_textarea_input"></textarea>
             <br>
-            <input type="button" value="Permutieren" onclick="">
-            <h6>Permutation</h6>
-            <label for="p10_S-DES_textarea"></label><textarea id="p10_S-DES_textarea"></textarea>
+            <input type="button" value="Permutieren" onclick="permutation10BitKey()">
+            <h5>Permutation</h5>
+            <p>Positionen nach Permutation:</p>
+            <p>3,5,2,7,4,10,1,9,8,6</p>
+            <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
             <br>
             <input type="button" value="Rotieren" onclick="">
-            <h6>1-Bit-Links-Shift/ Rotation</h6>
+            <h5>1-Bit-Links-Shift/ Rotation</h5>
             <label for="1-L-Shift_S-DES_textarea"></label><textarea id="1-L-Shift_S-DES_textarea"></textarea>
             <br>
             <input type="button" value="Permutieren" onclick="">
-            <h6>Permutation</h6>
+            <h5>Permutation</h5>
             <label for="p8_S-DES_textarea"></label><textarea id="p8_S-DES_textarea"></textarea>
             <p>Dies ist nun der erste Schlüssel.</p>
         </div>
 
         <input type="button" value="Verrechnen" onclick="">
-        <h5>XOR-Verrechnung mit Schlüssel</h5>
+        <h4>XOR-Verrechnung mit Schlüssel</h4>
         <label for="XOR-k1_S-DES_textarea"></label><textarea id="XOR-k1_S-DES_textarea"></textarea>
         <br>
         <input type="button" value="Verrechnen" onclick="">
-        <h5>Verrechnung mit S-Boxen</h5>
+        <h4>Verrechnung mit S-Boxen</h4>
         <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
         <br>
         <img id="s-boxen_S-DES_image" src="data/S-Boxen-S-DES.png" alt="S-Boxen S-DES">
         <br>
         <input type="button" value="Permutieren" onclick="">
-        <h5>Permutation</h5>
+        <h4>Permutation</h4>
         <label for="p4_S-DES_textarea"></label><textarea id="p4_S-DES_textarea"></textarea>
         <br>
         <input type="button" value="Verrechnen" onclick="">
-        <h5>XOR-Verrechnung mit linker Hälfte</h5>
+        <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
         <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
         <p>Nun wird gemäss <a href="#schema S-DES_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
             Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
             Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.</p>
         <p>Zum Schluss werden die beiden Hälfte zusammengefügt und es wird die zur initialen Permutation inverse Permutation durchgeführt:</p>
-        <h5>Inverse Initiale Permutation</h5>
+        <h4>Inverse Initiale Permutation</h4>
         <input type="button" value="Permutieren" onclick="">
         <br>
         <label for="inverseinitialpermutation_S-DES_textarea"></label><textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <p>Dies ist nun der verschlüsselte Text in ASCII-Code</p>
         <input type="button" value="Als Buchstaben ausgeben" onclick="">
-        <h5>Chiffrentext</h5>
+        <h4>Chiffrentext</h4>
         <label for="chiffrentext_S-DES_textarea"></label><textarea id="chiffrentext_S-DES_textarea"></textarea>
         <p>Dies ist der verschlüsselte Buchstabe.</p>
     </div>

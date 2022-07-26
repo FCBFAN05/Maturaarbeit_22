@@ -91,7 +91,9 @@ function convertToBits() {
     //document.getElementById("bits_S-DES").value = parseInt(document.getElementById("klartext_S-DES").value,2).toString()
 
 function initialpermutation() {
-    document.getElementById("initialpermutation_S-DES_textarea").value =""
+    document.getElementById("initialpermutation_S-DES_textarea").value = ""
+    document.getElementById("L-Half_S-DES_textarea").value = ""
+    document.getElementById("R-Half_S-DES_textarea").value = ""
     let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
     let parity = document.getElementById("evenoroddparityinput_textarea").value
     let bitcode = []
@@ -111,13 +113,56 @@ function initialpermutation() {
         } else {
             document.getElementById("bits_S-DES_textarea").value = "parity "
         }
-        console.log(bitcode)
         for (let j = 0; j < 8; j++) {
             bits[j] = parseInt(bitcode[i].toString().substring(j, j+1))
         }
         document.getElementById("initialpermutation_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()).concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
+        document.getElementById("L-Half_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()) + " ")
+        document.getElementById("R-Half_S-DES_textarea").value += (bits[3].toString().concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
     }
 }
+
+function expansion() {
+    document.getElementById("expansion_S-DES_textarea").value = ""
+    let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
+    let parity = document.getElementById("evenoroddparityinput_textarea").value
+    let bitcode = []
+    let checksum = 0
+    let bits = []
+
+    for (let i = 0; i < text.length; i++) {
+        checksum += parseInt(text.substr(i, text.length))
+        if ((checksum % 2) === 0 && parity === "e") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0") // Funktionen/ Methoden von Grund auf machen
+        } else if ((checksum % 2) !== 0 && parity === "e") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+        } else if ((checksum % 2) === 0 && parity === "o") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+        } else if ((checksum % 2) !== 0 && parity === "o") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0")
+        } else {
+            document.getElementById("bits_S-DES_textarea").value = "parity "
+        }
+        for (let j = 0; j < 8; j++) {
+            bits[j] = parseInt(bitcode[i].toString().substring(j, j + 1))
+        }
+        document.getElementById("expansion_S-DES_textarea").value += (bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString().concat(bits[3].toString())) + " ")
+    }
+}
+
+function permutation10BitKey() {
+    document.getElementById("permutation_10bit_key_S-DES_textarea").value = ""
+    let mainKey = document.getElementById("main key_S-DES_textarea_input").value
+    let keyBits = []
+
+    for (let j = 0; j < 10; j++) {
+        keyBits[j] = parseInt(mainKey.substring(j, j + 1))
+    }
+    console.log(keyBits[1])
+    document.getElementById("permutation_10bit_key_S-DES_textarea").value = (keyBits[2].toString().concat(keyBits[4].toString()).concat(keyBits[1].toString()).concat(keyBits[6].toString()).concat(keyBits[3].toString()).concat(keyBits[9].toString()).concat(keyBits[0].toString().concat(keyBits[8].toString()).concat(keyBits[7].toString()).concat(keyBits[5].toString())) + " ")
+}
+
+
 
 function runAll() {
 
