@@ -146,7 +146,7 @@ function expansion() {
         for (let j = 0; j < 8; j++) {
             bits[j] = parseInt(bitcode[i].toString().substring(j, j + 1))
         }
-        document.getElementById("expansion_S-DES_textarea").value += (bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString().concat(bits[3].toString())) + " ")
+        document.getElementById("expansion_S-DES_textarea").value += (bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()).concat(bits[3].toString()) + " ")
     }
 }
 
@@ -180,11 +180,59 @@ function permutation8BitKey() {
     for (let j = 0; j < 10; j++) {
         keyBits[j] = parseInt(mainKey.substring(j, j + 1))
     }
-    document.getElementById("permutation8bit_S-DES_key_textarea").value = keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5])
+    document.getElementById("permutation8bit_S-DES_key_textarea").value = keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5].toString())
 }
 
-function xorKey() {
+let XOR = [[0,1,1],[1,0,1],[0,0,0],[1,1,0]]
 
+function xorKey() {
+    document.getElementById("XOR-key1_S-DES_textarea").value = ""
+    let text = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
+    let parity = document.getElementById("evenoroddparityinput_textarea").value
+    let bitcode = []
+    let checksum = 0
+    let bits = []
+    let mainKey = document.getElementById("main key_S-DES_textarea_input").value
+    let keyBits = []
+    let definiteKeyBitcode = []
+    let definiteKeyBits = []
+    let expandedBitcode = []
+    let expandedBits = []
+    let XORBits = []
+
+    for (let i = 0; i < text.length; i++) {
+        checksum += parseInt(text.substr(i, text.length))
+        if ((checksum % 2) === 0 && parity === "e") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0") // Funktionen/ Methoden von Grund auf machen
+        } else if ((checksum % 2) !== 0 && parity === "e") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+        } else if ((checksum % 2) === 0 && parity === "o") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "1")
+        } else if ((checksum % 2) !== 0 && parity === "o") {
+            bitcode[i] = parseInt(text.charCodeAt(i).toString(2) + "0")
+        } else {
+            document.getElementById("bits_S-DES_textarea").value = "parity "
+        }
+        for (let j = 0; j < 8; j++) {
+            bits[j] = parseInt(bitcode[i].toString().substring(j, j + 1))
+        }
+        expandedBitcode[i] = parseInt(bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()).concat(bits[3].toString()))
+        for (let k = 0; k < 10; k++) {
+            keyBits[k] = parseInt(mainKey.substring(k, k + 1))
+        }
+        definiteKeyBitcode[i] = parseInt(keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5].toString()))
+        console.log(definiteKeyBitcode[i], expandedBitcode[i])
+        for (let k = 0; k < 8; k++) {
+            expandedBits[k] = parseInt(expandedBitcode[i].toString().substring(k, k+1))
+            definiteKeyBits[k] = parseInt(definiteKeyBitcode[i].toString().substring(k, k+1))
+            if (expandedBits[k] === definiteKeyBits[k]) {
+                XORBits[k] = 0
+            } else {
+                XORBits[k] = 1
+            }
+        }
+        document.getElementById("XOR-key1_S-DES_textarea").value += (XORBits[0].toString().concat(XORBits[1].toString()).concat(XORBits[2].toString()).concat(XORBits[3].toString()).concat(XORBits[4].toString()).concat(XORBits[5].toString()).concat(XORBits[6].toString()).concat(XORBits[7].toString()) + " ")
+    }
 }
 
 function runAll() {
