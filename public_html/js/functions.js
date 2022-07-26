@@ -47,10 +47,6 @@ const permutator = (inputArr) => {
     return result;
 }
 
-function xor() {
-
-}
-
 
 function caesar(){
     let clearText = document.getElementById("klartext_caesar_textarea").value // Namen anschreiben --> WElches Element die Variable vertritt
@@ -185,6 +181,10 @@ function permutation8BitKey() {
         keyBits[j] = parseInt(mainKey.substring(j, j + 1))
     }
     document.getElementById("permutation8bit_S-DES_key_textarea").value = keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5])
+}
+
+function xorKey() {
+
 }
 
 function runAll() {
