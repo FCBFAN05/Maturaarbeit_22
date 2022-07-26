@@ -47,6 +47,10 @@ const permutator = (inputArr) => {
     return result;
 }
 
+function xor() {
+
+}
+
 
 function caesar(){
     let clearText = document.getElementById("klartext_caesar_textarea").value // Namen anschreiben --> WElches Element die Variable vertritt
@@ -158,11 +162,30 @@ function permutation10BitKey() {
     for (let j = 0; j < 10; j++) {
         keyBits[j] = parseInt(mainKey.substring(j, j + 1))
     }
-    console.log(keyBits[1])
-    document.getElementById("permutation_10bit_key_S-DES_textarea").value = (keyBits[2].toString().concat(keyBits[4].toString()).concat(keyBits[1].toString()).concat(keyBits[6].toString()).concat(keyBits[3].toString()).concat(keyBits[9].toString()).concat(keyBits[0].toString().concat(keyBits[8].toString()).concat(keyBits[7].toString()).concat(keyBits[5].toString())) + " ")
+    document.getElementById("permutation_10bit_key_S-DES_textarea").value = keyBits[2].toString().concat(keyBits[4].toString()).concat(keyBits[1].toString()).concat(keyBits[6].toString()).concat(keyBits[3].toString()).concat(keyBits[9].toString()).concat(keyBits[0].toString()).concat(keyBits[8].toString()).concat(keyBits[7].toString()).concat(keyBits[5].toString())
 }
 
+function onebitrotation() {
+    document.getElementById("1-L-Shift_S-DES_key_textarea").value = ""
+    let mainKey = document.getElementById("main key_S-DES_textarea_input").value
+    let keyBits = []
 
+    for (let j = 0; j < 10; j++) {
+        keyBits[j] = parseInt(mainKey.substring(j, j + 1))
+    }
+    document.getElementById("1-L-Shift_S-DES_key_textarea").value = keyBits[4].toString().concat(keyBits[1].toString()).concat(keyBits[6].toString()).concat(keyBits[3].toString()).concat(keyBits[2]).concat(keyBits[0].toString()).concat(keyBits[8].toString()).concat(keyBits[7].toString()).concat(keyBits[5].toString()).concat(keyBits[9])
+}
+
+function permutation8BitKey() {
+    document.getElementById("permutation8bit_S-DES_key_textarea").value = ""
+    let mainKey = document.getElementById("main key_S-DES_textarea_input").value
+    let keyBits = []
+
+    for (let j = 0; j < 10; j++) {
+        keyBits[j] = parseInt(mainKey.substring(j, j + 1))
+    }
+    document.getElementById("permutation8bit_S-DES_key_textarea").value = keyBits[0].toString().concat(keyBits[6].toString()).concat(keyBits[8]).concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[9].toString()).concat(keyBits[5])
+}
 
 function runAll() {
 

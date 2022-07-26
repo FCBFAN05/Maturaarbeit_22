@@ -87,13 +87,15 @@
             <p>3,5,2,7,4,10,1,9,8,6</p>
             <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
             <br>
-            <input type="button" value="Rotieren" onclick="">
+            <input type="button" value="Rotieren" onclick="onebitrotation()">
             <h5>1-Bit-Links-Shift/ Rotation</h5>
-            <label for="1-L-Shift_S-DES_textarea"></label><textarea id="1-L-Shift_S-DES_textarea"></textarea>
+            <label for="1-L-Shift_S-DES_key_textarea"></label><textarea id="1-L-Shift_S-DES_key_textarea"></textarea>
             <br>
-            <input type="button" value="Permutieren" onclick="">
+            <input type="button" value="Permutieren" onclick="permutation8BitKey()">
             <h5>Permutation</h5>
-            <label for="p8_S-DES_textarea"></label><textarea id="p8_S-DES_textarea"></textarea>
+            <p>Die ersten beiden Bits werden ausgelassen. Die restlichen 8 Bits werden an folgende Positionen gebracht:</p>
+            <p>6,3,7,4,8,5,10,9</p>
+            <label for="permutation8bit_S-DES_key_textarea"></label><textarea id="permutation8bit_S-DES_key_textarea"></textarea>
             <p>Dies ist nun der erste Schlüssel.</p>
         </div>
 
