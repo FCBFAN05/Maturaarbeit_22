@@ -24,7 +24,7 @@
 <div id="verschlüsselung-header_division">
     <h2>Verschlüsseln</h2>
 
-    <div id = "caesar-cipher_division">
+   <!-- <div id = "caesar-cipher_division">
         <h3>Cäsar-Chiffre</h3>
         <h4>Klartext</h4>
         <label for="klartext_caesar_textarea"></label><textarea id="klartext_caesar_textarea"></textarea>
@@ -36,7 +36,7 @@
         <br>
         <h4>Chiffrentext</h4>
         <label for="chiffrentext_caesar_textarea"></label><textarea id="chiffrentext_caesar_textarea"></textarea>
-    </div>
+    </div> -->
 
     <div id = "Simple-DES_division">
         <h3>Simple-DES</h3>
@@ -108,14 +108,20 @@
         <br>
         <label for="XOR-key1_S-DES_textarea"></label><textarea id="XOR-key1_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Verrechnen" onclick="">
+        <input type="button" value="Verrechnen" onclick="sBox()">
         <h4>Verrechnung mit S-Boxen</h4>
-        <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
-        <br>
+        <p>Zunächst werden die 8 Bits, welche mit dem Schlüssel XOR-verrechnet wurden, in der Mitte aufgeteilt.
+        Anschliessend werden jeweils die inneren beiden Bits mit den Spalten und die äusseren beiden mit den Zeilen der S-Box verglichen.
+        Es werden nun die zwei Bits ausgewählt an der Stelle wo sich die Zeilen und Spalten treffen.
+        Zum Schluss werden die beiden Hälften wieder zu 4 Bits zusammengefügt.</p>
+        <p>Dies sind die zwei S-Boxen des Simple-DES:</p>
         <img id="s-boxen_S-DES_image" src="data/S-Boxen-S-DES.png" alt="S-Boxen S-DES">
+        <br>
+        <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
         <br>
         <input type="button" value="Permutieren" onclick="">
         <h4>Permutation</h4>
+
         <label for="p4_S-DES_textarea"></label><textarea id="p4_S-DES_textarea"></textarea>
         <br>
         <input type="button" value="Verrechnen" onclick="">
