@@ -322,6 +322,23 @@ function sBox() {
     return bitcodeAfterSBox
 }
 
+function afterSBox(Funktion) {
+    let bitcodeAfterSBox = sBox()
+    let bits = []
+console.log(bitcodeAfterSBox)
+    switch (Funktion) {
+        case 1:
+            document.getElementById("permutation4bit_S-DES_textarea").value = ""
+            for (let k = 0; k < bitcodeAfterSBox.length; k++) {
+                for (let j = 0; j < 4; j++) {
+                    bits[j] = parseInt(bitcodeAfterSBox[k].toString().substring(j, j+1))
+                }
+                document.getElementById("permutation4bit_S-DES_textarea").value += (bits[1].toString().concat(bits[3].toString()).concat(bits[2].toString()).concat(bits[0].toString()) + " ")
+            }
+            break
+    }
+}
+
 function runAll() {
 
 }
