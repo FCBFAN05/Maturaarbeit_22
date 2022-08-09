@@ -101,7 +101,7 @@
             <p>Dies ist nun der erste Schlüssel.</p>
         </div>
 
-        <input type="button" value="Verrechnen" onclick="xorKey()">
+        <input type="button" value="Verrechnen" onclick="SDES(4)">
         <h4>XOR-Verrechnung mit Schlüssel</h4>
         <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
         <img id="XOR_table_image" src="data/XOR.png" alt="XOR-Verrechnung">
@@ -119,13 +119,13 @@
         <br>
         <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Permutieren" onclick="SDES(4)">
+        <input type="button" value="Permutieren" onclick="SDES(5)">
         <h4>Permutation</h4>
         <p>Die 4 Bits die nach der S-Box verrechnung ausgegeben werden, werden hier folgendermassen permutiert:</p>
         <p>2,4,3,1</p>
         <label for="permutation4bit_S-DES_textarea"></label><textarea id="permutation4bit_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Verrechnen" onclick="SDES(5)">
+        <input type="button" value="Verrechnen" onclick="SDES(6)">
         <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
         <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
@@ -134,7 +134,7 @@
             Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.</p>
         <p>Zum Schluss werden die beiden Hälfte zusammengefügt und es wird die zur initialen Permutation inverse Permutation durchgeführt:</p>
         <h4>Inverse Initiale Permutation</h4>
-        <input type="button" value="Permutieren" onclick="">
+        <input type="button" value="Permutieren" onclick="SDES(7)">
         <br>
         <label for="inverseinitialpermutation_S-DES_textarea"></label><textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <p>Dies ist nun der verschlüsselte Text in ASCII-Code</p>
