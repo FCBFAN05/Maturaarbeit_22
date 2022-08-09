@@ -108,7 +108,7 @@
         <br>
         <label for="XOR-key1_S-DES_textarea"></label><textarea id="XOR-key1_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Verrechnen" onclick="sBox()">
+        <input type="button" value="Verrechnen" onclick="SDES(5)">
         <h4>Verrechnung mit S-Boxen</h4>
         <p>Zunächst werden die 8 Bits, welche mit dem Schlüssel XOR-verrechnet wurden, in der Mitte aufgeteilt.
         Anschliessend werden jeweils die inneren beiden Bits mit den Spalten und die äusseren beiden mit den Zeilen der S-Box verglichen.
@@ -119,13 +119,13 @@
         <br>
         <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Permutieren" onclick="SDES(5)">
+        <input type="button" value="Permutieren" onclick="SDES(6)">
         <h4>Permutation</h4>
         <p>Die 4 Bits die nach der S-Box verrechnung ausgegeben werden, werden hier folgendermassen permutiert:</p>
         <p>2,4,3,1</p>
         <label for="permutation4bit_S-DES_textarea"></label><textarea id="permutation4bit_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Verrechnen" onclick="SDES(6)">
+        <input type="button" value="Verrechnen" onclick="SDES(7)">
         <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
         <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
@@ -134,14 +134,14 @@
             Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.</p>
         <p>Zum Schluss werden die beiden Hälfte zusammengefügt und es wird die zur initialen Permutation inverse Permutation durchgeführt:</p>
         <h4>Inverse Initiale Permutation</h4>
-        <input type="button" value="Permutieren" onclick="SDES(7)">
+        <input type="button" value="Permutieren" onclick="SDES(8)">
         <br>
         <label for="inverseinitialpermutation_S-DES_textarea"></label><textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <p>Dies ist nun der verschlüsselte Text in ASCII-Code</p>
-        <input type="button" value="Als Buchstaben ausgeben" onclick="">
+        <input type="button" value="Als Buchstaben ausgeben" onclick="SDES(9)">
         <h4>Chiffrentext</h4>
         <label for="chiffrentext_S-DES_textarea"></label><textarea id="chiffrentext_S-DES_textarea"></textarea>
-        <p>Dies ist der verschlüsselte Buchstabe.</p>
+        <p>Dies ist der verschlüsselte Text/ Buchstabe.</p>
     </div>
 </div>
 </main>

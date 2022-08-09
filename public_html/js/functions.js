@@ -117,6 +117,7 @@ function xorKey() { // XOR-Verrechnung mit dem Schlüssel
     }
     return XORBits
 }
+let XOR = [[0,1,1],[1,0,1],[0,0,0],[1,1,0]]
 */
 // Funktionen für keySDES
 /* function permutation10BitKeySDES() {
@@ -158,8 +159,8 @@ function XOR(Input1, Input2) { // XOR-Verrechnung mit Ausgabe der Bits in einem 
     for (let i = 0; i < Input1.length; i++) {
         XORBits[i] = []
         for (let j = 0; j < Input1[0].length; j++) {
-            bitsInput1[i] = parseInt(Input1[i].substring(j, j + 1))
-            bitsInput2[i] = parseInt(Input2[i].substring(j, j + 1))
+            bitsInput1[i] = Input1[i].substring(j, j + 1)
+            bitsInput2[i] = Input2[i].substring(j, j + 1)
             if (bitsInput1[j] === bitsInput2[j]) {
                 XORBits[i][j] = 0
             } else {
@@ -178,8 +179,11 @@ function SDES(Funktion) {
     let bits = []
     let expandedBitcode = []
     let bitcodeAfterFirstTurn = []
-    let bitcodeLeftHalf = []
+    let bitcodeAfterInitialPermutation = []
     let XORBits = []
+    let bitcodeAfterSBox = []
+    let bitsAfterSBox = []
+    let encryptedBitcode = []
 
     for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mit Hilfe des ASCII-Codes (Buchstabe für Buchstabe) und Erzeugung des Paritätsbits
         checksumToCalculateParity += parseInt(textInput.substr(i, textInput.length))
@@ -208,19 +212,19 @@ function SDES(Funktion) {
             document.getElementById("R-Half_S-DES_textarea").value = ""
             for (let k = 0; k < textInput.length; k++) {
                 for (let j = 0; j < 8; j++) {
-                    bits[j] = parseInt(bitcodeInputText[k].toString().substring(j, j+1))
+                    bits[j] = bitcodeInputText[k].toString().substring(j, j + 1)
                 }
-                document.getElementById("initialpermutation_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()).concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
-                bitcodeLeftHalf[k] = bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString())
-                document.getElementById("L-Half_S-DES_textarea").value += (bitcodeLeftHalf[k] + " ")
+                bitcodeAfterInitialPermutation[k] = bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()).concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString())
+                document.getElementById("initialpermutation_S-DES_textarea").value += (bitcodeAfterInitialPermutation[k] + " ")
+                document.getElementById("L-Half_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()) + " ")
                 document.getElementById("R-Half_S-DES_textarea").value += (bits[3].toString().concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
             }
-            return bitcodeLeftHalf
+            return bitcodeAfterInitialPermutation
         case 3: // Expansion (1. Durchgang)
             document.getElementById("expansion_S-DES_textarea").value = ""
             for (let k = 0; k < textInput.length; k++) {
                 for (let j = 0; j < 8; j++) {
-                    bits[j] = parseInt(bitcodeInputText[k].toString().substring(j, j+1))
+                    bits[j] = bitcodeInputText[k].toString().substring(j, j + 1)
                 }
                 expandedBitcode[k] = bits[6].toString().concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()).concat(bits[3].toString())
                 document.getElementById("expansion_S-DES_textarea").value += (expandedBitcode[k] + " ")
@@ -228,44 +232,81 @@ function SDES(Funktion) {
             return expandedBitcode
         case 4: // XOR-Verrechnung mit Schlüssel
             document.getElementById("XOR-key1_S-DES_textarea").value = ""
-            let definiteKeyBitcode = []
+            let firstDefiniteKeyBitcode = []
             expandedBitcode = SDES(3)
             for (let k = 0; k < expandedBitcode.length; k++) {
-                definiteKeyBitcode[k] = keySDES(3)
+                firstDefiniteKeyBitcode[k] = keySDES(3)
             }
-            XORBits = XOR(expandedBitcode, definiteKeyBitcode)
-            for (let j = 0; j < expandedBitcode.length; j++) {
+            XORBits = XOR(expandedBitcode, firstDefiniteKeyBitcode)
+            for (let j = 0; j < textInput.length; j++) {
                 document.getElementById("XOR-key1_S-DES_textarea").value += (XORBits[j][0].toString().concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()).concat(XORBits[j][4].toString()).concat(XORBits[j][5].toString()).concat(XORBits[j][6].toString()).concat(XORBits[j][7].toString()) + " ")
             }
             return XORBits
-        case 5 :
-            // 4-Bit-Permutation (1. Durchgang)
+        case 5: // Ausgabe S-Box-Verrechnung
+            document.getElementById("s-box_S-DES_textarea").value = ""
+            bitcodeAfterSBox = sBoxSDES(SDES(4))
+            for (let j = 0; j < textInput.length; j++) {
+                document.getElementById("s-box_S-DES_textarea").value += (bitcodeAfterSBox[j] + " ")
+            }
+            break
+        case 6: // 4-Bit-Permutation (1. Durchgang)
             document.getElementById("permutation4bit_S-DES_textarea").value = ""
-            let bitcodeAfterSBox = sBox()
-            let bitsAfterSBox = []
-            for (let k = 0; k < bitcodeAfterSBox.length; k++) {
+            bitcodeAfterSBox = sBoxSDES(SDES(4))
+            for (let k = 0; k < textInput.length; k++) {
                 for (let j = 0; j < 4; j++) {
-                    bitsAfterSBox[j] = parseInt(bitcodeAfterSBox[k].substring(j, j+1))
+                    bitsAfterSBox[j] = bitcodeAfterSBox[k].substring(j, j + 1)
                 }
                 bitcodeAfterFirstTurn[k] = bitsAfterSBox[1].toString().concat(bitsAfterSBox[3].toString()).concat(bitsAfterSBox[2].toString()).concat(bitsAfterSBox[0].toString())
                 document.getElementById("permutation4bit_S-DES_textarea").value += (bitcodeAfterFirstTurn[k] + " ")
             }
             return bitcodeAfterFirstTurn
-        case 6: // XOR-Verrechnung mit linker Hälfte vom Anfang (1. Durchgang)
+        case 7: // XOR-Verrechnung mit linker Hälfte vom Anfang (1. Durchgang)
             document.getElementById("XOR-L-Half_S-DES_textarea").value = ""
-            bitcodeLeftHalf = SDES(2)
-            bitcodeAfterFirstTurn = SDES(5)
-            XORBits = XOR(bitcodeLeftHalf, bitcodeAfterFirstTurn)
+            bitcodeAfterInitialPermutation = SDES(2)
+            bitcodeAfterFirstTurn = SDES(6)
+            let bitcodeLeftHalf = []
+            for (let k = 0; k < textInput.length; k++) {
+                bitcodeLeftHalf[k] = bitcodeAfterInitialPermutation[k].substring(0,4)
+            }
+            XORBits = XOR(bitcodeAfterFirstTurn, bitcodeLeftHalf)
             for (let j = 0; j < textInput.length; j++) {
                 document.getElementById("XOR-L-Half_S-DES_textarea").value += (XORBits[j][0].toString().concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()) + " ")
             }
             return XORBits
-        case 7: // Zweiter Durchgang (nach SWAP) und inverse initiale Permutation
-            XORBits = SDES(6)
+        case 8: // Zweiter Durchgang (nach SWAP) und inverse initiale Permutation
+            document.getElementById("inverseinitialpermutation_S-DES_textarea").value = ""
+            XORBits = SDES(7)
+            bitcodeAfterInitialPermutation = SDES(2)
+            bitcodeAfterFirstTurn = SDES(7)
+            let secondDefiniteKeyBitcode = []
+            let bitcodeAfterSecondTurn = []
+            let bitcodeRightHalf = []
             for (let j = 0; j < textInput.length; j++) {
-                // Expansion 2. Durchgang
-                expandedBitcode[j] = XORBits[j][6].toString().concat(XORBits[j][3].toString()).concat(XORBits[j][7].toString()).concat(XORBits[j][4].toString()).concat(XORBits[j][7].toString()).concat(XORBits[j][4].toString()).concat(XORBits[j][6].toString()).concat(XORBits[j][3].toString())
+                // Expansion 2. Durchgang (nur expandedBitcode)
+                expandedBitcode[j] = XORBits[j][3].toString().concat(XORBits[j][0].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()).concat(XORBits[j][0].toString())
+                secondDefiniteKeyBitcode[j] = keySDES(4)
             }
+            bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, secondDefiniteKeyBitcode)) // S-Box-Verrechnung und XOR-Verrechnung mit Schlüssel
+            for (let k = 0; k < textInput.length; k++) {
+                bitcodeRightHalf[k] = bitcodeAfterInitialPermutation[k].substring(4, 8)
+                for (let l = 0; l < 4; l++) {
+                    bitsAfterSBox[l] = bitcodeAfterSBox[k].substring(l, l + 1)
+                }
+                bitcodeAfterSecondTurn[k] = bitsAfterSBox[1].toString().concat(bitsAfterSBox[3].toString()).concat(bitsAfterSBox[2].toString()).concat(bitsAfterSBox[0].toString())
+            }
+            XORBits = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
+            for (let m = 0; m < textInput.length; m++) { // Inverse Initiale Permutation
+                encryptedBitcode[m] = XORBits[m][3].toString().concat(XORBits[m][0].toString()).concat(XORBits[m][2].toString()).concat(bitcodeAfterFirstTurn[m][0]).concat(bitcodeAfterFirstTurn[m][2]).concat(XORBits[m][1].toString()).concat(bitcodeAfterFirstTurn[m][3]).concat(bitcodeAfterFirstTurn[m][1])
+                document.getElementById("inverseinitialpermutation_S-DES_textarea").value += (encryptedBitcode[m] + " ")
+            }
+            return encryptedBitcode
+        case 9: // Ausgabe in Buchstaben
+            document.getElementById("chiffrentext_S-DES_textarea").value = ""
+            encryptedBitcode = SDES(8)
+            for (let j = 0; j < textInput.length; j++) {
+                document.getElementById("chiffrentext_S-DES_textarea").value += parseInt(encryptedBitcode[j].substring(0,7),2)
+            }
+            console.log(encryptedBitcode)
     }
 }
 
@@ -297,98 +338,82 @@ function keySDES(Funktion) { // Schlüsselerzeugung
     }
 }
 
-
-// let XOR = [[0,1,1],[1,0,1],[0,0,0],[1,1,0]]
-
-/*
-
-
- */
-
-function sBox() { // Verrechnung mit den beiden S-Boxen des Simple-DES
-    document.getElementById("s-box_S-DES_textarea").value = ""
-    let XORBits = SDES(4)
+function sBoxSDES(Input) { // Verrechnung mit den beiden S-Boxen des Simple-DES
     let sBox0 = [["01","11","00","11"],["00","10","10","01"],["11","01","01","11"],["10","00","11","10"]]
     let sBox1 = [["00","10","11","10"],["01","00","00","01"],["10","01","01","00"],["11","11","00","11"]]
     let bitsAfterSBox = []
     let bitcodeAfterSBox = []
 
-    for (let i = 0; i < XORBits.length; i++) {
-
-        if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "00" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "00") {
+    for (let i = 0; i < Input.length; i++) {
+        if (Input[i][0].toString().concat(Input[i][3].toString()) === "00" && Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
             bitsAfterSBox[0] = sBox0[0][0]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "01" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "00") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "01" && Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
             bitsAfterSBox[0] = sBox0[0][1]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "10" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "00") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "10" && Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
             bitsAfterSBox[0] = sBox0[0][2]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "11" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "00") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "11" && Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
             bitsAfterSBox[0] = sBox0[0][3]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "00" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "01") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "00" && Input[i][1].toString().concat(Input[i][2].toString()) === "01") {
             bitsAfterSBox[0] = sBox0[1][0]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "01" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "01") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "01" && Input[i][1].toString().concat(Input[i][2].toString()) === "01") {
             bitsAfterSBox[0] = sBox0[1][1]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "10" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "01") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "10" && Input[i][1].toString().concat(Input[i][2].toString()) === "01") {
             bitsAfterSBox[0] = sBox0[1][2]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "11" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "01") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "11" && Input[i][1].toString().concat(Input[i][2].toString()) === "01") {
             bitsAfterSBox[0] = sBox0[1][3]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "00" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "10") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "00" && Input[i][1].toString().concat(Input[i][2].toString()) === "10") {
             bitsAfterSBox[0] = sBox0[2][0]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "01" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "10") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "01" && Input[i][1].toString().concat(Input[i][2].toString()) === "10") {
             bitsAfterSBox[0] = sBox0[2][1]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "10" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "10") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "10" && Input[i][1].toString().concat(Input[i][2].toString()) === "10") {
             bitsAfterSBox[0] = sBox0[2][2]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "11" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "10") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "11" && Input[i][1].toString().concat(Input[i][2].toString()) === "10") {
             bitsAfterSBox[0] = sBox0[2][3]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "00" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "11") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "00" && Input[i][1].toString().concat(Input[i][2].toString()) === "11") {
             bitsAfterSBox[0] = sBox0[3][0]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "01" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "11") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "01" && Input[i][1].toString().concat(Input[i][2].toString()) === "11") {
             bitsAfterSBox[0] = sBox0[3][1]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "10" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "11") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "10" && Input[i][1].toString().concat(Input[i][2].toString()) === "11") {
             bitsAfterSBox[0] = sBox0[3][2]
-        } else if (XORBits[i][0].toString().concat(XORBits[i][3].toString()) === "11" && XORBits[i][1].toString().concat(XORBits[i][2].toString()) === "11") {
+        } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "11" && Input[i][1].toString().concat(Input[i][2].toString()) === "11") {
             bitsAfterSBox[0] = sBox0[3][3]
-        } else {
-            document.getElementById("s-box_S-DES_textarea").value = "previous input "
         }
 
-        if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "00" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "00") {
+        if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
             bitsAfterSBox[1] = sBox1[0][0]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "01" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "00") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
             bitsAfterSBox[1] = sBox1[0][1]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "10" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "00") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "10" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
             bitsAfterSBox[1] = sBox1[0][2]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "11" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "00") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "11" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
             bitsAfterSBox[1] = sBox1[0][3]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "00" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "01") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "01") {
             bitsAfterSBox[1] = sBox1[1][0]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "01" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "01") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "01") {
             bitsAfterSBox[1] = sBox1[1][1]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "10" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "01") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "10" && Input[i][5].toString().concat(Input[i][6].toString()) === "01") {
             bitsAfterSBox[1] = sBox1[1][2]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "11" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "01") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "11" && Input[i][5].toString().concat(Input[i][6].toString()) === "01") {
             bitsAfterSBox[1] = sBox1[1][3]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "00" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "10") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "10") {
             bitsAfterSBox[1] = sBox1[2][0]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "01" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "10") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "10") {
             bitsAfterSBox[1] = sBox1[2][1]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "10" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "10") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "10" && Input[i][5].toString().concat(Input[i][6].toString()) === "10") {
             bitsAfterSBox[1] = sBox1[2][2]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "11" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "10") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "11" && Input[i][5].toString().concat(Input[i][6].toString()) === "10") {
             bitsAfterSBox[1] = sBox1[2][3]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "00" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "11") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "11") {
             bitsAfterSBox[1] = sBox1[3][0]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "01" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "11") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "11") {
             bitsAfterSBox[1] = sBox1[3][1]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "10" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "11") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "10" && Input[i][5].toString().concat(Input[i][6].toString()) === "11") {
             bitsAfterSBox[1] = sBox1[3][2]
-        } else if (XORBits[i][4].toString().concat(XORBits[i][7].toString()) === "11" && XORBits[i][5].toString().concat(XORBits[i][6].toString()) === "11") {
+        } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "11" && Input[i][5].toString().concat(Input[i][6].toString()) === "11") {
             bitsAfterSBox[1] = sBox1[3][3]
-        } else {
-            document.getElementById("s-box_S-DES_textarea").value = "previous input "
         }
 
         bitcodeAfterSBox[i] = bitsAfterSBox[0].concat(bitsAfterSBox[1])
-        document.getElementById("s-box_S-DES_textarea").value += (bitcodeAfterSBox[i] + " ")
     }
 
     return bitcodeAfterSBox
