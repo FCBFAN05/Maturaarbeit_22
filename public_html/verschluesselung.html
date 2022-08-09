@@ -119,12 +119,13 @@
         <br>
         <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Permutieren" onclick="afterSBox(1)">
+        <input type="button" value="Permutieren" onclick="SDES(4)">
         <h4>Permutation</h4>
-
+        <p>Die 4 Bits die nach der S-Box verrechnung ausgegeben werden, werden hier folgendermassen permutiert:</p>
+        <p>2,4,3,1</p>
         <label for="permutation4bit_S-DES_textarea"></label><textarea id="permutation4bit_S-DES_textarea"></textarea>
         <br>
-        <input type="button" value="Verrechnen" onclick="">
+        <input type="button" value="Verrechnen" onclick="SDES(5)">
         <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
         <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>

@@ -158,15 +158,17 @@ function SDES(Funktion) {
             document.getElementById("initialpermutation_S-DES_textarea").value = ""
             document.getElementById("L-Half_S-DES_textarea").value = ""
             document.getElementById("R-Half_S-DES_textarea").value = ""
+            let bitcodeLeftHalf = []
             for (let k = 0; k < textInput.length; k++) {
                 for (let j = 0; j < 8; j++) {
                     bits[j] = parseInt(bitcodeInputText[k].toString().substring(j, j+1))
                 }
                 document.getElementById("initialpermutation_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()).concat(bits[3].toString()).concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
-                document.getElementById("L-Half_S-DES_textarea").value += (bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString()) + " ")
+                bitcodeLeftHalf[k] = bits[1].toString().concat(bits[5].toString()).concat(bits[2].toString()).concat(bits[0].toString())
+                document.getElementById("L-Half_S-DES_textarea").value += (bitcodeLeftHalf[k] + " ")
                 document.getElementById("R-Half_S-DES_textarea").value += (bits[3].toString().concat(bits[7].toString()).concat(bits[4].toString()).concat(bits[6].toString()) + " ")
             }
-            break
+            return bitcodeLeftHalf
         case 3:
             document.getElementById("expansion_S-DES_textarea").value = ""
             let expandedBitcode = []
@@ -178,6 +180,41 @@ function SDES(Funktion) {
                 document.getElementById("expansion_S-DES_textarea").value += (expandedBitcode[k] + " ")
             }
             return expandedBitcode
+        case 4:
+            document.getElementById("permutation4bit_S-DES_textarea").value = ""
+            let bitcodeAfterSBox = sBox()
+            let bitsAfterSBox = []
+            let bitcodeAfterFirstTurn = []
+            for (let k = 0; k < bitcodeAfterSBox.length; k++) {
+                for (let j = 0; j < 4; j++) {
+                    bitsAfterSBox[j] = parseInt(bitcodeAfterSBox[k].substring(j, j+1))
+                }
+                bitcodeAfterFirstTurn[k] = bitsAfterSBox[1].toString().concat(bitsAfterSBox[3].toString()).concat(bitsAfterSBox[2].toString()).concat(bitsAfterSBox[0].toString())
+                document.getElementById("permutation4bit_S-DES_textarea").value += (bitcodeAfterFirstTurn[k] + " ")
+            }
+            return bitcodeAfterFirstTurn
+        case 5:
+            document.getElementById("XOR-L-Half_S-DES_textarea").value = ""
+            let leftHalfBitcode = SDES(2)
+            let leftHalfBits = []
+            let afterFirstTurnBitcode = SDES(4)
+            let afterFirstTurnBits = []
+            let XORBits = []
+
+            for (let j = 0; j < leftHalfBitcode.length; j++) {
+                XORBits[j] = []
+                for (let k = 0; k < 4; k++) {
+                    leftHalfBits[k] = parseInt(leftHalfBitcode[j].substring(k, k+1))
+                    afterFirstTurnBits[k] = parseInt(afterFirstTurnBitcode[j].substring(k, k+1))
+                    if (leftHalfBits[k] === afterFirstTurnBits[k]) {
+                        XORBits[j][k] = 0
+                    } else {
+                        XORBits[j][k] = 1
+                    }
+                }
+                document.getElementById("XOR-L-Half_S-DES_textarea").value += (XORBits[j][0].toString().concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()) + " ")
+            }
+            return XORBits
     }
 }
 
@@ -322,7 +359,7 @@ function sBox() {
     return bitcodeAfterSBox
 }
 
-function afterSBox(Funktion) {
+/* function afterSBox(Funktion) {
     let bitcodeAfterSBox = sBox()
     let bits = []
 console.log(bitcodeAfterSBox)
@@ -336,9 +373,11 @@ console.log(bitcodeAfterSBox)
                 document.getElementById("permutation4bit_S-DES_textarea").value += (bits[1].toString().concat(bits[3].toString()).concat(bits[2].toString()).concat(bits[0].toString()) + " ")
             }
             break
+        case 2:
+
     }
 }
-
+*/
 function runAll() {
 
 }
