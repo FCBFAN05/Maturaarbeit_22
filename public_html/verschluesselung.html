@@ -45,9 +45,10 @@
         <h4>Klartext</h4>
         <label for="klartext_S-DES_textarea"></label><textarea id="klartext_S-DES_textarea"></textarea>
         <p>Pro eingegebenem Buchstaben werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+        <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
         <h4>Gerade oder ungerade Parität</h4>
         <p>e eingeben für "Even-Parity" und o für "Odd-Parity".
-            Erklärungen s. Paritätscheck unter <a href="grundlagen.html">Grundlagen und Begriffe</a>.</p>
+            Erklärungen s. Paritätscheck unter <a href="grundlagen.html#parity-check_title" target="_blank">Grundlagen und Begriffe</a>.</p>
         <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
         <h4>Umwandlung in Bits</h4>
         <input type="button" value="Umwandeln" onclick="SDES(1)"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
@@ -74,17 +75,21 @@
 
         <div id = "K1_S-DES_division">
             <h4>Schlüsselerzeugung</h4>
+            <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung.png" alt="Schema Schlüsselerzeugung">
+            <p>Schema Schlüsselerzeugung</p>
             <h5>Eingabe Hauptschlüssel</h5>
             <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
             <p>Bsp. 1001101000</p>
             <label for="main key_S-DES_textarea_input"></label><textarea id="main key_S-DES_textarea_input"></textarea>
             <h5>Permutation</h5>
             <input type="button" value="Permutieren" onclick="keySDES(1)">
+            <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
             <p>Positionen nach Permutation:</p>
             <p>3,5,2,7,4,10,1,9,8,6</p>
             <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
             <h5>1-Bit-Links-Shift/ Rotation</h5>
             <input type="button" value="Rotieren" onclick="keySDES(2)">
+            <br>
             <img id="1-Bit-LeftShift_rotation_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift/ Rotation">
             <br>
             <label for="1-L-Shift_S-DES_key_textarea"></label><textarea id="1-L-Shift_S-DES_key_textarea"></textarea>
@@ -119,6 +124,8 @@
         <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <input type="button" value="Verrechnen" onclick="SDES(7)">
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
+        <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#XOR_table_image">Tabelle zur XOR-Verrechnung</a>
+        nachgeschaut werden oder unter <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe</a>.</p>
         <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
         <p>Nun wird gemäss <a href="#schema S-DES_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
             Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
@@ -127,10 +134,12 @@
         <h4>Inverse Initiale Permutation</h4>
         <input type="button" value="Permutieren" onclick="SDES(8)">
         <p>Dies ist nun der verschlüsselte Text in ASCII-Code, d.h. im binären Zahlensystem.</p>
+        <p>Was der ASCII-Code bedeutet kann hier nachgeschaut werden: <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe, Umwandlung von Text in Binärzahlen</a>.</p>
         <label for="inverseinitialpermutation_S-DES_textarea"></label><textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <h4>Chiffrentext</h4>
         <input type="button" value="Als Zeichen ausgeben" onclick="SDES(9)">
         <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Tabelle.</p>
+        <p>Die ASCII-Tabelle kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.</p>
         <label for="chiffrentext_S-DES_textarea"></label><textarea id="chiffrentext_S-DES_textarea"></textarea>
     </div>
 </div>

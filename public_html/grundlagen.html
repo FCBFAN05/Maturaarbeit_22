@@ -23,13 +23,30 @@
 <main>
 <div id = "grundlagen-header_division">
     <h2>Grundlagen und Begriffe</h2>
-
+    <h3 id="definition permutation_header">Begriffserklärung Permutation</h3>
+    <p>Vertauschung von Bits nach bestimmten Vorgaben</p>
     <h3 id="parity-check_title">Paritäts-Check/ Paritätsbit</h3>
     <p>Beim Paritäts-Check  geht es darum, wie viele Bits eines Bytes mit Einsen besetzt sind.
         Das Paritätsbit wird dann ergänzt als 0 oder 1, um die Anzahl Einsen gerade oder ungerade zu machen, je nachdem ob es sich um eine Odd-Parity (dt. ungerade Parität) oder Even-Parity (gerade Parität) handelt.
         Die Odd- oder Even-Parity wird jeweils von Sender und Empfänger gemeinsam im Vornhinein abgemacht.</p>
     <p>Die folgende Tabelle bietet eine Veranschaulichung des Paritäts-Checks:</p>
     <img id="parity-check_image" src="data/Paritaets-Check.png" alt="Tabelle Paritäts-Check">
+    <h3 id="definition ASCII_header">Umwandlung von Text in Binärzahlen (ASCII-Code)</h3>
+    <p>Damit der Computer mit Buchstaben, Zeichen und Zahlen natürlicher Sprachen arbeiten kann, müssen diese zuerst in Binärzahlen umgewandelt werden.
+        Dies geschieht mit ganz bestimmten Tabellen. Für diese Arbeit wird hierfür die ASCII-Tabelle verwendet.
+        Diese wandelt Zahlen, Eingaben oder Buchstaben in einen für den Computer lesbaren 8-Bit-Binärcode um.
+        In der ursprünglichen Version des ASCII-Codes sind nur 7 Bits verwendet worden, da das achte für das Paritätsbit gebraucht wurde.
+        Die neue Version ist kompatibel mit der alten, um den 7-Bit-Binärcode zu erhalten muss beim 8-Bit-Binärcode einfach das erste Bit weggelassen werden.
+        Heutzutage wird das Paritätsbit meist nicht mehr gebraucht.
+        Dafür wird das achte Bit zur Erweiterung der ASCII-Tabelle verwendet, sodass mehr Sonderzeichen übersetzt werden können.</p>
+    <p>Die Charaktere 0 -31 im Binärcode sind nicht anzeigbare Steuerungscodes und werden beispielsweise dafür benutzt, um Drucker zu steuern.</p>
+    <img id="ASCII_0-31_table_image" src="data/ASCII_0-31.png" alt="Tabelle ASCII 0-31">
+    <p>Die Charaktere 32 -127 im Binärcode sind anzeigbare Zeichen, wie Buchstaben, Ziffern oder Textzeichen.</p>
+    <img id="ASCII_32-127_table_image" src="data/ASCII_32-127.png" alt="Tabelle ASCII 32-127">
+    <h3 id = "XOR-Verrechnung_header">XOR-Verrechnung</h3>
+    <p>Ein Exklusiv-Oder-Gatter , auch XOR-Gatter, ist ein Gatter mit zwei Eingaben und einer Ausgabe.
+        Wenn von zwei Bits die vergleicht werden genau eines davon eine 1 ist, ist die Ausgabe auch eine 1, ansonsten ist sie 0.</p>
+    <img id="XOR_table_image" src="data/XOR.png" alt="XOR-Verrechnung">
 </div>
 </main>
 <br>
