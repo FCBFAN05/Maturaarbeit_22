@@ -304,9 +304,8 @@ function SDES(Funktion) {
             document.getElementById("chiffrentext_S-DES_textarea").value = ""
             encryptedBitcode = SDES(8)
             for (let j = 0; j < textInput.length; j++) {
-                document.getElementById("chiffrentext_S-DES_textarea").value += parseInt(encryptedBitcode[j].substring(0,7),2)
+                document.getElementById("chiffrentext_S-DES_textarea").value += String.fromCharCode(parseInt(encryptedBitcode[j],2))
             }
-            console.log(encryptedBitcode)
     }
 }
 
