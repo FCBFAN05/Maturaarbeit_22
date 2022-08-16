@@ -447,3 +447,10 @@ console.log(sum(1, 2, 3)); // 6
 
 /* Convert character to ASCII Code */
 "\n".charCodeAt(0);
+
+/* Erklärung Arrays */
+
+let oneDimensionArray = [0,1,2,3,4,5]
+console.log(oneDimensionArray[0])
+let twoDimensionArray = [["00","01","02","03","04","05"],["00","01","02","03","04","05"],["00","01","02","03","04","05"]]
+console.log(twoDimensionArray[0][0])
