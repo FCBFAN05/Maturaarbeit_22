@@ -454,3 +454,17 @@ let oneDimensionArray = [0,1,2,3,4,5]
 console.log(oneDimensionArray[0])
 let twoDimensionArray = [["00","01","02","03","04","05"],["00","01","02","03","04","05"],["00","01","02","03","04","05"]]
 console.log(twoDimensionArray[0][0])
+
+/* Erklärung If/ Else if/ Else */
+let number = 6
+if (number < 10) {
+    console.log("Tiny")
+} else if (number < 20) {
+    console.log("Small")
+} else if (number < 50) {
+    console.log("Medium")
+} else if (number < 100) {
+    console.log("Large")
+} else {
+    console.log("Huge")
+}

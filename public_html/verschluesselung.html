@@ -39,19 +39,15 @@
     </div> -->
 
     <div id = "Simple-DES_division">
-        <h3>Simple-DES</h3>
+        <h3>Verschlüsselung</h3>
         <img id="schema S-DES_image" src="data/Schema%20S-DES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
         <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
         <h4>Klartext</h4>
         <label for="klartext_S-DES_textarea">Eingabe:</label>
         <br>
         <textarea id="klartext_S-DES_textarea"></textarea>
-        <p>Pro eingegebenem Buchstaben werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
-        <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
-        <h4>Gerade oder ungerade Parität</h4>
-        <p>e eingeben für "Even-Parity" und o für "Odd-Parity".
-            Erklärungen s. Paritätscheck unter <a href="grundlagen.html#parity-check_title" target="_blank">Grundlagen und Begriffe</a>.</p>
-        <label for="evenoroddparityinput_textarea"></label><textarea id="evenoroddparityinput_textarea"></textarea>
+        <p>Pro eingegebenem ASCII druckbaren Zeichen werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+        <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert und was ASCII druckbare Zeichen sind, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
         <h4>Umwandlung in Bits</h4>
         <input type="button" value="Umwandeln" onclick="SDES(1)"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
         <br>
@@ -143,6 +139,19 @@
         <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Tabelle.</p>
         <p>Die ASCII-Tabelle kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.</p>
         <label for="chiffrentext_S-DES_textarea"></label><textarea id="chiffrentext_S-DES_textarea"></textarea>
+        <div id="dechiffrierung_S-DES_division">
+            <h3 id="dechiffrierung_header">Entschlüsselung Simple-DES</h3>
+            <p>Um den Chiffrentext zu Klartext zu dechiffrieren muss beim Chiffrierungsprozess einfach der erste Schlüssel (K1) mit dem zweiten Schlüssel (K2) getauscht wer-den.
+                Das bedeutet, im ersten Durchgang wird der zweite Schlüssel (K2) XOR-verrechnet und im zweiten Durchgang der erste Schlüssel (K1). Siehe <a href="#schema S-DES_image">Schema</a>!</p>
+            <h4 id="bitcodeDechiffriert_header">Entschlüsselter Binärcode</h4>
+            <input type="button" value="Entschlüsseln" onclick="SDES(10)">
+            <br>
+            <label for="bitcodeDechiffriert_S-DES_textarea"></label><textarea id="bitcodeDechiffriert_S-DES_textarea"></textarea>
+            <h4 id="textDechiffriert_header">Entschlüsselter Text</h4>
+            <input type="button" value="Als Zeichen ausgeben" onclick="SDES(11)">
+            <br>
+            <label for="textDechiffriert_S-DES_textarea"></label><textarea id="textDechiffriert_S-DES_textarea"></textarea>
+        </div>
     </div>
 </div>
 </main>
