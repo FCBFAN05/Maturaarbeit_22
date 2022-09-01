@@ -216,14 +216,14 @@
             <br>
             <label for="2-L-Shift_troesch_verschluesselungstechnik_key_textarea"></label><textarea id="2-L-Shift_troesch_verschluesselungstechnik_key_textarea"></textarea>
             <h5>Umgekehrte Expansion</h5>
-            <input type="button" value="Expandieren" onclick="troesch(3)">
+            <input type="button" value="Expandieren" onclick="keyTroesch(3)">
             <p>Der Schlüsselcode wird von 12 Bits auf 8 Bits heruntergebrochen, damit er wieder die gleiche Länge bekommt wie der restliche Bitcode.
             Dies geschieht, indem eine umgekehrte Expansion durchgeführt wird. Das bedeutet, anstatt dass der Bitcode durch die Expansion vergrössert wird, wird er verkleinert.</p>
             <img id="Expansion_8bit_forinversed_image" src="data/Expansion.png" alt="Expansion 8 bit">
             <br>
             <label for="inversedexpansion_troesch_verschluesselungstechnik_textarea"></label><textarea id="inversedexpansion_troesch_verschluesselungstechnik_textarea"></textarea>
             <h5>Permutation</h5>
-            <input type="button" value="Permutieren" onclick="keyTroesch(3)">
+            <input type="button" value="Permutieren" onclick="keyTroesch(4)">
             <p>Die entstandenen 8 Bits werden nun an folgende Positionen gebracht:</p>
             <p>8,4,2,5,7,1,6,3</p>
             <label for="permutation8bit_troesch_verschluesselungstechnik_key_textarea"></label><textarea id="permutation8bit_troesch_verschluesselungstechnik_key_textarea"></textarea>
@@ -242,7 +242,7 @@
         <p>2,7,5,3,8,1,6,4</p>
         <label for="permutation8bit_troesch_verschluesselungstechnik_textarea"></label><textarea id="permutation8bit_troesch_verschluesselungstechnik_textarea"></textarea>
         <h4>Verrechnung mit S-Boxen</h4>
-        <input type="button" value="Verrechnen" onclick="troesch(6))">
+        <input type="button" value="Verrechnen" onclick="troesch(6)">
         <p>Zunächst werden die permutierten 8 Bits in der Mitte aufgeteilt.
             Anschliessend werden jeweils die inneren beiden Bits mit den Spalten und die äusseren beiden mit den Zeilen der S-Box verglichen.
             Es werden nun die zwei Bits ausgewählt an der Stelle wo sich die Zeilen und Spalten treffen.
