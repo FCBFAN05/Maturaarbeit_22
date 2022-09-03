@@ -210,12 +210,13 @@ function permute(bitcode, permutation) {
 }
 
 function SDES(Funktion) {
-    let textInput = document.getElementById("klartext_S-DES_textarea").value.toUpperCase()
+    let textInput = document.getElementById("klartext_S-DES_textarea").value
     let bitcodeInputText = []
     let expandedBitcode = []
     let bitcodeAfterFirstTurn = []
     let bitcodeAfterInitialPermutation = []
     let XORBits = []
+    let XORBits2  = []
     let bitcodeAfterSBox = []
     let encryptedBitcode = []
     let firstDefiniteKeyBitcode = []
@@ -305,7 +306,6 @@ function SDES(Funktion) {
             document.getElementById("inverseinitialpermutation_S-DES_textarea").value = ""
             XORBits = SDES(7)
             bitcodeAfterInitialPermutation = SDES(2)
-            bitcodeAfterFirstTurn = SDES(7)
             for (let j = 0; j < textInput.length; j++) {
                 // Expansion 2. Durchgang (nur expandedBitcode)
                 expandedBitcode[j] = XORBits[j][3].toString().concat(XORBits[j][0].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()).concat(XORBits[j][0].toString())
@@ -314,9 +314,9 @@ function SDES(Funktion) {
             }
             bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, secondDefiniteKeyBitcode)) // S-Box-Verrechnung und XOR-Verrechnung mit Schlüssel
             bitcodeAfterSecondTurn = permute(bitcodeAfterSBox, "P4_S-DES")
-            XORBits = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
+            XORBits2 = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
             for (let m = 0; m < textInput.length; m++) { // Inverse Initiale Permutation
-                encryptedBitcode[m] = XORBits[m][3].toString().concat(XORBits[m][0].toString()).concat(XORBits[m][2].toString()).concat(bitcodeAfterFirstTurn[m][0]).concat(bitcodeAfterFirstTurn[m][2]).concat(XORBits[m][1].toString()).concat(bitcodeAfterFirstTurn[m][3]).concat(bitcodeAfterFirstTurn[m][1])
+                encryptedBitcode[m] = XORBits2[m][3].toString().concat(XORBits2[m][0].toString()).concat(XORBits2[m][2].toString()).concat(XORBits[m][0]).concat(XORBits[m][2]).concat(XORBits2[m][1].toString()).concat(XORBits[m][3]).concat(XORBits[m][1])
                 document.getElementById("inverseinitialpermutation_S-DES_textarea").value += (encryptedBitcode[m] + " ")
             }
             return encryptedBitcode
@@ -331,24 +331,30 @@ function SDES(Funktion) {
             document.getElementById("bitcodeDechiffriert_S-DES_textarea").value = ""
             encryptedBitcode = SDES(8)
             bitcodeAfterInitialPermutation = permute(encryptedBitcode, "IP_S-DES")
-            expandedBitcode = permute(bitcodeAfterInitialPermutation, "EP_8bit")
-            bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, keySDES(4)))
+            for (let i = 0; i < textInput.length; i++) {
+                bitcodeRightHalf[i] = bitcodeAfterInitialPermutation[i].substring(4,8)
+                secondDefiniteKeyBitcode[i] = keySDES(4)
+            }
+            expandedBitcode = permute(bitcodeRightHalf, "EP_8bit")
+            bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, secondDefiniteKeyBitcode))
             bitcodeAfterFirstTurn = permute(bitcodeAfterSBox, "P4_S-DES")
             for (let j = 0; j < textInput.length; j++) {
-                bitcodeLeftHalf[j] = encryptedBitcode[j].substring(0,4)
+                bitcodeLeftHalf[j] = bitcodeAfterInitialPermutation[j].substring(0,4)
             }
             XORBits = XOR(bitcodeAfterFirstTurn, bitcodeLeftHalf)
             for (let k = 0; k < textInput.length; k++) {
                 expandedBitcode[k] = XORBits[k][3].toString().concat(XORBits[k][0].toString()).concat(XORBits[k][1].toString()).concat(XORBits[k][2].toString()).concat(XORBits[k][1].toString()).concat(XORBits[k][2].toString()).concat(XORBits[k][3].toString()).concat(XORBits[k][0].toString())
-                bitcodeRightHalf[k] = encryptedBitcode[k].toString().substring(4,8)
+                bitcodeRightHalf[k] = bitcodeAfterInitialPermutation[k].toString().substring(4,8)
+                firstDefiniteKeyBitcode[k] = keySDES(3)
             }
-            bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, keySDES(3))) // S-Box-Verrechnung und XOR-Verrechnung mit Schlüssel
+            bitcodeAfterSBox = sBoxSDES(XOR(expandedBitcode, firstDefiniteKeyBitcode)) // S-Box-Verrechnung und XOR-Verrechnung mit Schlüssel
             bitcodeAfterSecondTurn = permute(bitcodeAfterSBox, "P4_S-DES")
-            XORBits = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
+            XORBits2 = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
             for (let m = 0; m < textInput.length; m++) { // Inverse Initiale Permutation
-                decryptedBitcode[m] = XORBits[m][3].toString().concat(XORBits[m][0].toString()).concat(XORBits[m][2].toString()).concat(bitcodeAfterFirstTurn[m][0]).concat(bitcodeAfterFirstTurn[m][2]).concat(XORBits[m][1].toString()).concat(bitcodeAfterFirstTurn[m][3]).concat(bitcodeAfterFirstTurn[m][1])
+                decryptedBitcode[m] = XORBits2[m][3].toString().concat(XORBits2[m][0].toString()).concat(XORBits2[m][2].toString()).concat(XORBits[m][0]).concat(XORBits[m][2]).concat(XORBits2[m][1].toString()).concat(XORBits[m][3]).concat(XORBits[m][1])
                 document.getElementById("bitcodeDechiffriert_S-DES_textarea").value += (decryptedBitcode[m] + " ")
             }
+            console.log(decryptedBitcode)
             return decryptedBitcode
         case 11:
             document.getElementById("textDechiffriert_S-DES_textarea").value = ""
@@ -384,7 +390,7 @@ function keySDES(Funktion) { // Schlüsselerzeugung
             return firstDefiniteKeyBitcode
         case 4: // Ausgabe Zweiter Schlüssel (Bits nach der 10-Bit-Permutation schriftlich rotiert (s.unten) und danach die 8-Bit-Permutation durchgeführt
             // Nach der Rotation: 1,6,3,2,4, 8,7,5,9,0
-            return keyBits[8].toString().concat(keyBits[3].toString()).concat(keyBits[7]).concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[0].toString()).concat(keyBits[9].toString())
+            return keyBits[8].toString().concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[0].toString()).concat(keyBits[9].toString())
     }
 }
 
@@ -470,7 +476,7 @@ function sBoxSDES(Input) { // Verrechnung mit den beiden S-Boxen des Simple-DES
 }
 
 function troesch(Funktion) {
-    let textInput = document.getElementById("klartext_troesch_verschluesselungstechnik_textarea").value.toUpperCase()
+    let textInput = document.getElementById("klartext_troesch_verschluesselungstechnik_textarea").value
     let bitcodeInputText = []
     let expandedBitcode = []
     let bitcodeAfterFirstTurn = []
