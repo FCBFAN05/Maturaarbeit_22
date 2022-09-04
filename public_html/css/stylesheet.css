@@ -34,3 +34,33 @@ li a {
 li a:hover {
     background-color: #111;
 }
+p {
+    font-family: "Droid Sans Mono Dotted";
+    font-optical-sizing: auto;
+}
+h1 {
+    text-align: center;
+    font-family: Broadway;
+    font-size: xxx-large;
+    font-optical-sizing: auto;
+    color: darkblue;
+}
+h2 {
+    text-align: center;
+    font-family: "Britannic Bold";
+    font-size: xx-large;
+    font-optical-sizing: auto;
+}
+h3 {
+    font-family: "Arial Rounded MT Bold";
+    font-size: x-large;
+    font-optical-sizing: auto;
+}
+h4, h5, h6 {
+    font-family: "Arial Rounded MT Bold";
+    font-size: inherit;
+    font-optical-sizing: auto;
+}
+.small {
+
+}

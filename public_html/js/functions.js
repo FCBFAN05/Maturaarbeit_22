@@ -763,15 +763,25 @@ function sBoxTroesch(Input) { // Verrechnung mit den beiden S-Boxen des Simple-D
 
         bitcodeAfterSBox[i] = bitsAfterSBox[0].concat(bitsAfterSBox[1])
     }
-
     return bitcodeAfterSBox
 }
 
-
-
-
-function runAll() {
+function runAllSDES() {
+    for (let i = 0; i < 12; i++) {
+        SDES(i)
     }
+}
+
+function runAllKeySDES() {
+    for (let i = 0; i < 5; i++) {
+        keySDES(i)
+    }
+}
+
+function hideStepsKeySDES() {
+    if (document.getElementById("hideSteps_key_SDES_input").checked = true)
+        $(document.getElementById("steps_SDES_division")).hide()
+}
 
 /* function run(checkbox[true]) {
 

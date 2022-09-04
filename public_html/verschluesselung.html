@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/http_code.jquery.com_jquery-latest.js"></script>
     <script src="js/functions.js"></script>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
@@ -9,7 +10,6 @@
 </head>
 <body>
 <header>
-    <h1><a href="index.html">Verschlüsselung</a></h1>
     <nav id="navbar">
         <ul>
             <li><a href="index.html">Start</a></li>
@@ -38,9 +38,44 @@
 
     <div id = "Simple-DES_division">
         <h2>Simple-DES</h2>
-        <h3>Verschlüsselung</h3>
         <img id="schema S-DES_image" src="data/Schema%20S-DES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
         <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
+        <div id = "K1_S-DES_division">
+            <h3>Schlüsselerzeugung</h3>
+            <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung.png" alt="Schema Schlüsselerzeugung">
+            <p>Schema Schlüsselerzeugung</p>
+            <h4>Eingabe Hauptschlüssel</h4>
+            <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
+            <p>Bsp. 0110011011</p>
+            <label for="main key_S-DES_textarea_input">Eingabe:</label>
+            <br>
+            <textarea id="main key_S-DES_textarea_input"></textarea>
+            <br>
+            <label for="hideSteps_key_SDES_input">Schritte ausblenden:</label>
+            <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" onclick="">
+            <div id="steps_SDES_division">
+                <h4>Permutation</h4>
+                <input type="button" value="Permutieren" onclick="keySDES(1)">
+                <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
+                <p>Positionen nach Permutation:</p>
+                <p>3,5,2,7,4,10,1,9,8,6</p>
+                <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
+                <h4>1-Bit-Links-Shift/ Rotation</h4>
+                <input type="button" value="Rotieren" onclick="keySDES(2)">
+                <br>
+                <img id="1-Bit-LeftShift_rotation_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift/ Rotation">
+                <br>
+                <label for="1-L-Shift_S-DES_key_textarea"></label><textarea id="1-L-Shift_S-DES_key_textarea"></textarea>
+                <h4>Permutation</h4>
+                <input type="button" value="Permutieren" onclick="keySDES(3)">
+                <p>Die ersten beiden Bits werden ausgelassen. Die restlichen 8 Bits werden an folgende Positionen gebracht:</p>
+                <p>6,3,7,4,8,5,10,9</p>
+            </div>
+            <input type="button" value="Schlüssel erstellen" onclick="runAllKeySDES()">
+            <label for="permutation8bit_S-DES_key_textarea"></label><textarea id="permutation8bit_S-DES_key_textarea"></textarea>
+            <p>Dies ist nun der erste Schlüssel.</p>
+        </div>
+        <h3>Verschlüsselung</h3>
         <h4>Klartext</h4>
         <label for="klartext_S-DES_textarea">Eingabe:</label>
         <br>
@@ -48,9 +83,13 @@
         <p>Pro eingegebenem ASCII druckbaren Zeichen werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
         <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert und was ASCII druckbare Zeichen sind, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
         <h4>Umwandlung in Bits</h4>
+        <input type="checkbox" value="Alles ausführen" onclick="runAllSDES()">
         <input type="button" value="Umwandeln" onclick="SDES(1)"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
         <br>
         <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
+        <br>
+        <label for="hideSteps_SDES_input">Schritte ausblenden:</label>
+        <input id="hideSteps_SDES_input" type="checkbox" value="hide" onclick="">
         <h4>Initiale Permutation</h4>
         <input type="button" value="Permutieren" onclick="SDES(2)">
         <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
@@ -69,36 +108,6 @@
         <label for="expansion_S-DES_textarea"></label><textarea id="expansion_S-DES_textarea"></textarea>
         <br>
         <img id="Expansion_8bit_image" src="data/Expansion.png" alt="Expansion 8 bit">
-
-        <div id = "K1_S-DES_division">
-            <h4>Schlüsselerzeugung</h4>
-            <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung.png" alt="Schema Schlüsselerzeugung">
-            <p>Schema Schlüsselerzeugung</p>
-            <h5>Eingabe Hauptschlüssel</h5>
-            <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
-            <p>Bsp. 0110011011</p>
-            <label for="main key_S-DES_textarea_input">Eingabe:</label>
-            <br>
-            <textarea id="main key_S-DES_textarea_input"></textarea>
-            <h5>Permutation</h5>
-            <input type="button" value="Permutieren" onclick="keySDES(1)">
-            <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
-            <p>Positionen nach Permutation:</p>
-            <p>3,5,2,7,4,10,1,9,8,6</p>
-            <label for="permutation_10bit_key_S-DES_textarea"></label><textarea id="permutation_10bit_key_S-DES_textarea"></textarea>
-            <h5>1-Bit-Links-Shift/ Rotation</h5>
-            <input type="button" value="Rotieren" onclick="keySDES(2)">
-            <br>
-            <img id="1-Bit-LeftShift_rotation_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift/ Rotation">
-            <br>
-            <label for="1-L-Shift_S-DES_key_textarea"></label><textarea id="1-L-Shift_S-DES_key_textarea"></textarea>
-            <h5>Permutation</h5>
-            <input type="button" value="Permutieren" onclick="keySDES(3)">
-            <p>Die ersten beiden Bits werden ausgelassen. Die restlichen 8 Bits werden an folgende Positionen gebracht:</p>
-            <p>6,3,7,4,8,5,10,9</p>
-            <label for="permutation8bit_S-DES_key_textarea"></label><textarea id="permutation8bit_S-DES_key_textarea"></textarea>
-            <p>Dies ist nun der erste Schlüssel.</p>
-        </div>
         <h4>XOR-Verrechnung mit Schlüssel</h4>
         <input type="button" value="Verrechnen" onclick="SDES(4)">
         <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
