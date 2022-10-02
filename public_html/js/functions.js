@@ -778,9 +778,15 @@ function runAllKeySDES() {
     }
 }
 
-function hideStepsKeySDES() {
-    if (document.getElementById("hideSteps_key_SDES_input").checked = true)
-        $(document.getElementById("steps_SDES_division")).hide()
+function checkBoxHideText(input, division, button){
+        if (document.getElementById(input).checked){
+            $(division).css("visibility", "hidden")
+            $(division).css("position", "relative")
+        }
+        else {
+            $(division).css("visibility", "visible")
+            $(button).css("visibility", "hidden")
+        }
 }
 
 /* function run(checkbox[true]) {
