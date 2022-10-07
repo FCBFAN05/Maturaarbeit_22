@@ -35,7 +35,7 @@ li a:hover {
     background-color: #111;
 }
 p {
-    font-family: "Droid Sans Mono Dotted", sans-serif;
+    font-family: "Droid Sans Mono Dotted", serif;
     font-optical-sizing: auto;
 }
 h1 {
@@ -63,4 +63,152 @@ h4, h5, h6 {
 }
 .ghost {
     display: none;
+}
+.tablePermutation  {
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout: fixed;
+    width: 21.3125rem;
+}
+.tablePermutation td{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+.tablePermutation th{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    font-weight:normal;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+#col1TablePermutation {
+    width: 13.1875rem
+}
+#col2TablePermutation {
+    width: 3.9375rem
+}
+#col3TablePermutation {
+    width: 4.1875rem
+}
+.tableASCIINonPrintable  {
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout: fixed;
+    width: 29.76rem;
+}
+.tableASCIINonPrintable td{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+.tableASCIINonPrintable th{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    font-weight:normal;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+#col1TableASCIINonPrintable {
+    width: 6.19rem
+}
+#col2TableASCIINonPrintable {
+    width: 7.13rem
+}
+#col3TableASCIINonPrintable {
+    width: 5.44rem
+}
+#col4TableASCIINonPrintable {
+    width: 11rem
+}
+.tableASCIIPrintable  {
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout: fixed;
+    width: 29.76rem;
+}
+.tableASCIIPrintable td{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+.tableASCIIPrintable th{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    font-weight:normal;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+#col1TableASCIIPrintable {
+    width: 6.19rem
+}
+#col2TableASCIIPrintable {
+    width: 7.13em
+}
+#col3TableASCIIPrintable {
+    width: 5.44rem
+}
+#col4TableASCIIPrintable {
+    width: 11rem
+}
+.tableXOR  {
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout: fixed;
+    width: 20.45rem;
+}
+.tableXOR td{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+.tableXOR th{
+    font-family:"Droid Sans Mono Dotted", sans-serif;
+    font-size:0.875rem;
+    font-weight:normal;
+    padding:0.625rem 0.3125rem;
+    border-style:solid;
+    border-width:0.0625rem;
+    overflow:hidden;
+    word-break:normal;
+}
+#col1TableXOR {
+    width: 14.69rem
+}
+#col2TableXOR {
+    width: 1.44rem
+}
+#col3TableXOR {
+    width: 1.44rem
+}
+#col4TableXOR {
+    width: 1.44rem
+}
+#col4TableXOR {
+    width: 1.44rem
 }

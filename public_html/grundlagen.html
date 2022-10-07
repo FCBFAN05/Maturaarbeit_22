@@ -14,8 +14,8 @@
         <ul>
             <li><a href="index.html">Start</a></li>
             <li><a href="grundlagen.html" class="active">Grundlagen und Begriffe</a></li>
-            <li><a href="verschluesselung.html">Verschlüsseln</a></li>
-            <li><a href="infos.html">Infos über Website</a></li>
+            <li><a href="verschluesselung.html">Verschlüsselung</a></li>
+            <li><a href="infos.html">Infos zur Website</a></li>
             <li><a href="about.html">Über mich</a></li>
         </ul>
     </nav>
@@ -23,14 +23,34 @@
 <main>
 <div id = "grundlagen-header_division">
     <h2>Grundlagen und Begriffe</h2>
-    <h3 id="definition permutation_header">Begriffserklärung Permutation</h3>
-    <p>Vertauschung von Bits nach bestimmten Vorgaben</p>
-    <h3 id="parity-check_title">Paritäts-Check/ Paritätsbit</h3>
-    <p>Beim Paritäts-Check  geht es darum, wie viele Bits eines Bytes mit Einsen besetzt sind.
-        Das Paritätsbit wird dann ergänzt als 0 oder 1, um die Anzahl Einsen gerade oder ungerade zu machen, je nachdem ob es sich um eine Odd-Parity (dt. ungerade Parität) oder Even-Parity (gerade Parität) handelt.
-        Die Odd- oder Even-Parity wird jeweils von Sender und Empfänger gemeinsam im Vornhinein abgemacht.</p>
-    <p>Die folgende Tabelle bietet eine Veranschaulichung des Paritäts-Checks:</p>
-    <img id="parity-check_image" src="data/Paritaets-Check.png" alt="Tabelle Paritäts-Check">
+    <h3>Begriffserklärung Fachbegriffe</h3>
+    <p>Permutation: Vertauschung von Bits nach bestimmten Vorgaben</p>
+    <h3 id="definition permutation_header">Permutation</h3>
+    <p>Bei einer Permutation werden die Bits (0 und 1 bei Binärzahlen) nach bestimmten Vorgaben vertauscht. Diese Vorgaben werden jeweils in Ziffern angegeben.</p>
+    <p>Bei einer Permutation von 4 Bits wird z.B. 2,4,3,1 als Neuordnung nach der Permutation angegeben.</p>
+    <p>Dies ist folgendermassen zu verstehen:</p>
+    <table class="tablePermutation">
+        <colgroup>
+            <col id="col1TablePermutation">
+            <col id="col2TablePermutation">
+            <col id="col3TablePermutation">
+        </colgroup>
+        <tr>
+            <th>Art</th>
+            <th>Eingabe<br></th>
+            <th>Ausgabe</th>
+        </tr>
+        <tr>
+            <td>Nummerierung der Zahlenfelder<br></td>
+            <td>1234</td>
+            <td>2431</td>
+        </tr>
+        <tr>
+            <td>Bits</td>
+            <td>0101</td>
+            <td>1100</td>
+        </tr>
+    </table>
     <h3 id="definition ASCII_header">Umwandlung von Text in Binärzahlen (ASCII-Code)</h3>
     <p>Damit der Computer mit Buchstaben, Zeichen und Zahlen natürlicher Sprachen arbeiten kann, müssen diese zuerst in Binärzahlen umgewandelt werden.
         Dies geschieht mit ganz bestimmten Tabellen. Für diese Arbeit wird hierfür die ASCII-Tabelle verwendet.
@@ -40,14 +60,147 @@
         Heutzutage wird das Paritätsbit meist nicht mehr gebraucht.
         Dafür wird das achte Bit zur Erweiterung der ASCII-Tabelle verwendet, sodass mehr Sonderzeichen übersetzt werden können.</p>
     <p>Die Charaktere 0 -31 im Binärcode sind nicht anzeigbare Steuerungscodes und werden beispielsweise dafür benutzt, um Drucker zu steuern.</p>
-    <img id="ASCII_0-31_table_image" src="data/ASCII_0-31.png" alt="Tabelle ASCII 0-31">
+    <table class="tableASCIINonPrintable">
+        <colgroup>
+            <col id="col1TableASCIINonPrintable">
+            <col id="col2TableASCIINonPrintable">
+            <col id="col3TableASCIINonPrintable">
+            <col id="col4TableASCIINonPrintable">
+        </colgroup>
+        <tr>
+            <th>Dezimalzahl</th>
+            <th>8-Bit-Binärcode</th>
+            <th>Symbol<br></th>
+            <th>Bedeutung</th>
+        </tr>
+        <tr>
+            <th>0</th>
+            <th>00000000</th>
+            <th>NUL</th>
+            <th>null char = dt. Null-Zeichen</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>00000001</th>
+            <th>SOH</th>
+            <th>start of heading = dt. Beginn eines Titels</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>00000010</th>
+            <th>STX</th>
+            <th>start of text = dt. Beginn eines Texts</th>
+        </tr>
+        <tr>
+            <th>10</th>
+            <th>00001010</th>
+            <th>LF</th>
+            <th>Line Feed = dt. Zeilenvorschub</th>
+        </tr>
+    </table>
     <p>Die Charaktere 32 -127 im Binärcode sind anzeigbare Zeichen, wie Buchstaben, Ziffern oder Textzeichen.
         Dies sind die sogenannten ASCII druckbaren Zeichen.</p>
-    <img id="ASCII_32-127_table_image" src="data/ASCII_32-127.png" alt="Tabelle ASCII 32-127">
+    <table class="tableASCIIPrintable">
+        <colgroup>
+            <col id="col1TableASCIIPrintable">
+            <col id="col2TableASCIIPrintable">
+            <col id="col3TableASCIIPrintable">
+            <col id="col4TableASCIIPrintable">
+        </colgroup>
+        <tr>
+            <th>Dezimalzahl</th>
+            <th>8-Bit-Binärcode</th>
+            <th>Symbol/&nbsp; Buchstabe<br></th>
+            <th>Bedeutung</th>
+        </tr>
+        <tr>
+            <th>32</th>
+            <th>00100000</th>
+            <th></th>
+            <th>Leerzeichen</th>
+        </tr>
+        <tr>
+            <th>33</th>
+            <th>00100001</th>
+            <th>!</th>
+            <th>Ausrufezeichen</th>
+        </tr>
+        <tr>
+            <th>48</th>
+            <th>00110010</th>
+            <th>0</th>
+            <th>Null</th>
+        </tr>
+        <tr>
+            <th>50</th>
+            <th>00110010</th>
+            <th>2</th>
+            <th>Zwei</th>
+        </tr>
+        <tr>
+            <th>58</th>
+            <th>00111010<br></th>
+            <th>:</th>
+            <th>Doppelpunkt</th>
+        </tr>
+        <tr>
+            <th>65</th>
+            <th>01000001</th>
+            <th>A</th>
+            <th>Grossgeschriebenes A<br></th>
+        </tr>
+        <tr>
+            <th>66</th>
+            <th>010000010</th>
+            <th>B</th>
+            <th>Grossgeschriebenes B<br></th>
+        </tr>
+        <tr>
+            <th>97</th>
+            <th>01100010</th>
+            <th>a</th>
+            <th>Kleingeschriebenes a<br></th>
+        </tr>
+        <tr>
+            <th>98</th>
+            <th>01100001<br></th>
+            <th>b</th>
+            <th>Kleingeschriebenes b<br></th>
+        </tr>
+    </table>
     <h3 id = "XOR-Verrechnung_header">XOR-Verrechnung</h3>
     <p>Ein Exklusiv-Oder-Gatter , auch XOR-Gatter, ist ein Gatter mit zwei Eingaben und einer Ausgabe.
         Wenn von zwei Bits die vergleicht werden genau eines davon eine 1 ist, ist die Ausgabe auch eine 1, ansonsten ist sie 0.</p>
-    <img id="XOR_table_image" src="data/XOR.png" alt="XOR-Verrechnung">
+    <table class="tableXOR">
+        <colgroup>
+            <col id="col1TableXOR">
+            <col id="col2TableXOR">
+            <col id="col3TableXOR">
+            <col id="col4TableXOR">
+            <col id="col5TableXOR">
+        </colgroup>
+        <tr>
+            <td>Eingabe 1</td>
+            <th>0</th>
+            <th>1</th>
+            <th>0</th>
+            <th>1</th>
+        </tr>
+        <tr>
+            <td>Eingabe 2</td>
+            <th>1</th>
+            <th>0</th>
+            <th>0</th>
+            <th>1</th>
+        </tr>
+        <tr>
+            <td>Ausgabe (nach XOR-Verrechnung)</td>
+            <th>1</th>
+            <th>1</th>
+            <th>0</th>
+            <th>0</th>
+        </tr>
+    </table>
 </div>
 </main>
 <br>
