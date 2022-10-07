@@ -104,7 +104,36 @@
             <h4>XOR-Verrechnung mit Schlüssel</h4>
             <input type="button" value="Verrechnen" onclick="SDES(4)">
             <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
-            <img id="XOR_table_image" src="data/XOR.png" alt="XOR-Verrechnung">
+            <table id="tableXOR_S-DES" class="tableXOR">
+                <colgroup>
+                    <col class="col1TableXOR">
+                    <col class="col2TableXOR">
+                    <col class="col3TableXOR">
+                    <col class="col4TableXOR">
+                    <col class="col5TableXOR">
+                </colgroup>
+                <tr>
+                    <td>Eingabe 1</td>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <td>Eingabe 2</td>
+                    <th>1</th>
+                    <th>0</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <td>Ausgabe (nach XOR-Verrechnung)</td>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+            </table>
             <br>
             <label for="XOR-key1_S-DES_textarea"></label><textarea id="XOR-key1_S-DES_textarea"></textarea>
             <h4>Verrechnung mit S-Boxen</h4>
@@ -126,7 +155,7 @@
             <h4>XOR-Verrechnung mit linker Hälfte</h4>
             <input type="button" value="Verrechnen" onclick="SDES(7)">
             <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
-            <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#XOR_table_image">Tabelle zur XOR-Verrechnung</a>
+            <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#tableXOR_S-DES">Tabelle zur XOR-Verrechnung</a>
             nachgeschaut werden oder unter <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe</a>.</p>
             <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
             <h4>Zweiter Durchgang</h4>
@@ -239,7 +268,36 @@
         <h4>XOR-Verrechnung mit Schlüssel</h4>
         <input type="button" value="Verrechnen" onclick="troesch(4)">
         <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
-        <img id="XOR_table_image_2" src="data/XOR.png" alt="XOR-Verrechnung">
+        <table id="tableXOR_troesch" class="tableXOR">
+            <colgroup>
+                <col class="col1TableXOR">
+                <col class="col2TableXOR">
+                <col class="col3TableXOR">
+                <col class="col4TableXOR">
+                <col class="col5TableXOR">
+            </colgroup>
+            <tr>
+                <td>Eingabe 1</td>
+                <th>0</th>
+                <th>1</th>
+                <th>0</th>
+                <th>1</th>
+            </tr>
+            <tr>
+                <td>Eingabe 2</td>
+                <th>1</th>
+                <th>0</th>
+                <th>0</th>
+                <th>1</th>
+            </tr>
+            <tr>
+                <td>Ausgabe (nach XOR-Verrechnung)</td>
+                <th>1</th>
+                <th>1</th>
+                <th>0</th>
+                <th>0</th>
+            </tr>
+        </table>
         <br>
         <label for="XOR-key1_troesch_verschluesselungstechnik_textarea"></label><textarea id="XOR-key1_troesch_verschluesselungstechnik_textarea"></textarea>
         <h4>Permutation</h4>
@@ -267,7 +325,7 @@
         <h4>XOR-Verrechnung mit linker Hälfte</h4>
         <input type="button" value="Verrechnen" onclick="troesch(8)">
         <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
-        <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#XOR_table_image_2">Tabelle zur XOR-Verrechnung</a>
+        <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#tableXOR_troesch">Tabelle zur XOR-Verrechnung</a>
             nachgeschaut werden oder unter <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe</a>.</p>
         <label for="XOR-L-Half_troesch_verschluesselungstechnik_textarea"></label><textarea id="XOR-L-Half_troesch_verschluesselungstechnik_textarea"></textarea>
         <h4>Zweiter Durchgang</h4>

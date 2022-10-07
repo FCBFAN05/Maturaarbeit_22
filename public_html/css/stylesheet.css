@@ -89,13 +89,13 @@ h4, h5, h6 {
     overflow:hidden;
     word-break:normal;
 }
-#col1TablePermutation {
+.col1TablePermutation {
     width: 13.1875rem
 }
-#col2TablePermutation {
+.col2TablePermutation {
     width: 3.9375rem
 }
-#col3TablePermutation {
+.col3TablePermutation {
     width: 4.1875rem
 }
 .tableASCIINonPrintable  {
@@ -197,18 +197,18 @@ h4, h5, h6 {
     overflow:hidden;
     word-break:normal;
 }
-#col1TableXOR {
+.col1TableXOR {
     width: 14.69rem
 }
-#col2TableXOR {
+.col2TableXOR {
     width: 1.44rem
 }
-#col3TableXOR {
+.col3TableXOR {
     width: 1.44rem
 }
-#col4TableXOR {
+.col4TableXOR {
     width: 1.44rem
 }
-#col4TableXOR {
+.col4TableXOR {
     width: 1.44rem
 }
