@@ -226,7 +226,7 @@ function SDES(Funktion) {
     let bitcodeLeftHalf = []
     let decryptedBitcode = []
 
-    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mit Hilfe des ASCII-Codes (Buchstabe für Buchstabe) und Erzeugung des Paritätsbits
+    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mit Hilfe des ASCII-Codes (Buchstabe für Buchstabe)
         if (textInput.charCodeAt(i).toString(10) < 64)
             bitcodeInputText[i] = "00".concat(textInput.charCodeAt(i).toString(2)) // Funktionen/ Methoden von Grund auf machen
         else if (textInput.charCodeAt(i).toString(10) < 128)
@@ -389,8 +389,9 @@ function keySDES(Funktion) { // Schlüsselerzeugung
             document.getElementById("permutation8bit_S-DES_key_textarea").value = firstDefiniteKeyBitcode
             return firstDefiniteKeyBitcode
         case 4: // Ausgabe Zweiter Schlüssel (Bits nach der 10-Bit-Permutation schriftlich rotiert (s.unten) und danach die 8-Bit-Permutation durchgeführt
-            // Nach der Rotation: 1,6,3,2,4, 8,7,5,9,0
-            return keyBits[8].toString().concat(keyBits[3].toString()).concat(keyBits[7].toString()).concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[0].toString()).concat(keyBits[9].toString())
+            // Nach der 2. Rotation: 6,3,2,4,1, 7,5,9,0,8
+            console.log(keyBits[7].toString().concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[9].toString()).concat(keyBits[1].toString()).concat(keyBits[8].toString()).concat(keyBits[0].toString()))
+            return keyBits[7].toString().concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[9].toString()).concat(keyBits[1].toString()).concat(keyBits[8].toString()).concat(keyBits[0].toString())
     }
 }
 
@@ -682,6 +683,7 @@ function keyTroesch(Funktion) { // Schlüsselerzeugung
         case 5: // Ausgabe Zweiter Schlüssel (Bits nach der 12-Bit-Permutation schriftlich rotiert und invers expandiert(s.unten) und danach die 8-Bit-Permutation durchgeführt
             // Nach der Rotation: 0,8,1,3,2,6, 11,5,10,7,9,4
             // Nach inverser Expansion: 8,1,3,2, 5,10,7,9
+            console.log(keyBits[9].concat(keyBits[2]).concat(keyBits[1]).concat(keyBits[5]).concat(keyBits[10]).concat(keyBits[8]).concat(keyBits[10]).concat(keyBits[3]))
             return keyBits[9].concat(keyBits[2]).concat(keyBits[1]).concat(keyBits[5]).concat(keyBits[10]).concat(keyBits[8]).concat(keyBits[10]).concat(keyBits[3])
     }
 }
@@ -780,12 +782,12 @@ function runAllKeySDES() {
 
 function checkBoxHideText(input, division, button){
         if (document.getElementById(input).checked){
-            $(division).css("visibility", "hidden")
-            $(division).css("position", "relative")
+            $(division).css("display", "contents")
+            $(button).css("display", "none")
         }
         else {
-            $(division).css("visibility", "visible")
-            $(button).css("visibility", "hidden")
+            $(division).css("display", "none")
+            $(button).css("display", "initial")
         }
 }
 

@@ -39,7 +39,7 @@
     <div id = "Simple-DES_division">
         <h2>Simple-DES</h2>
         <img id="schema S-DES_image" src="data/Schema%20S-DES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
-        <p>Schema Simple-DES</p> <!-- Schema selbst machen -->
+        <p>Schema Simple-DES</p>
         <div id = "K1_S-DES_division">
             <h3>Schlüsselerzeugung</h3>
             <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung.png" alt="Schema Schlüsselerzeugung">
@@ -51,9 +51,10 @@
             <br>
             <textarea id="main key_S-DES_textarea_input"></textarea>
             <br>
-            <label for="hideSteps_key_SDES_input">Schritte ausblenden:</label>
-            <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" onchange="checkBoxHideText('hideSteps_key_SDES_input','#steps_key_SDES_division','#makeKey_button')">
-            <div id="steps_key_SDES_division">
+            <label for="hideSteps_key_SDES_input">Schritte einblenden:</label>
+            <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" onchange="checkBoxHideText('hideSteps_key_SDES_input','#steps_key_SDES_division','.hideButtonForKeySDES')">
+            <br>
+            <div id="steps_key_SDES_division" class="ghost">
                 <h4>Permutation</h4>
                 <input type="button" value="Permutieren" onclick="keySDES(1)">
                 <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
@@ -71,8 +72,11 @@
                 <p>Die ersten beiden Bits werden ausgelassen. Die restlichen 8 Bits werden an folgende Positionen gebracht:</p>
                 <p>6,3,7,4,8,5,10,9</p>
             </div>
-            <input id="makeKey_button" type="button" value="Schlüssel erstellen" onclick="runAllKeySDES()">
-            <label for="permutation8bit_S-DES_key_textarea"></label><textarea id="permutation8bit_S-DES_key_textarea"></textarea>
+            <input id="makeKey_button" class="hideButtonForKeySDES" type="button" value="Schlüssel erstellen" onclick="runAllKeySDES()">
+            <br class="hideButtonForKeySDES">
+            <label for="permutation8bit_S-DES_key_textarea">Ausgabe: </label>
+            <br>
+            <textarea id="permutation8bit_S-DES_key_textarea"></textarea>
             <p>Dies ist nun der erste Schlüssel.</p>
         </div>
         <h3>Verschlüsselung</h3>
@@ -80,20 +84,19 @@
         <label for="klartext_S-DES_textarea">Eingabe:</label>
         <br>
         <textarea id="klartext_S-DES_textarea"></textarea>
-        <p>Pro eingegebenem ASCII druckbaren Zeichen werden unten (beim Textfeld Umwandlung in Bits) 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
-        <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert und was ASCII druckbare Zeichen sind, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
         <br>
         <label for="runAllSDES">Alles ausführen lassen:</label>
         <input id="runAllSDES" type="checkbox" value="Alles ausführen" onclick="runAllSDES()">
         <h4>Umwandlung in Bits</h4>
-        <input type="button" value="Umwandeln" onclick="SDES(1)"> <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
-        <br>
+        <input type="button" value="Umwandeln" onclick="SDES(1)">
+        <p>Pro eingegebenem ASCII druckbaren Zeichen werden im Textfeld 8 Bits ausgegeben.</p> <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
+        <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert und was ASCII druckbare Zeichen sind, kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+        <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
         <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
         <br>
-        <br>
-        <label for="hideSteps_SDES_input">Schritte ausblenden:</label>
+        <label for="hideSteps_SDES_input">Schritte einblenden:</label>
         <input id="hideSteps_SDES_input" type="checkbox" value="hide" onchange="checkBoxHideText('hideSteps_SDES_input','#steps_SDES_division')">
-        <div id="steps_SDES_division">
+        <div id="steps_SDES_division" class="ghost">
             <h4>Initiale Permutation</h4>
             <input type="button" value="Permutieren" onclick="SDES(2)">
             <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
@@ -150,14 +153,18 @@
             <h4>Inverse Initiale Permutation</h4>
             <input type="button" value="Permutieren" onclick="SDES(8)">
         </div>
+        <br>
+        <label for="inverseinitialpermutation_S-DES_textarea">Ausgabe der Binärzahlen nach der vollständigen Chiffrierung mit Simple-DES:</label>
+        <br>
+        <textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <p>Dies ist nun der verschlüsselte Text in ASCII-Code, d.h. im binären Zahlensystem.</p>
         <p>Was der ASCII-Code bedeutet kann hier nachgeschaut werden: <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe, Umwandlung von Text in Binärzahlen</a>.</p>
-        <label for="inverseinitialpermutation_S-DES_textarea"></label><textarea id="inverseinitialpermutation_S-DES_textarea"></textarea>
         <h4>Chiffrentext</h4>
         <input type="button" value="Als Zeichen ausgeben" onclick="SDES(9)">
-        <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Tabelle.</p>
-        <p>Die ASCII-Tabelle kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.</p>
+        <br>
         <label for="chiffrentext_S-DES_textarea"></label><textarea id="chiffrentext_S-DES_textarea"></textarea>
+        <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Codierung.</p>
+        <p>Die ASCII-Tabelle kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.</p>
         <div id="dechiffrierung_S-DES_division">
             <h3 id="dechiffrierung_header">Entschlüsselung Simple-DES</h3>
             <p>Um den Chiffrentext zu Klartext zu dechiffrieren muss beim Chiffrierungsprozess einfach der erste Schlüssel (K1) mit dem zweiten Schlüssel (K2) getauscht wer-den.

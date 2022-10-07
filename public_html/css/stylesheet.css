@@ -35,29 +35,32 @@ li a:hover {
     background-color: #111;
 }
 p {
-    font-family: "Droid Sans Mono Dotted";
+    font-family: "Droid Sans Mono Dotted", sans-serif;
     font-optical-sizing: auto;
 }
 h1 {
     text-align: center;
-    font-family: Broadway;
+    font-family: "Broadway", sans-serif;
     font-size: xxx-large;
     font-optical-sizing: auto;
     color: darkblue;
 }
 h2 {
     text-align: center;
-    font-family: "Britannic Bold";
+    font-family: "Britannic Bold", sans-serif;
     font-size: xx-large;
     font-optical-sizing: auto;
 }
 h3 {
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Arial Rounded MT Bold", sans-serif;
     font-size: x-large;
     font-optical-sizing: auto;
 }
 h4, h5, h6 {
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Arial Rounded MT Bold", sans-serif;
     font-size: inherit;
     font-optical-sizing: auto;
+}
+.ghost {
+    display: none;
 }
