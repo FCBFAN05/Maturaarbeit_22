@@ -780,6 +780,18 @@ function runAllKeySDES() {
     }
 }
 
+function runAllTroesch() {
+    for (let i = 0; i < 12; i++) {
+        troesch(i)
+    }
+}
+
+function runAllKeyTroesch() {
+    for (let i = 0; i < 5; i++) {
+        keyTroesch(i)
+    }
+}
+
 function checkBoxHideText(input, division, button){
         if (document.getElementById(input).checked){
             $(division).css("display", "contents")
