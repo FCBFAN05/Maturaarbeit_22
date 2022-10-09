@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/http_code.jquery.com_jquery-latest.js"></script>
     <script src="js/functions.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <title>Verschlüsselung</title>
+    <title>Melvin's Website</title>
 </head>
 <body>
 <header>
@@ -186,7 +187,7 @@
         Bei einem zyklischen Rechts-Shift um eine bestimmte Anzahl an Bits passiert dasselbe, einfach in die andere Richtung, d.h. alle Bits werden nach rechts verschoben und die hinausgeschobenen Bits werden links wieder angehängt.</p>
     <img id="oneBitLeftShift_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift">
     <img id="oneBitRightShift_image" src="data/1-Bit-R-Shift.png" alt="1-Bit-Rechts-Shift">
-    <h3>Expansion von Bitzahlenketten</h3>
+    <h3 id="expansion_header">Expansion von Bitzahlenketten</h3>
     <p>Bei Simple-DES und auch bei Trösch’s Verschlüsselungstechnik gibt es während des Chiffrierungsprozesses eine Expansion von 4 auf 8 Bits.
         Daher wird dieser Prozess hier genauer erläutert.</p>
     <p>Bei der Expansion handelt es sich um eine Erweiterung der Bitzahlenkette. Die Bits werden verdoppelt und an bestimmte Positionen gebracht, gemäss folgendem Schema:</p>
@@ -243,7 +244,131 @@
         <h2>Grundlagen und Begriffe zum Verständnis des Codes dieser Website</h2>
         <p>Um den Code und die Erklärungen dazu zu verstehen unter <a href="infos.html">Infos zur Website</a> bedarf es ein Grundwissen an Fachbegriffen und Programmier-Befehlen.</p>
         <p><b>Dieses Grundlagenverständnis kann hier erworben werden:</b></p>
-
+        <h3>Begriffserklärung Fachbegriffe</h3>
+        <ul>
+            <li><p><i>Website</i> = gesamte <i>Website</i> bestehend aus verschiedenen Unterseiten, den <i>Webseiten</i> oder <i>Webpages</i></p></li>
+            <li><p><i>Webseite</i> = <i>Webpage</i> = einzelne durch scrollen erreichbare Seite der Website</p></li>
+            <li><p><i>Tag</i> = Zeichen, Begriff oder Befehl einer Programmiersprache</p></li>
+            <li><p><i>Variable</i> = Bezeichner, der für verschiedene Grössen stehen kann</p></li>
+        </ul>
+        <h3 id="HTMLExplanation_header">HTML</h3>
+        <p>HTML wird dazu verwendet um eine Website zu kreieren, indem damit Bilder und Text in Rohform auf Websites dargestellt werden.</p>
+        <p>HTML steht für „Hyper Text Markup Language“. Dies ist Englisch und bedeutet „Hypertext-Auszeichnungssprache“.</p>
+        <p>Hypertext ist ein dynamischer Text mit Querverweisen zu entfernten Textpassagen, anderen Texten oder Bildern.</p>
+        <p>Eine Auszeichnungssprache ist eine für Maschinen lesbare Sprache, die für die Gliederung und Formatierung von Texten, Bildern oder anderen Daten zuständig ist.</p>
+        <h3 id="JavaScriptExplanation_header">JavaScript</h3>
+        <p>JavaScript ist eine Skriptsprache hauptsächlich für Websites. Sie wird dazu verwendet diese interaktiv erlebbar zu machen, in dem in JavaScript Funktionen für die Webseiten geschrieben werden.</p>
+        <p>Eine Skriptsprache ist eine Programmiersprache, die anderen Programmiersprachen Anweisungen geben kann.
+            Sie wird also nicht ausgeführt sondern interpretiert und läuft nur in einer bestimmten Umgebung. Bei JavaScript ist diese Umgebung der Webbrowser.</p>
+        <h3 id="CSSExplanation">CSS</h3>
+        <p>CSS ist eine von HTML unabhängige Programmiersprache mit der das Design der Webinhalte erstellt wird.
+            Die Darstellungsweise wird beispielsweise durch Attribute wie Schriftart, Grösse oder Farbe festgelegt.</p>
+        <h3>Array</h3>
+        <p>Ein Array ist wie eine Tabelle, die mit Daten gefüllt werden kann, entweder mit Buchstaben, Text oder Zahlen.
+            In der Programmierung beginnt die Nummerierung immer bei 0. Das erste Feld ist beim Aufrufen also das Feld 0.</p>
+        <p>Hier ein Beispiel für ein eindimensionales Array:</p>
+        <table class="tableOneDimensionalArray">
+            <colgroup>
+                <col class="col1TableOneDimensionalArray">
+                <col class="col2TableOneDimensionalArray">
+                <col class="col3TableOneDimensionalArray">
+                <col class="col4TableOneDimensionalArray">
+                <col class="col5TableOneDimensionalArray">
+                <col class="col6TableOneDimensionalArray">
+                <col class="col7TableOneDimensionalArray">
+            </colgroup>
+            <tr>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>...</th>
+            </tr>
+        </table>
+        <p>... und noch ein Beispiel für ein zweidimensionales Array:</p>
+        <table class="tableOneDimensionalArray">
+            <colgroup>
+                <col class="col1TableOneDimensionalArray">
+                <col class="col2TableOneDimensionalArray">
+                <col class="col3TableOneDimensionalArray">
+                <col class="col4TableOneDimensionalArray">
+                <col class="col5TableOneDimensionalArray">
+                <col class="col6TableOneDimensionalArray">
+                <col class="col7TableOneDimensionalArray">
+            </colgroup>
+            <tr>
+                <th>00</th>
+                <th>01</th>
+                <th>02</th>
+                <th>03</th>
+                <th>04</th>
+                <th>05</th>
+                <th>...</th>
+            </tr>
+            <tr>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>...</th>
+            </tr>
+            <tr>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+                <th>24</th>
+                <th>25</th>
+                <th>...</th>
+            </tr>
+            <tr>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+            </tr>
+        </table>
+        <p>In JavaScript sehen diese Arrays wie folgt aus:</p>
+        <pre><code class="code">let oneDimensionArray = [1,2,3,4,5]
+let twoDimensionArray = [["00","01","02","03","04","05"],["00","01","02","03","04","05"], ["00","01","02","03","04","05"]]</code></pre>
+        <pre><code class="code">console.log(oneDimensionArray[0])
+console.log(twoDimensionArray[0][0])</code></pre>
+        <p>Beim Wiedergeben des ersten Objekts des Arrays in der Konsole wird beim eindimensionalen Array die Zahl 0 ausgegeben und beim zweidimensionalen Array der „Text“ 00.</p>
+        <h3>For-Schleife</h3>
+        <p>Eine for-Schleife ist ein Wiederholungsvorgang, der von einer Variable und einer gewählten Grösse abhängt.
+            Die Variable (i) beginnt meist bei 0 und ist aufsteigend mit Einerschritten (i++). Sie kann allerdings auch bei 1 beginnen und mit grösseren Schritten auf oder sogar absteigen.
+            Der Vorgang innerhalb der for-Schleife wird so lange wiederholt bis die Variable das angegebene Verhältnis, meist kleiner als (<), zur gewählen Grösse erhält. Die Standardform (Variable beginnt bei 0 und erhöht sich immer um 1) sieht in
+            JavaScript wie folgt aus:</p>
+        <pre><code class="code">let sum = 0
+for (let i = 0; i < 5; i++) {
+sum += 10
+}
+console.log(sum)</code></pre>
+        <p>In der Konsole wird nun die Zahl 50 ausgegeben, da zur Variable sum fünf Mal die Zahl 10 dazu addiert wurde und sum am Anfang 0 ist.</p>
+        <h3>If/ Else if/ Else</h3>
+        <p>Mit if wird eine Bedingung aufgestellt. Nur falls diese Bedingung erfüllt ist, wird der Programmiercode innerhalb der geschwungenen Klammern ({}) ausgeführt.
+            Else if ist eine zusätzliche Bedingung, welche angeschaut wird, falls die vorherige Bedingung nicht zutrifft.
+            Der Code bei else wird ausgeführt, falls alle vorangegangenen Bedingungen mit if nicht zutreffen.</p>
+        <p>So sieht der zugehörige Code mit Beispielgrössen in JavaScript aus:</p>
+<pre><code class="code">let number = 6
+if (number < 10) {
+    console.log("Tiny")
+} else if (number < 20) {
+    console.log("Small")
+} else if (number < 50) {
+    console.log("Medium")
+} else if (number < 100) {
+    console.log("Large") }
+else { console.log("Huge")
+}</code></pre>
+        <p>Die Ausgabe in der Konsole beim obigen Code ist «Tiny», da number = 6 und 6 kleiner ist als 10.</p>
     </div>
 </main>
 <br>
