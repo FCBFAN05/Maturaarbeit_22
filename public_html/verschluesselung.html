@@ -11,12 +11,12 @@
 <body>
 <header>
     <nav id="navbar">
-        <ul>
-            <li><a href="index.html">Start</a></li>
-            <li><a href="grundlagen.html">Grundlagen und Begriffe</a></li>
-            <li><a href="verschluesselung.html" class="active">Verschlüsselung</a></li>
-            <li><a href="infos.html">Infos zur Website</a></li>
-            <li><a href="about.html">Über mich</a></li>
+        <ul class="navigationbar">
+            <li class="nav-list"><a href="index.html">Start</a></li>
+            <li class="nav-list"><a href="grundlagen.html">Grundlagen und Begriffe</a></li>
+            <li class="nav-list"><a href="verschluesselung.html" class="active">Verschlüsselung</a></li>
+            <li class="nav-list"><a href="infos.html">Infos zur Website</a></li>
+            <li class="nav-list"><a href="about.html">Über mich</a></li>
         </ul>
     </nav>
 </header>
@@ -138,14 +138,14 @@
             <h4>Verrechnung mit S-Boxen</h4>
             <input type="button" value="Verrechnen" onclick="SDES(5)">
             <p>Zunächst werden die 8 Bits, welche mit dem Schlüssel XOR-verrechnet wurden, in der Mitte aufgeteilt.
-            Anschliessend werden jeweils die inneren beiden Bits mit den Spalten und die äusseren beiden mit den Zeilen der S-Box verglichen.
-            Es werden nun die zwei Bits ausgewählt an der Stelle wo sich die Zeilen und Spalten treffen.
+                Anschliessend werden jeweils 4 Bits per S-Box mit 2 Bits substituiert.
             Zum Schluss werden die beiden Hälften wieder zu 4 Bits zusammengefügt.</p>
+            <p>Eine genaue Erklärung kann unter <a href="#rotationExplanation_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
             <p>Dies sind die zwei S-Boxen des Simple-DES:</p>
             <img id="s-box0_S-DES_image" src="data/S-Box0_Simple-DES.png" alt="S-Box 0 S-DES">
             <img id="s-box1_S-DES_image" src="data/S-Box1_Simple-DES.png" alt="S-Box 1 S-DES">
-            <p>Eine genaue Erklärung kann unter <a href="#rotationExplanation_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
             <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
+            <br>
             <h4>Permutation</h4>
             <input type="button" value="Permutieren" onclick="SDES(6)">
             <p>Die 4 Bits, die nach der S-Box verrechnung ausgegeben werden, werden hier folgendermassen permutiert:</p>
@@ -156,7 +156,7 @@
             <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
             <label for="XOR-L-Half_S-DES_textarea"></label><textarea id="XOR-L-Half_S-DES_textarea"></textarea>
             <h4>Zweiter Durchgang</h4>
-            <p>Nun wird gemäss <a href="#schema S-DES_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
+            <p>Nun werden gemäss <a href="#schema S-DES_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
                 Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
                 Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem Unterschied, dass der Schlüssel diesmal bei der Rotation einen 2-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.
                 Der einzige Unterschied zum 1-Bit-Links-Shift ist, dass zwei Bits miteinander verschoben werden und nicht nur eins.
@@ -258,9 +258,7 @@
         <div id="steps_troesch_verschluesselungstechnik_division" class="ghost">
             <h4>Initiale Permutation</h4>
             <input type="button" value="Permutieren" onclick="troesch(2)">
-            <p>Verschiebung von jeweils 8 Bits an die entsprechenden Positionen.</p>
-            <p>Beispiel für die Initiale Permutation:</p>
-            <p>Positionen vor Permutation: 1,2,3,4,5,6,7,8</p>
+            <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
             <p>Positionen nach Permutation: 3,7,2,5,4,8,1,6</p>
             <label for="initialpermutation_troesch_verschluesselungstechnik_textarea"></label><textarea id="initialpermutation_troesch_verschluesselungstechnik_textarea"></textarea>
             <br>
@@ -271,9 +269,10 @@
             <h4>Expansion</h4>
             <input type="button" value="Expandieren" onclick="troesch(3)">
             <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
-            <label for="expansion_troesch_verschluesselungstechnik_textarea"></label><textarea id="expansion_troesch_verschluesselungstechnik_textarea"></textarea>
-            <br>
+            <p>Eine Veranschaulichung der Expansion von 4 auf 8 Bits:</p>
             <img id="Expansion_8bit_image_2" src="data/Expansion.png" alt="Expansion 8 bit">
+            <p>Eine genaue Erklärung kann unter <a href="#rotationExplanation_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+            <label for="expansion_troesch_verschluesselungstechnik_textarea"></label><textarea id="expansion_troesch_verschluesselungstechnik_textarea"></textarea>
             <h4>XOR-Verrechnung mit Schlüssel</h4>
             <input type="button" value="Verrechnen" onclick="troesch(4)">
             <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
@@ -307,7 +306,7 @@
                     <th>0</th>
                 </tr>
             </table>
-            <br>
+            <p>Eine genaue Erklärung kann unter <a href="#rotationExplanation_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
             <label for="XOR-key1_troesch_verschluesselungstechnik_textarea"></label><textarea id="XOR-key1_troesch_verschluesselungstechnik_textarea"></textarea>
             <h4>Permutation</h4>
             <input type="button" value="Permutieren" onclick="troesch(5)">
@@ -318,10 +317,10 @@
             <h4>Verrechnung mit S-Boxen</h4>
             <input type="button" value="Verrechnen" onclick="troesch(6)">
             <p>Zunächst werden die permutierten 8 Bits in der Mitte aufgeteilt.
-                Anschliessend werden jeweils die inneren beiden Bits mit den Spalten und die äusseren beiden mit den Zeilen der S-Box verglichen.
-                Es werden nun die zwei Bits ausgewählt an der Stelle wo sich die Zeilen und Spalten treffen.
+                Anschliessend werden jeweils 4 Bits per S-Box mit 2 Bits substituiert.
                 Zum Schluss werden die beiden Hälften wieder zu 4 Bits zusammengefügt.</p>
-            <p>Dies sind die zwei S-Boxen des Simple-DES:</p>
+            <p>Eine genaue Erklärung kann unter <a href="#rotationExplanation_header" target="_blank">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+            <p>Dies sind die zwei S-Boxen von Trösch's Verschlüsselungstechnik:</p>
             <img id="s-box1_troesch_verschluesselungstechnik_image" src="data/S-Box1_troesch_verschluesselungstechnik.png" alt="S-Box 1 troesch_verschluesselungstechnik">
             <img id="s-box2_troesch_verschluesselungstechnik_image" src="data/S-Box2_troesch_verschluesselungstechnik.png" alt="S-Box 2 troesch_verschluesselungstechnik">
             <br>
@@ -334,11 +333,9 @@
             <h4>XOR-Verrechnung mit linker Hälfte</h4>
             <input type="button" value="Verrechnen" onclick="troesch(8)">
             <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
-            <p>Wie die XOR-Verrechnung funktioniert kann weiter oben bei der <a href="#tableXOR_troesch">Tabelle zur XOR-Verrechnung</a>
-                nachgeschaut werden oder unter <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe</a>.</p>
             <label for="XOR-L-Half_troesch_verschluesselungstechnik_textarea"></label><textarea id="XOR-L-Half_troesch_verschluesselungstechnik_textarea"></textarea>
             <h4>Zweiter Durchgang</h4>
-            <p>Nun wird gemäss <a href="#schema_troesch_verschluesselungstechnik_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
+            <p>Nun werden gemäss <a href="#schema_troesch_verschluesselungstechnik_image">Schema</a> die 4 Bits nach der XOR-Verrechnung genommen und als rechte Hälfte gespeichert.
                 Währenddessen wird die rechte Hälfte vom Anfang neu als linke Hälfte gespeichert.
                 Die neue rechte Hälfte wird nun mit demselben Prinzip wie vorher verrechnet, mit dem einzigen Unterschied, dass der Schlüssel diesmal bei der Rotation einen 3-Bit-Links-Shift erfährt und sich so vom ersten unterscheidet.
                 Der einzige Unterschied zum 2-Bit-Links-Shift ist, dass drei Bits miteinander verschoben werden und nicht nur zwei.
@@ -347,18 +344,18 @@
             <h4>Inverse Initiale Permutation</h4>
             <input type="button" value="Permutieren" onclick="troesch(9)">
         </div>
-        <p>Dies ist nun der verschlüsselte Text in ASCII-Code, d.h. im binären Zahlensystem.</p>
-        <p>Was der ASCII-Code bedeutet kann hier nachgeschaut werden: <a href="grundlagen.html#XOR-Verrechnung_header" target="_blank">Grundlagen und Begriffe, Umwandlung von Text in Binärzahlen</a>.</p>
-        <label for="inverseinitialpermutation_troesch_verschluesselungstechnik_textarea"></label><textarea id="inverseinitialpermutation_troesch_verschluesselungstechnik_textarea"></textarea>
+        <label for="inverseinitialpermutation_troesch_verschluesselungstechnik_textarea">Ausgabe der Binärzahlen nach der vollständigen Chiffrierung mit Trösch's Verschlüsselungstechnik:</label>
+        <br>
+        <textarea id="inverseinitialpermutation_troesch_verschluesselungstechnik_textarea"></textarea>
+        <p>Dies ist nun der verschlüsselte Text im binären Zahlensystem.</p>
         <h4>Chiffrentext</h4>
         <input type="button" value="Als Zeichen ausgeben" onclick="troesch(10)">
-        <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Tabelle.</p>
-        <p>Die ASCII-Tabelle kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.</p>
+        <p>Das sind die verschlüsselten Zeichen gemäss ASCII-Codierung: (Die ASCII-Codierung kann hier nachgeschaut werden: <a href="https://www.ascii-code.com/" target="_blank">www.ascii-code.com</a>.)</p>
         <label for="chiffrentext_troesch_verschluesselungstechnik_textarea"></label><textarea id="chiffrentext_troesch_verschluesselungstechnik_textarea"></textarea>
         <div id="dechiffrierung_troesch_verschluesselungstechnik_division">
             <h3 id="dechiffrierung_troesch_verschluesselungstechnik_header">Entschlüsselung Trösch's Verschlüsselungstechnik</h3>
             <p>Um den Chiffrentext zu Klartext zu dechiffrieren muss beim Chiffrierungsprozess einfach der erste Schlüssel (K1) mit dem zweiten Schlüssel (K2) getauscht wer-den.
-                Das bedeutet, im ersten Durchgang wird der zweite Schlüssel (K2) XOR-verrechnet und im zweiten Durchgang der erste Schlüssel (K1). Siehe <a href="#schema S-DES_image">Schema</a>!</p>
+                Das bedeutet, im ersten Durchgang wird der zweite Schlüssel (K2) XOR-verrechnet und im zweiten Durchgang der erste Schlüssel (K1). Siehe <a href="#schema_troesch_verschluesselungstechnik_image">Schema</a>!</p>
             <h4 id="bitcodeDechiffriert_troesch_verschluesselungstechnik_header">Entschlüsselter Binärcode</h4>
             <input type="button" value="Entschlüsseln" onclick="troesch(11)">
             <br>

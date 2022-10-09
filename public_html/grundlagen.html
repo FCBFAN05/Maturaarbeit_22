@@ -11,55 +11,39 @@
 <body>
 <header>
     <nav id="navbar">
-        <ul>
-            <li><a href="index.html">Start</a></li>
-            <li><a href="grundlagen.html" class="active">Grundlagen und Begriffe</a></li>
-            <li><a href="verschluesselung.html">Verschlüsselung</a></li>
-            <li><a href="infos.html">Infos zur Website</a></li>
-            <li><a href="about.html">Über mich</a></li>
+        <ul class="navigationbar">
+            <li class="nav-list"><a href="index.html">Start</a></li>
+            <li class="nav-list"><a href="grundlagen.html" class="active">Grundlagen und Begriffe</a></li>
+            <li class="nav-list"><a href="verschluesselung.html">Verschlüsselung</a></li>
+            <li class="nav-list"><a href="infos.html">Infos zur Website</a></li>
+            <li class="nav-list"><a href="about.html">Über mich</a></li>
         </ul>
     </nav>
 </header>
 <main>
-<div id = "grundlagen-header_division">
-    <h2>Grundlagen und Begriffe</h2>
+<div id = "grundlagen_verschluesselung_division">
+    <h2>Grundlagen und Begriffe zum Verständnis der Verschlüsselung</h2>
+    <h4 class="small">Auf dieser Webseite geht es darum, das nötige Grundwissen an Fachbegriffen zu erlangen, das vorausgesetzt wird, um die Chiffrierungsprozesse von Simple-DES und Trösch’s Verschlüsselungstechnik zu verstehen.</h4>
     <h3>Begriffserklärung Fachbegriffe</h3>
-    <p>Permutation: Vertauschung von Bits nach bestimmten Vorgaben</p>
-    <h3 id="definition permutation_header">Permutation</h3>
-    <p>Bei einer Permutation werden die Bits (0 und 1 bei Binärzahlen) nach bestimmten Vorgaben vertauscht. Diese Vorgaben werden jeweils in Ziffern angegeben.</p>
-    <p>Bei einer Permutation von 4 Bits wird z.B. 2,4,3,1 als Neuordnung nach der Permutation angegeben.</p>
-    <p>Dies ist folgendermassen zu verstehen:</p>
-    <table class="tablePermutation">
-        <colgroup>
-            <col class="col1TablePermutation">
-            <col class="col2TablePermutation">
-            <col class="col3TablePermutation">
-        </colgroup>
-        <tr>
-            <th>Art</th>
-            <th>Eingabe<br></th>
-            <th>Ausgabe</th>
-        </tr>
-        <tr>
-            <td>Nummerierung der Zahlenfelder<br></td>
-            <td>1234</td>
-            <td>2431</td>
-        </tr>
-        <tr>
-            <td>Bits</td>
-            <td>0101</td>
-            <td>1100</td>
-        </tr>
-    </table>
+    <ul>
+        <li><p><i>Chiffrierung</i> = Verschlüsselung &#10140; chiffrieren (Verb) = verschlüsseln</p></li>
+        <li><p><i>Klartext</i> = unverschlüsselte Nachricht in Binärcode</p></li>
+        <li><p><i>Chiffretext</i> = verschlüsselte Nachricht in Binärcode</p></li>
+        <li><p><i>Permutation</i> = Vertauschung von Bits nach bestimmten Vorgaben</p></li>
+        <li><p><i>Codieren</i> = in Binärzahlen umwandeln</p></li>
+        <li><p><i>Invers</i> = umgekehrt</p></li>
+        <li><p><i>1 Bit</i> = 1 Ziffer eines Binärcodes</p></li>
+        <li><p><i>1 Byte</i> = 8 Bits</p></li>
+    </ul>
     <h3 id="definition ASCII_header">Umwandlung von Text in Binärzahlen (ASCII-Code)</h3>
-    <p>Damit der Computer mit Buchstaben, Zeichen und Zahlen natürlicher Sprachen arbeiten kann, müssen diese zuerst in Binärzahlen umgewandelt werden.
-        Dies geschieht mit ganz bestimmten Tabellen. Für diese Arbeit wird hierfür die ASCII-Tabelle verwendet.
-        Diese wandelt Zahlen, Eingaben oder Buchstaben in einen für den Computer lesbaren 8-Bit-Binärcode um.
-        In der ursprünglichen Version des ASCII-Codes sind nur 7 Bits verwendet worden, da das achte für das Paritätsbit gebraucht wurde.
-        Die neue Version ist kompatibel mit der alten, um den 7-Bit-Binärcode zu erhalten muss beim 8-Bit-Binärcode einfach das erste Bit weggelassen werden.
-        Heutzutage wird das Paritätsbit meist nicht mehr gebraucht.
-        Dafür wird das achte Bit zur Erweiterung der ASCII-Tabelle verwendet, sodass mehr Sonderzeichen übersetzt werden können.</p>
-    <p>Die Charaktere 0 -31 im Binärcode sind nicht anzeigbare Steuerungscodes und werden beispielsweise dafür benutzt, um Drucker zu steuern.</p>
+    <p>Damit der Computer mit Buchstaben, Zeichen und Zahlen natürlicher Sprachen arbeiten kann, müssen diese zuerst codiert werden.
+        Dies geschieht mit ganz bestimmten Tabellen. Für diese Arbeit wird ASCII als Codierung verwendet.
+        Diese wandelt Zahlen, Eingaben oder Buchstaben in einen für den Computer lesbaren 8-Bit-Binär-code um.
+        Wobei die eigentliche ASCII-Codierung nur 7 Bits ausgibt und das achte Bit das Paritätsbit darstellt. (Bei einer ungeraden Anzahl Einsen in der 7-Bit-Binärzahlenkette wird eine Eins als Paritätsbit an-gehängt, ansonsten eine 0.)
+        Da das Paritätsbit allerdings keine Relevanz hat in dieser Arbeit wird nicht näher darauf eingegangen und einfach immer von einem 8-Bit-Binärcode ausgegangen.
+        Die ASCII-Codierung umfasst 128 Zeichen, davon 33 Steu-erzeichen und 95 druckbare Zeichen.
+        Diese Codierung bietet heute die Grundlage für Erweiterungen, wo mit mehr Bits auch mehr Zeichen abgebildet werden können.</p>
+    <p>Die Charaktere 0 -31 im Binärcode sind nicht druckbare Steuerungscodes und werden beispielsweise dafür benutzt, um Drucker zu steuern.</p>
     <table class="tableASCIINonPrintable">
         <colgroup>
             <col id="col1TableASCIINonPrintable">
@@ -98,8 +82,7 @@
             <th>Line Feed = dt. Zeilenvorschub</th>
         </tr>
     </table>
-    <p>Die Charaktere 32 -127 im Binärcode sind anzeigbare Zeichen, wie Buchstaben, Ziffern oder Textzeichen.
-        Dies sind die sogenannten ASCII druckbaren Zeichen.</p>
+    <p>Die Charaktere 32 -127 im Binärcode sind druckbare Zeichen, wie Buchstaben, Ziffern oder Textzeichen.</p>
     <table class="tableASCIIPrintable">
         <colgroup>
             <col id="col1TableASCIIPrintable">
@@ -168,8 +151,54 @@
             <th>Kleingeschriebenes b<br></th>
         </tr>
     </table>
+    <h3 id="definition permutation_header">Permutation</h3>
+    <p>Bei einer Permutation werden die Bits (0 und 1 bei Binärzahlen) nach bestimmten Vorgaben vertauscht. Diese Vorgaben werden jeweils in Ziffern angegeben.</p>
+    <p>Bei einer Permutation von 4 Bits wird z.B. 2,4,3,1 als Neuordnung nach der Permutation angegeben.</p>
+    <p>Dies ist folgendermassen zu verstehen:</p>
+    <table class="tablePermutation">
+        <colgroup>
+            <col class="col1TablePermutation">
+            <col class="col2TablePermutation">
+            <col class="col3TablePermutation">
+        </colgroup>
+        <tr>
+            <th>Art</th>
+            <th>Eingabe<br></th>
+            <th>Ausgabe</th>
+        </tr>
+        <tr>
+            <td>Nummerierung der Zahlenfelder<br></td>
+            <td>1234</td>
+            <td>2431</td>
+        </tr>
+        <tr>
+            <td>Bits</td>
+            <td>0101</td>
+            <td>1100</td>
+        </tr>
+    </table>
+    <h3 id="cyclicShift_header">Zyklischer Links-/ Rechts-Shift</h3>
+    <p>Bei Simple-DES und auch bei Trösch’s Verschlüsselungstechnik gibt es eine bitweise Rotation des Binärcodes bei der Schlüsselgenerierung.
+        Das bedeutet, einzelne Bits werden innerhalb der Bitzahlenkette verschoben. Dazu wird ein zyklischer Links-Shift verwendet.
+        Zur Vervollständigung wird hier auch ein zyklischer Rechts-Shift erklärt.</p>
+    <p>Beim Zyklischen Links-/ Rechts-Shift handelt es sich um eine Verschiebung der Bits um eine bestimmte Anzahl Positionen nach links oder nach rechts.
+        Beim zyklischen 1-Bit-Links-Shift werden beispielsweise alle Bits um eine Position nach links verschoben und das hinausgeschobene vorderste Bit wird ganz rechts wieder angehängt.
+        Bei einem zyklischen Rechts-Shift um eine bestimmte Anzahl an Bits passiert dasselbe, einfach in die andere Richtung, d.h. alle Bits werden nach rechts verschoben und die hinausgeschobenen Bits werden links wieder angehängt.</p>
+    <img id="oneBitLeftShift_image" src="data/1-Bit-L-Shift.png" alt="1-Bit-Links-Shift">
+    <img id="oneBitRightShift_image" src="data/1-Bit-R-Shift.png" alt="1-Bit-Rechts-Shift">
+    <h3>Expansion von Bitzahlenketten</h3>
+    <p>Bei Simple-DES und auch bei Trösch’s Verschlüsselungstechnik gibt es während des Chiffrierungsprozesses eine Expansion von 4 auf 8 Bits.
+        Daher wird dieser Prozess hier genauer erläutert.</p>
+    <p>Bei der Expansion handelt es sich um eine Erweiterung der Bitzahlenkette. Die Bits werden verdoppelt und an bestimmte Positionen gebracht, gemäss folgendem Schema:</p>
+    <img src="data/Expansion.png" alt="Schema Expansion von 4 auf 8 Bits">
+    <p>Bei der Schlüsselgenerierung von Trösch’s Verschlüsselungstechnik gibt es noch die umgekehrte Expansion.
+        Dies ist eigentlich eine Kompression. Hier werden einfach die äusseren beiden Bits und die beiden Bits in der Mitte weggelassen.
+        Hierzu folgendes Beispiel:</p>
+    <img src="data/InversedExpansion.png" alt="Umgekehrte Expansion von 12 auf 8 Bits">
     <h3 id = "XOR-Verrechnung_header">XOR-Verrechnung</h3>
-    <p>Ein Exklusiv-Oder-Gatter , auch XOR-Gatter, ist ein Gatter mit zwei Eingaben und einer Ausgabe.
+    <p>Bei Simple-DES und auch bei Trösch’s Verschlüsselungstechnik gibt es eine bitweise Veränderung des Binärcodes.
+        Das bedeutet, die Bits werden einzeln chiffriert. Dazu wird unter anderem auch XOR verwendet.</p>
+    <p>Ein Exklusiv-Oder-Gatter, auch XOR-Gatter, ist ein Gatter mit zwei Eingaben und einer Ausgabe.
         Wenn von zwei Bits die vergleicht werden genau eines davon eine 1 ist, ist die Ausgabe auch eine 1, ansonsten ist sie 0.</p>
     <table class="tableXOR">
         <colgroup>
@@ -201,7 +230,21 @@
             <th>0</th>
         </tr>
     </table>
+    <h3 id="S-BoxenExplanation_header">Substitution (Prinzip der S-Boxen)</h3>
+    <p>Bei der bitweisen Veränderung des Binärcodes bei Simple-DES und bei Trösch’s Verschlüsselungstechnik wird unter anderem auch die Substitution per Substitutionsboxen (S-Boxen) verwendet.</p>
+    <p>Die Substitution wird nun anhand eines Beispiels mit der S-Box 0 von Simple-DES erklärt.
+        Zur Chiffrierung werden zunächst die äusseren beiden Bits und die inneren beiden Bits voneinander getrennt. Aus 0101 wird dementsprechend 01 und 10.
+        Die äusseren beiden Bits (01) nun mit der entsprechenden Zeile verglichen und die inneren Bits (10) werden mit der entsprechenden Spalte verglichen.
+        Die Zeilen und Spalten treffen sich beim Feld 01. Das bedeudet, dass 0101 durch 01 substituiert wird.
+        Dieser Prozess wird in der nachfolgenden Tabelle auch noch grafisch illustriert.</p>
+    <img src="data/S-Box_SDES_explanation.png" alt="Erklärung Prinzip S-Boxen">
 </div>
+    <div id="grundlagen_code_division">
+        <h2>Grundlagen und Begriffe zum Verständnis des Codes dieser Website</h2>
+        <p>Um den Code und die Erklärungen dazu zu verstehen unter <a href="infos.html">Infos zur Website</a> bedarf es ein Grundwissen an Fachbegriffen und Programmier-Befehlen.</p>
+        <p><b>Dieses Grundlagenverständnis kann hier erworben werden:</b></p>
+
+    </div>
 </main>
 <br>
 <footer id="footer1">&copy; 2022 Melvin Trösch
