@@ -25,7 +25,7 @@
  <div id="verschlüsselung_division">
     <h1>Verschlüsselung</h1>
     <p>Auf dieser Webpage können <a href="#Simple-DES_division">Simple-DES</a> und <a href="#troesch_verschluesselungstechnik_division">Trösch's Verschlüsselungstechnik</a> interaktiv erfahren werden.
-    Durch die Veranschaulichung durch Schematas und Live-Chiffrierungen kann man ein tiefgründiges Verständnis der Chiffrierungsprozesses erlangen.</p>
+    Durch die Veranschaulichung durch Schemata und Live-Chiffrierungen kann man ein tiefgründiges Verständnis der Chiffrierungsprozesses erlangen.</p>
     <p>Trotzdem ist ein gewisses Mass an Vorwissen erforderlich zum Verständnis der Chiffrierungsprozesse. Dieses kann auf der Webpage <a href="grundlagen.html">Grundlagen und Begriffe</a> erworben werden.</p>
     <div id = "Simple-DES_division">
         <h2>Simple-DES</h2>
@@ -223,7 +223,7 @@
                 <input type="button" value="Expandieren" onclick="keyTroesch(3)">
                 <p>Der Schlüsselcode wird von 12 Bits auf 8 Bits heruntergebrochen, damit er wieder die gleiche Länge bekommt wie der restliche Bitcode.
                     Dies geschieht, indem eine umgekehrte Expansion durchgeführt wird. Das bedeutet, anstatt dass der Bitcode durch die Expansion vergrössert wird, wird er verkleinert.</p>
-                <img id="Expansion_8bit_forinversed_image" src="data/Expansion.png" alt="Expansion 8 bit">
+                <img id="Expansion_8bit_inversed_image" src="data/Expansion.png" alt="Expansion 8 bit">
                 <br>
                 <label for="inversedexpansion_troesch_verschluesselungstechnik_textarea"></label><textarea id="inversedexpansion_troesch_verschluesselungstechnik_textarea"></textarea>
                 <h5>Permutation</h5>
@@ -353,7 +353,7 @@
         <label for="chiffrentext_troesch_verschluesselungstechnik_textarea"></label><textarea id="chiffrentext_troesch_verschluesselungstechnik_textarea"></textarea>
         <div id="dechiffrierung_troesch_verschluesselungstechnik_division">
             <h3 id="dechiffrierung_troesch_verschluesselungstechnik_header">Entschlüsselung Trösch's Verschlüsselungstechnik</h3>
-            <p>Um den Chiffrentext zu Klartext zu dechiffrieren muss beim Chiffrierungsprozess einfach der erste Schlüssel (K1) mit dem zweiten Schlüssel (K2) getauscht wer-den.
+            <p>Um den Chiffrentext zu Klartext zu dechiffrieren muss beim Chiffrierungsprozess einfach der erste Schlüssel (K1) mit dem zweiten Schlüssel (K2) getauscht werden.
                 Das bedeutet, im ersten Durchgang wird der zweite Schlüssel (K2) XOR-verrechnet und im zweiten Durchgang der erste Schlüssel (K1). Siehe <a href="#schema_troesch_verschluesselungstechnik_image">Schema</a>!</p>
             <h4 id="bitcodeDechiffriert_troesch_verschluesselungstechnik_header">Entschlüsselter Binärcode</h4>
             <input type="button" value="Entschlüsseln" onclick="troesch(11)">

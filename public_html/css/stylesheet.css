@@ -249,7 +249,24 @@ h4, h5, h6 {
 .col7TableOneDimensionalArray {
     width: 1.44rem
 }
-.code {
+code {
     background-color: #b6b6be;
     font-family: Fixedsys, "Courier New", monospace;
+    text-align: left;
+}
+samp {
+    background-color: #b6b6be;
+    text-align: left;
+}
+.yellow-code_html {
+    color: #E8BF6A;
+}
+.green-code_html {
+    color: #A5C261;
+}
+.green-code_javascript {
+
+}
+.yellow-code_javascript {
+    color: #FFC66D;
 }
