@@ -10,22 +10,35 @@
     <title>Melvin's Website</title>
 </head>
 <body>
-<header>
-    <nav id="navbar">
-        <ul class="navigationbar">
-            <li class="nav-list"><a href="index.html">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html">Grundlagen und Begriffe</a></li>
-            <li class="nav-list"><a href="verschluesselung.html">Verschlüsselung</a></li>
-            <li class="nav-list"><a href="infos.html">Infos zur Website</a></li>
-            <li class="nav-list"><a href="about.html" class="active">Über mich</a></li>
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
+            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a></li>
+            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a></li>
+            <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-dark">Infos zur Website</a></li>
+            <li class="nav-list"><a href="about.html" class="nav-link px-2 link-secondary">Über mich</a></li>
         </ul>
-    </nav>
-</header>
+        <div class="col-md-3 text-end">
+        </div>
+    </header>
+</div>
 <main>
 <div id="about-header_division">
     <h2>Über mich</h2>
-    <h3>Infos zur Person</h3>
+    <img src="data/Portrait_Melvin_Troesch_02_2022_DSC3780.jpg" alt="Portrait Melvin Trösch">
+    <h3>Ich bin Melvin Trösch, Maturand an der Kantonsschule Sursee</h3>
+    <p>Und ich habe diese Website als Teil meiner Maturaarbeit erstellt. Jeglicher Code wurde selbst programmiert. Den Zugang zum Programmieren habe ich aber eigentlich erst durch die Arbeit gefunden.</p>
+    <img src="data/mountainbiken-in-bayern-4-genusstouren-titelbild.jpg" alt="Mountainbike Symbolbild">
+    <h4>Du denkst, das hat bestimmt sehr viel Zeit gekostet und die ganze Freizeit in Anspruch genommen?</h4>
+    <p>Ja, viel Zeit hat es gekostet. Daher würde ich Programmieren einer eigenen Website auch niemandem empfehlen, der kein besessener Coder ist. Aber die Freizeit durfte natürlich trotzdem nicht zu kurz kommen!</p>
+    <img src="data/fc-basel-logo.png" alt="Logo FC Basel">
+    <h4>Ich bin leidenschaftlicher Mountainbiker und FC Basel-Fan</h4>
+    <p>Neben Fussball schaue ich gerne verschiedenste Sportarten im Fernsehen. Doch am liebsten erkunde ich unseren Planeten mit all seinen Facetten. Daher kannst du mich in den Ferien genauso gut in einer Stadt, am Strand oder in den Bergen antreffen, aber selten zweimal am selben Ort.</p>
     <h3>Beweggründe für diese Arbeit</h3>
+    <img src="data/Bild1.png" alt="Verschluesselung Symbolbild">
     <p>Bereits vor Beginn der Maturaarbeit stand für mich fest, dass ich ein Thema aus dem Fachbereich Informatik bearbeiten werde und mein Produkt eine Software sein wird.
         Ich habe schon immer gerne am Computer an verschiedenen Dingen getüftelt und will zukünftig auch ein Informatikstudium in Angriff nehmen.
         Speziell interessiert mich der Teilbereich der Cyber Security, also der Internetsicherheit. Zuerst wollte ich daher eine Analyse von verschiedenen Programmen zur Abwehr von Hackerangriffen machen.
@@ -34,13 +47,13 @@
         Angetan war ich allerdings von der Idee der Erstellung einer eigenen Website mit JavaScript zum Thema Verschlüsselung.
         Der Data Encryption Standard (DES) faszinierte mich sehr und daher lehnt sich meine eigene Verschlüsselungstechnik auch daran an.</p>
 </div>
+    <hr class="featurette-divider">
 </main>
-<br>
-<footer id="footer1">&copy; 2022 Melvin Trösch
-</footer>
-<footer id="footer2">Maturaarbeit Fach Informatik
-</footer>
-<footer id="footer3"><a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a>
+<!-- FOOTER -->
+<footer class="container" id="footer">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p class="float-md-end"></p>
+    <p>&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · <a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a></p>
 </footer>
 </body>
 </html>

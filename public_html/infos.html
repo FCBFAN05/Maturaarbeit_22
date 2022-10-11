@@ -10,17 +10,21 @@
     <title>Melvin's Website</title>
 </head>
 <body>
-<header>
-    <nav id="navbar">
-        <ul class="navigationbar">
-            <li class="nav-list"><a href="index.html">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html">Grundlagen und Begriffe</a></li>
-            <li class="nav-list"><a href="verschluesselung.html">Verschlüsselung</a></li>
-            <li class="nav-list"><a href="infos.html" class="active">Infos zur Website</a></li>
-            <li class="nav-list"><a href="about.html">Über mich</a></li>
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
+            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a></li>
+            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a></li>
+            <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-secondary">Infos zur Website</a></li>
+            <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
         </ul>
-    </nav>
-</header>
+        <div class="col-md-3 text-end">
+        </div>
+    </header>
+</div>
 <main>
 <div id="infos-header_division">
     <h2>Infos zur Website</h2>
@@ -196,12 +200,10 @@ if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5
     </samp></pre>
 </div>
 </main>
-<br>
-<footer id="footer1">&copy; 2022 Melvin Trösch
-</footer>
-<footer id="footer2">Maturaarbeit Fach Informatik
-</footer>
-<footer id="footer3"><a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a>
-</footer>
-</body>
+<!-- FOOTER -->
+<footer class="container" id="footer">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p class="float-md-end"></p>
+    <p>&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · <a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a></p>
+</footer></body>
 </html>
