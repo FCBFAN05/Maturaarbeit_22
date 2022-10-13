@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <title>Melvin's Website</title>
+    <!-- Favicon -->
+    <!-- Für Apple-Geräte -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data/apple-touch-icon-180x180.png">
+    <!-- Für Browser -->
+    <link rel="shortcut icon" type="image/x-icon" href="data/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="data/favicon-96x96.png">
+    <!-- Für Windows Metro -->
+    <meta name="msapplication-square310x310logo" content="data/mstile-310x310.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
 <div class="container">
@@ -26,7 +35,7 @@
     </header>
 </div>
 <main>
-<div id="infos-header_division">
+<div class="container" id="infos-header_division">
     <h2>Infos zur Website</h2>
     <h3>Allgemeines</h3>
     <p>Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich Informatik erstellt worden.
@@ -38,7 +47,7 @@
     <h4>Gender-Hinweis</h4>
     <p>Die Erläuterungen werden durch den vielschichtigen und anspruchsvollen Inhalt schnell komplex. Daher wird für einen möglichst guten Lesefluss und ein möglichst gutes Verständnis auf eine gendergerechte Sprache verzichtet.
         Mit Begriffen wie „Benutzer“ sind jeweils alle Geschlechter gemeint.</p>
-    <h3>Erklärung des Aufbaus und des Codes dieser Website</h3>
+    <h3 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h3>
     <h4>Homepage</h4>
     <p>Falls man die Website unter <a href="https://wwww.melvintroesch.ch">melvintroesch.ch</a> aufruft gelangt man auf die <a href="index.html">Homepage</a>.
         Dort werden der Sinn und Zweck der Website erklärt und die verschiedenen Möglichkeiten erläutert. Die Menüleiste zeigt an, dass es noch weitere Unterseiten gibt.
@@ -123,7 +132,7 @@
     }
 }
     </samp></pre>
-    <h6>Erklärung einer Funktion:</h6>
+    <h6 id="beginJavaScriptExplanation">Erklärung einer Funktion:</h6>
     <p>Eine Funktion innerhalb eines <i>case</i>-Tags kann wie folgt aussehen:</p>
     <pre><samp class="language-javascript">let eingabeText = document.getElementById("Id des Textfelds").value
 // Text wird in Binärcode umgewandelt
@@ -198,7 +207,11 @@ if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5
 …
 
     </samp></pre>
+    <h3 id="beginCSSExplanation">CSS</h3>
 </div>
+    <div class="container">
+        <hr class="featurette-divider last-divider">
+    </div>
 </main>
 <!-- FOOTER -->
 <footer class="container" id="footer">

@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <title>Melvin's Website</title>
+    <!-- Favicon -->
+    <!-- Für Apple-Geräte -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data/apple-touch-icon-180x180.png">
+    <!-- Für Browser -->
+    <link rel="shortcut icon" type="image/x-icon" href="data/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="data/favicon-96x96.png">
+    <!-- Für Windows Metro -->
+    <meta name="msapplication-square310x310logo" content="data/mstile-310x310.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
 <div class="container">
@@ -27,11 +36,17 @@
 </div>
 <main>
  <div id="verschlüsselung_division">
+     <div class="container">
     <h1>Verschlüsselung</h1>
     <p>Auf dieser Webpage können <a href="#Simple-DES_division">Simple-DES</a> und <a href="#troesch_verschluesselungstechnik_division">Trösch's Verschlüsselungstechnik</a> interaktiv erfahren werden.
     Durch die Veranschaulichung durch Schemata und Live-Chiffrierungen kann man ein tiefgründiges Verständnis der Chiffrierungsprozesses erlangen.</p>
     <p>Trotzdem ist ein gewisses Mass an Vorwissen erforderlich zum Verständnis der Chiffrierungsprozesse. Dieses kann auf der Webpage <a href="grundlagen.html">Grundlagen und Begriffe</a> erworben werden.</p>
+     </div>
     <div id = "Simple-DES_division">
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white position-sticky" style="width: 278px;">
+            <img class="background-scroll" alt="Schema S-DES" src="data/Schema_SDES.png">
+        </div>
+        <div class="container">
         <h2>Simple-DES</h2>
         <img id="schema S-DES_image" src="data/Schema_SDES.png" alt="Schema Simple-DES"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
         <p>Schema Simple-DES</p>
@@ -48,6 +63,7 @@
             <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" onchange="checkBoxHideText('hideSteps_key_SDES_input','#steps_key_SDES_division','.hideButtonForKeySDES')">
             <br>
             <div id="steps_key_SDES_division" class="ghost">
+                <input id="runAllKeySDES" type="button" value="Alles ausführen lassen" onclick="runAllKeySDES()">
                 <h4>Permutation</h4>
                 <input type="button" value="Permutieren" onclick="keySDES(1)">
                 <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
@@ -194,7 +210,9 @@
             <label for="textDechiffriert_S-DES_textarea"></label><textarea id="textDechiffriert_S-DES_textarea"></textarea>
         </div>
     </div>
+     </div>
     <div id="troesch_verschluesselungstechnik_division">
+        <div class="container">
         <h2>Trösch's Verschlüsselungstechnik</h2>
         <img id="schema_troesch_verschluesselungstechnik_image" src="data/schema_troesch_verschluesselungstechnik.png" alt="Schema Trösch's Verschlüsselungstechnik"> <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
         <div id = "K1_troesch_verschluesselungstechnik_division">
@@ -210,6 +228,7 @@
             <input id="hideSteps_key_troesch_verschluesselungstechnik_input" type="checkbox" value="hide" onchange="checkBoxHideText('hideSteps_key_troesch_verschluesselungstechnik_input','#steps_key_troesch_verschluesselungstechnik_division','.hideButtonForKeyTroeschVerschluesselungstechnik')">
             <br>
             <div id="steps_key_troesch_verschluesselungstechnik_division" class="ghost">
+                <input id="runAllKeyTroesch" type="button" value="Alles ausführen lassen" onclick="runAllKeyTroesch()">
                 <h5>Permutation</h5>
                 <input type="button" value="Permutieren" onclick="keyTroesch(1)">
                 <p>Eine Begriffserklärung der Permutation kann unter <a href="grundlagen.html#definition permutation_header" target="_blank">Grundlagen und Begriffe</a> gefunden werden.</p>
@@ -369,7 +388,11 @@
             <label for="textDechiffriert_troesch_verschluesselungstechnik_textarea"></label><textarea id="textDechiffriert_troesch_verschluesselungstechnik_textarea"></textarea>
         </div>
     </div>
+    </div>
 </div>
+    <div class="container">
+    <hr class="featurette-divider last-divider">
+    </div>
 </main>
 <!-- FOOTER -->
 <footer class="container" id="footer">

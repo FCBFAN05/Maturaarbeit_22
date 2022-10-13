@@ -5,23 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/http_code.jquery.com_jquery-latest.js"></script>
     <script src="js/functions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <title>Melvin's Website</title>
+    <!-- Favicon -->
+    <!-- Für Apple-Geräte -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data/apple-touch-icon-180x180.png">
+    <!-- Für Browser -->
+    <link rel="shortcut icon" type="image/x-icon" href="data/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="data/favicon-96x96.png">
+    <!-- Für Windows Metro -->
+    <meta name="msapplication-square310x310logo" content="data/mstile-310x310.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <header class="middle d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <svg class="bi me-2 ghost" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li class="nav-list"><a href="index.html" class="nav-link px-2 link-secondary">Start</a></li>
-                <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a></li>
-                <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a></li>
-                <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-dark">Infos zur Website</a></li>
-                <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 middle">
+                <li class="nav-list middle"><a href="index.html" class="nav-link px-2 link-secondary">Start</a></li>
+                <li class="nav-list middle"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a></li>
+                <li class="nav-list middle"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a></li>
+                <li class="nav-list middle"><a href="infos.html" class="nav-link px-2 link-dark">Infos zur Website</a></li>
+                <li class="nav-list middle"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
         </ul>
         <div class="col-md-3 text-end">
+            <p class="ghost">Rechts im Titel</p>
         </div>
     </header>
 </div>
@@ -29,41 +41,38 @@
     <div id="start-header_division">
         <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+                <div class="carousel-item active">
+                    <img class="carousel-img" aria-hidden="true" alt="Widget Verschlüsselung" src="data/SchlossBinaer.jpg">
                     <div class="container">
                         <div class="carousel-caption text-start">
-                            <h1>Example headline.</h1>
-                            <p>Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                            <h1 class="carousel-header">Verschlüsselung.</h1>
+                            <p class="carousel-text-dark">Lassen Sie einen Text mit Simple-DES oder Trösch's Verschlüsselungstechnik verschlüsseln. Finden Sie auch heraus wie die Techniken funktionieren.</p>
+                            <p><a class="btn btn-lg btn-light" href="verschluesselung.html">Zur Verschlüsselung</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+                    <img class="carousel-img" alt="Widget Code" aria-hidden="true" src="data/module_widget_code_html.jpg">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Some representative placeholder content for the second slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                            <h1 class="carousel-header">Infos zur Website.</h1>
+                            <p class="carousel-text-bright">Erfahren Sie die Hintergründe der Website und bekommen Sie einen Einblick in den Aufbau und die Gestaltung der Website.</p>
+                            <p><a class="btn btn-lg btn-light" href="infos.html">Zu Infos zur Website</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item active">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+                <div class="carousel-item">
+                    <img class="carousel-img" width="100%" height="100%" aria-hidden="true" alt="Widget Biken" src="data/widget%20biken.jpg">
                     <div class="container">
                         <div class="carousel-caption text-end">
-                            <h1>One more for good measure.</h1>
-                            <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                            <h1 class="carousel-header">Über Mich.</h1>
+                            <p class="carousel-text-dark">Lernen Sie mich und meine Hobbys kennen und erfahren Sie, wieso diese Website überhaupt entstanden ist.</p>
+                            <p><a class="btn btn-lg btn-light" href="about.html">Zu Über Mich</a></p>
                         </div>
                     </div>
                 </div>
@@ -78,51 +87,21 @@
             </button>
         </div>
 
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
         <div class="container marketing">
-
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2 class="fw-normal">Heading</h2>
-                    <p>And lastly this, the third column of representative placeholder content.</p>
-                    <p><a class="btn btn-secondary" href="#">View details »</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-
 
             <!-- START THE FEATURETTES -->
 
-            <hr class="featurette-divider">
+            <hr class="featurette-divider first-divider">
 
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-                    <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+                    <h2 class="featurette-heading fw-normal lh-1">Simple-DES. <span class="text-muted">Die Grundlage.</span></h2>
+                    <p class="lead">Simple-DES ist eine Vereinfachung von DES und sollte daher gut verständlich sein. Simple-DES bildet die Grundlage für Trösch's Verschlüsselungstechnik.
+                        <br>Probieren Sie Simple-DES aus!</p>
+                    <p><a class="btn btn-lg btn-secondary" href="verschluesselung.html#Simple-DES_division">Zu Simple-DES</a></p>
                 </div>
                 <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+                    <img src="data/Schema_SDES.png" alt="Schema S-DES" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto">
                 </div>
             </div>
 
@@ -130,12 +109,13 @@
 
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+                    <h2 class="featurette-heading fw-normal lh-1">Trösch's Verschlüsselungstechnik. <span class="text-muted">Die Erweiterung.</span></h2>
+                    <p class="lead">Trösch's Verschlüsselungstechnik ist eine Erweiterung von Simple-DES, die aber immer noch gut verständlich sein sollte. Diese Technik wurde eigens vom Ersteller dieser Website (Melvin Trösch) entwickelt.
+                    <br>Probieren Sie Trösch's Verschlüsselungstechnik aus!</p>
+                    <p><a class="btn btn-lg btn-secondary" href="verschluesselung.html#troesch_verschluesselungstechnik_division">Zu Trösch's Verschlüsselungstechnik</a></p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+                    <img src="data/schema_troesch_verschluesselungstechnik.png" alt="Schema Trösch's Verschlüsselungstechnik" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto">
                 </div>
             </div>
 
@@ -143,16 +123,17 @@
 
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+                    <h2 class="featurette-heading fw-normal lh-1">Grundlagen und Begriffe. <span class="text-muted">Die Einführung.</span></h2>
+                    <p class="lead">Unter Grundlagen und Begriffe können Sie das erforderliche Grundwissen erwerben um Simple-DES und Trösch's Verschlüsselungstechnik zu verstehen.</p>
+                    <p class="lead">Hier finden Sie aber auch eine Einführung in die Welt des Programmierens, damit Sie die Hintergründe dieser Website unter <a href="infos.html" class="link-dark">Infos zur Website</a> ohne grosses Vorwissen verstehen können.</p>
+                    <p><a class="btn btn-lg btn-secondary" href="grundlagen.html">Zu Grundlagen und Begriffe</a></p>
                 </div>
                 <div class="col-md-5">
-                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+                    <img src="data/basics.png" alt="Icon Basics" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto">
                 </div>
             </div>
 
-            <hr class="featurette-divider">
+            <hr class="featurette-divider last-divider">
 
             <!-- /END THE FEATURETTES -->
 
@@ -165,7 +146,6 @@
 <!-- FOOTER -->
 <footer class="container" id="footer">
     <p class="float-end"><a href="#">Back to top</a></p>
-    <p class="float-md-end"></p>
     <p>&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · <a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a></p>
 </footer>
 </body>
