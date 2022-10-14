@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/http_code.jquery.com_jquery-latest.js"></script>
     <script src="js/functions.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/squarespace.css">
     <title>Melvin's Website</title>
     <!-- Favicon -->
     <!-- Für Apple-Geräte -->
@@ -25,8 +27,10 @@
         </a>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a></li>
-            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a></li>
+            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a>
+            </li>
+            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a>
+            </li>
             <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-secondary">Infos zur Website</a></li>
             <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
         </ul>
@@ -35,37 +39,54 @@
     </header>
 </div>
 <main>
-<div class="container" id="infos-header_division">
-    <h2>Infos zur Website</h2>
-    <h3>Allgemeines</h3>
-    <p>Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich Informatik erstellt worden.
-        Es handelt sich um ein Open-Source-Projekt. Der gesamte Code ist auf GitHub unter dem folgenden Link öffentlich zugänglich:<a href="https://github.com/FCBFAN05/Maturaarbeit_22.git" target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
-    Die Website soll eine Plattform bieten für die Veranschaulichung einer selbst entwickelten Verschlüsselungstechnik (Trösch's Verschlüsselungstechnik).
-    Parallel dazu wird der Chiffrierungsprozess von Simple-DES veranschaulicht. Denn Simple-DES lieferte die Grundlage für Trösch's Verschlüsselungstechnik.</p>
-    <p>Es handelt sich hier um eine Clientseitige Programmierung. Das bedeutet im Groben, dass der Programmiercode (z.B. JavaScript-Funktionen) vom Webbrowser des Benutzers ausgeführt wird und nicht von einem externen Server.
-        Falls z.B. auf einer Webseite die Uhrzeit abgefragt wird, wird die Uhrzeit des Gerätes des Nutzers eingelesen und die Anfrage wird nicht noch an eine externe Stelle weitergeleitet.</p>
-    <h4>Gender-Hinweis</h4>
-    <p>Die Erläuterungen werden durch den vielschichtigen und anspruchsvollen Inhalt schnell komplex. Daher wird für einen möglichst guten Lesefluss und ein möglichst gutes Verständnis auf eine gendergerechte Sprache verzichtet.
-        Mit Begriffen wie „Benutzer“ sind jeweils alle Geschlechter gemeint.</p>
-    <h3 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h3>
-    <h4>Homepage</h4>
-    <p>Falls man die Website unter <a href="https://wwww.melvintroesch.ch">melvintroesch.ch</a> aufruft gelangt man auf die <a href="index.html">Homepage</a>.
-        Dort werden der Sinn und Zweck der Website erklärt und die verschiedenen Möglichkeiten erläutert. Die Menüleiste zeigt an, dass es noch weitere Unterseiten gibt.
-        Auf diese Unterseiten wird nun im nächsten Kapitel genauer eingegangen.</p>
-    <h4>Unterseiten</h4>
-    <p>Auf der Webpage <a href="grundlagen.html">Grundlagen und Begriffe</a> können die allgemeinen Grundlagen zum Verständnis der Website und der Verschlüsselung erlernt werden.</p>
-    <p>Auf der Webpage <a href="infos.html">Infos zur Website</a> finden sich allgemeine Informationen über die Website sowie Erklärungen zum Code und zum Aufbau der Website. </p>
-    <p>Auf der Webpage <a href="about.html">Über Mich</a> finden sich allgemeine Informationen zur Person Melvin Trösch und wie es zu dieser Website kam.</p>
-    <p>Die Webpage Verschlüsselung bildet den Kern dieser Website. Denn dort kann ein Buchstabe oder ein Text mithilfe von Simple-DES und Trösch’s Verschlüsselungstechnik verschlüsselt und wieder entschlüsselt werden.
-        Daher wird Aufbau dieser Webpage mit HTML und die dazugehörenden JavaScript-Funktionen separat erklärt.</p>
-    <h4>Websitebestandteile</h4>
-    <img src="data/" alt="Bild der Website mit Nummerierung der Bestandteile"> <!-- Bild der Website mit Nummerierung der Bestandteile -->
-    <h5>Kopfzeile</h5>
-    <p>Die Kopfzeile, in HTML angezeigt durch den header-Tag, ist bei allen Unterseiten analog aufgebaut.
-        Er beinhaltet einen Titellink (href), der immer zur <a href="index.html">Startseite</a> (index.html) zurückführt und die Navigationsleiste, womit die verschiedenen Webseiten miteinander verbunden sind.
-        Die Menüleiste, angezeigt durch den nav-Tag, besteht aus einer ungeordneten Liste (ul) bestehend aus Links (href). Der folgende Codeabschnitt stammt aus der Datei index.html, also der Homepage.
-        Dies sieht man am Zusatz class=“active“. Bei den anderen verlinkten Webseiten verhält es sich analog.</p>
-    <pre><code class="language-html">&lt;header&gt;
+    <div class="container" id="infos-header_division">
+        <h2>Infos zur Website</h2>
+        <h3>Allgemeines</h3>
+        <p>Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich Informatik erstellt worden.
+            Es handelt sich um ein Open-Source-Projekt. Der gesamte Code ist auf GitHub unter dem folgenden Link
+            öffentlich zugänglich:<a href="https://github.com/FCBFAN05/Maturaarbeit_22.git" target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
+            Die Website soll eine Plattform bieten für die Veranschaulichung einer selbst entwickelten
+            Verschlüsselungstechnik (Trösch's Verschlüsselungstechnik).
+            Parallel dazu wird der Chiffrierungsprozess von Simple-DES veranschaulicht. Denn Simple-DES lieferte die
+            Grundlage für Trösch's Verschlüsselungstechnik.</p>
+        <p>Es handelt sich hier um eine Clientseitige Programmierung. Das bedeutet im Groben, dass der Programmiercode
+            (z.B. JavaScript-Funktionen) vom Webbrowser des Benutzers ausgeführt wird und nicht von einem externen
+            Server.
+            Falls z.B. auf einer Webseite die Uhrzeit abgefragt wird, wird die Uhrzeit des Gerätes des Nutzers
+            eingelesen und die Anfrage wird nicht noch an eine externe Stelle weitergeleitet.</p>
+        <h4>Gender-Hinweis</h4>
+        <p>Die Erläuterungen werden durch den vielschichtigen und anspruchsvollen Inhalt schnell komplex. Daher wird für
+            einen möglichst guten Lesefluss und ein möglichst gutes Verständnis auf eine gendergerechte Sprache
+            verzichtet.
+            Mit Begriffen wie „Benutzer“ sind jeweils alle Geschlechter gemeint.</p>
+        <h3 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h3>
+        <h4>Homepage</h4>
+        <p>Falls man die Website unter <a href="https://wwww.melvintroesch.ch">melvintroesch.ch</a> aufruft gelangt man
+            auf die <a href="index.html">Homepage</a>.
+            Dort werden der Sinn und Zweck der Website erklärt und die verschiedenen Möglichkeiten erläutert. Die
+            Menüleiste zeigt an, dass es noch weitere Unterseiten gibt.
+            Auf diese Unterseiten wird nun im nächsten Kapitel genauer eingegangen.</p>
+        <h4>Unterseiten</h4>
+        <p>Auf der Webpage <a href="grundlagen.html">Grundlagen und Begriffe</a> können die allgemeinen Grundlagen zum
+            Verständnis der Website und der Verschlüsselung erlernt werden.</p>
+        <p>Auf der Webpage <a href="infos.html">Infos zur Website</a> finden sich allgemeine Informationen über die
+            Website sowie Erklärungen zum Code und zum Aufbau der Website. </p>
+        <p>Auf der Webpage <a href="about.html">Über Mich</a> finden sich allgemeine Informationen zur Person Melvin
+            Trösch und wie es zu dieser Website kam.</p>
+        <p>Die Webpage Verschlüsselung bildet den Kern dieser Website. Denn dort kann ein Buchstabe oder ein Text
+            mithilfe von Simple-DES und Trösch’s Verschlüsselungstechnik verschlüsselt und wieder entschlüsselt werden.
+            Daher wird Aufbau dieser Webpage mit HTML und die dazugehörenden JavaScript-Funktionen separat erklärt.</p>
+        <h4>Websitebestandteile</h4>
+        <img src="data/" alt="Bild der Website mit Nummerierung der Bestandteile">
+        <!-- Bild der Website mit Nummerierung der Bestandteile -->
+        <h5>Kopfzeile</h5>
+        <p>Die Kopfzeile, in HTML angezeigt durch den header-Tag, ist bei allen Unterseiten analog aufgebaut.
+            Er beinhaltet einen Titellink (href), der immer zur <a href="index.html">Startseite</a> (index.html)
+            zurückführt und die Navigationsleiste, womit die verschiedenen Webseiten miteinander verbunden sind.
+            Die Menüleiste, angezeigt durch den nav-Tag, besteht aus einer ungeordneten Liste (ul) bestehend aus Links
+            (href). Der folgende Codeabschnitt stammt aus der Datei index.html, also der Homepage.
+            Dies sieht man am Zusatz class=“active“. Bei den anderen verlinkten Webseiten verhält es sich analog.</p>
+        <pre><code class="language-html">&lt;header&gt;
     &lt;nav id="navbar"&gt;
         &lt;div class="container"&gt;
             &lt;ul&gt;
@@ -79,11 +100,13 @@
     &lt;/nav&gt;
 &lt;/header&gt;
     </code></pre>
-    <h5>Inhaltsbereich</h5>
-    <p>Der Inhaltsbereich, angezeigt in HTML durch den main-Tag ist auf jeder Unterseite individuell gestaltet. Der Grundaufbau ist jedoch überall gleich.
-        Jeder Abschnitt wird in verschiedene inhaltsbezogene Divisionen (div) aufgeteilt, die einerseits Titel (h2, h3, h4) enthalten, andererseits Text eingeschränkt durch p-Tags sowie Bilder (img) enthalten.
-        <br>Hier ein Beispielcode:</p>
-    <pre><code class="language-html">&lt;main&gt;
+        <h5>Inhaltsbereich</h5>
+        <p>Der Inhaltsbereich, angezeigt in HTML durch den main-Tag ist auf jeder Unterseite individuell gestaltet. Der
+            Grundaufbau ist jedoch überall gleich.
+            Jeder Abschnitt wird in verschiedene inhaltsbezogene Divisionen (div) aufgeteilt, die einerseits Titel (h2,
+            h3, h4) enthalten, andererseits Text eingeschränkt durch p-Tags sowie Bilder (img) enthalten.
+            <br>Hier ein Beispielcode:</p>
+        <pre><code class="language-html">&lt;main&gt;
     &lt;div&gt;
         &lt;h2&gt;Lorem Ipsum&lt;/h2&gt;
         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
@@ -96,30 +119,40 @@
     &lt;/div&gt;
 &lt;/main&gt;
     </code></pre>
-    <h5>Fusszeile</h5>
-    <!-- Noch in Bearbeitung TODO-->
-    <p></p>
-    <pre><code class="language-html">
+        <h5>Fusszeile</h5>
+        <!-- Noch in Bearbeitung TODO-->
+        <p></p>
+        <pre><code class="language-html">
     </code></pre>
-    <h4>Webpage Verschlüsselung</h4>
-    <p>Die Webseite <i>Verschlüsselung</i> ist die Wichtigste aller Webseiten dieser Website. Denn hier sieht man die Veranschaulichung des Verschlüsselungsprozesses.
-        Aus diesem Grund wird der Webpage <i>Verschlüsselung</i> an dieser Stelle auch ein eigenes Kapitel gewidmet.</p>
-    <h5>Eingabefelder und Buttons</h5>
-    <p>Beim Betrachten dieser Webseite erkennt man beispielsweise Texteingabefelder (<i>textarea</i>) und Buttons (<i>input</i> <i>type</i><i>=“button“</i>) zum Draufklicken.
-        Diese sind jeweils mit einer JavaScript-Funktion (<i>onclick</i>=“JS-Funktion“) verbunden, die beim Drauf-klicken ausgeführt wird und etwas ausgibt in ein Textfeld (<i>textarea</i>).
-        Der zum Textfeld gehörende <i>label</i>-Tag kann zwischen dem öffnenden und dem schliessenden Tag Text beinhalten, der den Inhalt des Textfeldes beschreibt.
-        Zwischen den Buttons und den Textfeldern kommt häufig der <i>br</i>-Tag vor. Dieser steht für einen Zeilenumbruch.
-        <br>Hierzu ein Beispielcode:</p>
-    <pre><code class="language-html">&lt;input type="button" value="Umwandeln" onclick="JS-Funktion"&gt;
+        <h4>Webpage Verschlüsselung</h4>
+        <p>Die Webseite <i>Verschlüsselung</i> ist die Wichtigste aller Webseiten dieser Website. Denn hier sieht man
+            die Veranschaulichung des Verschlüsselungsprozesses.
+            Aus diesem Grund wird der Webpage <i>Verschlüsselung</i> an dieser Stelle auch ein eigenes Kapitel gewidmet.
+        </p>
+        <h5>Eingabefelder und Buttons</h5>
+        <p>Beim Betrachten dieser Webseite erkennt man beispielsweise Texteingabefelder (<i>textarea</i>) und Buttons
+            (<i>input</i> <i>type</i><i>=“button“</i>) zum Draufklicken.
+            Diese sind jeweils mit einer JavaScript-Funktion (<i>onclick</i>=“JS-Funktion“) verbunden, die beim
+            Drauf-klicken ausgeführt wird und etwas ausgibt in ein Textfeld (<i>textarea</i>).
+            Der zum Textfeld gehörende <i>label</i>-Tag kann zwischen dem öffnenden und dem schliessenden Tag Text
+            beinhalten, der den Inhalt des Textfeldes beschreibt.
+            Zwischen den Buttons und den Textfeldern kommt häufig der <i>br</i>-Tag vor. Dieser steht für einen
+            Zeilenumbruch.
+            <br>Hierzu ein Beispielcode:</p>
+        <pre><code class="language-html">&lt;input type="button" value="Umwandeln" onclick="JS-Funktion"&gt;
 &lt;br&gt;
 &lt;label for="bits_S-DES_textarea"&gt;Ausgabe der Bits&lt;/label&gt;
 &lt;textarea id="bits_S-DES_textarea"&gt;&lt;/textarea&gt;
     </code></pre>
-    <h5>JavaScript-Funktionen verbunden mit HTML</h5>
-    <p>Beim Draufklicken auf einen Button wird, wie oben bereits erwähnt, eine JavaScript-Funktion aufgerufen. In JavaScript sind die Funktionen für die verschiedenen Buttons innerhalb einer Funktion in einer Switch-Case-Verzweigung zusammengefasst.
-        Dies hat den Vorteil, dass Prozesse nicht wiederholt werden müssen, sondern in Variablen abgespeichert und wieder aufgerufen werden können. Die Bits werden meist in Arrays abgespeichert, sodass sie einfacher bitweise verändert werden können.
-        <br>Hierzu ein vereinfachter Beispielcode:</p>
-    <pre><samp class="language-javascript">function button(Funktion) {
+        <h5>JavaScript-Funktionen verbunden mit HTML</h5>
+        <p>Beim Draufklicken auf einen Button wird, wie oben bereits erwähnt, eine JavaScript-Funktion aufgerufen. In
+            JavaScript sind die Funktionen für die verschiedenen Buttons innerhalb einer Funktion in einer
+            Switch-Case-Verzweigung zusammengefasst.
+            Dies hat den Vorteil, dass Prozesse nicht wiederholt werden müssen, sondern in Variablen abgespeichert und
+            wieder aufgerufen werden können. Die Bits werden meist in Arrays abgespeichert, sodass sie einfacher
+            bitweise verändert werden können.
+            <br>Hierzu ein vereinfachter Beispielcode:</p>
+        <pre><samp class="language-javascript">function button(Funktion) {
     let arrayUmBitsAbzuspeichern = []
         ...
 
@@ -132,9 +165,9 @@
     }
 }
     </samp></pre>
-    <h6 id="beginJavaScriptExplanation">Erklärung einer Funktion:</h6>
-    <p>Eine Funktion innerhalb eines <i>case</i>-Tags kann wie folgt aussehen:</p>
-    <pre><samp class="language-javascript">let eingabeText = document.getElementById("Id des Textfelds").value
+        <h6 id="beginJavaScriptExplanation">Erklärung einer Funktion:</h6>
+        <p>Eine Funktion innerhalb eines <i>case</i>-Tags kann wie folgt aussehen:</p>
+        <pre><samp class="language-javascript">let eingabeText = document.getElementById("Id des Textfelds").value
 // Text wird in Binärcode umgewandelt
 switch (Funktion) {
     case 1:
@@ -144,15 +177,21 @@ switch (Funktion) {
         }
 break
     </samp></pre>
-    <p>In dieser Funktion wird zuerst das Textfeld geleert, indem mit dem Befehl <b><i>document</i></b>.<i>getElementById</i>("Id des Textfelds").<i>value</i> der Inhalt des Textfelds aufgerufen wird.
-        Danach wird der in Bitcode umgewandelte Eingabetext durch eine <i>for-Schleife</i> ausgegeben. Die Anzahl Wiederholungen des Prozesses hängen von der Anzahl Buchstaben ab, die verschlüsselt werden sollen.
-        Um zwischen den Buchstaben in Binärzahlen einen Abstand zu erhalten, wird immer ein Leerzeichen dazu addiert.</p>
-    <h4>Funktionelle Java-Script-Funktionen</h4>
-    <p>Um die verschiedenen Chiffrierungsprozesse von Simple-DES und Trösch’s Verschlüsselungstechnik durchzuführen braucht es noch gewisse JavaScript-Funktionen, die nur innerhalb des JavasScript-Codes wieder aufgerufen werden und keine Verwendung haben innerhalb des HTML-Codes.</p>
-    <h5>XOR-Funktion</h5>
-    <p>Eine dieser im obigen Text erwähnten Funktionen ist die XOR-Funktion, die auf theoretischer Ebene im Kapitel 1.2.5 in der Einleitung erklärt wird.
-        <br>Der Code dieser Funktion sieht wie folgt aus:</p>
-    <pre><samp class="language-javascript">function XOR(Input1, Input2) {
+        <p>In dieser Funktion wird zuerst das Textfeld geleert, indem mit dem Befehl <b><i>document</i></b>.<i>getElementById</i>("Id
+            des Textfelds").<i>value</i> der Inhalt des Textfelds aufgerufen wird.
+            Danach wird der in Bitcode umgewandelte Eingabetext durch eine <i>for-Schleife</i> ausgegeben. Die Anzahl
+            Wiederholungen des Prozesses hängen von der Anzahl Buchstaben ab, die verschlüsselt werden sollen.
+            Um zwischen den Buchstaben in Binärzahlen einen Abstand zu erhalten, wird immer ein Leerzeichen dazu
+            addiert.</p>
+        <h4>Funktionelle Java-Script-Funktionen</h4>
+        <p>Um die verschiedenen Chiffrierungsprozesse von Simple-DES und Trösch’s Verschlüsselungstechnik durchzuführen
+            braucht es noch gewisse JavaScript-Funktionen, die nur innerhalb des JavasScript-Codes wieder aufgerufen
+            werden und keine Verwendung haben innerhalb des HTML-Codes.</p>
+        <h5>XOR-Funktion</h5>
+        <p>Eine dieser im obigen Text erwähnten Funktionen ist die XOR-Funktion, die auf theoretischer Ebene im Kapitel
+            1.2.5 in der Einleitung erklärt wird.
+            <br>Der Code dieser Funktion sieht wie folgt aus:</p>
+        <pre><samp class="language-javascript">function XOR(Input1, Input2) {
     let bitsInput1 = []
     let bitsInput2 = []
     for (let i = 0; i < Input1.length; i++) {
@@ -170,26 +209,40 @@ break
     return XORBits
 }
    </samp></pre>
-    <p><i>Input1</i> und <i>Input2</i> werden in die XOR-Funktion, eingegeben und durch die <i>substring</i>-Funktion in einzelne Bits aufgeteilt und in einem eindimensionalen Array (<i>bitsInput1</i> und <i>bitsInput2</i>) gespeichert.
-        Die Bits der beiden Eingaben werden nun verglichen. Falls sie gleich sind (<i>if</i>) wird in einem zweidimensionalen Array (<i>XOR-Bits</i>) eine 0 gespeichert, falls nicht (<i>else</i>) wird in <i>XOR-Bits</i> eine 1 gespeichert.
-        Dieser Vorgang wird durch zwei <i>for</i>-Schleifen so lange wiederholt, bis alle Bits von allen Bytes XOR-verrechnet wurden. Da mehrere Bytes verrechnet werden und alle Bits separat ausgegeben werden sollen durch die <i>return</i>-Funktion, ist <i>XOR-Bits</i> ein zweidimensionales Array.</p>
-    <h5>Funktion S-Box Simple-DES</h5>
-    <p>Eine weitere funktionelle JavaScript-Funktion ist die Funktion zum Abgleich mit den S-Boxen. Das Prinzip ist bei Simple-DES und bei Trösch’s Verschlüsselungstechnik gleich. Hier wird der Prozess anhand der S-Box des Simple-DES erklärt.</p>
-    <p>Die beiden S-Boxen des Simple-DES sind in einem zweidimensionalen Array gespeichert (<i>sBox0</i> und <i>sBox1</i>). Das Prinzip der S-Boxen auf theoretischer Ebene kann unter <a href="grundlagen.html#S-BoxenExplanation_header">Grundlagen und Begriffe</a> nachgelesen werden.</p>
-    <pre><samp class="language-javascript">let sBox0 = [["01","11","00","11"],["00","10","10","01"],["11","01","01","11"],
+        <p><i>Input1</i> und <i>Input2</i> werden in die XOR-Funktion, eingegeben und durch die <i>substring</i>-Funktion
+            in einzelne Bits aufgeteilt und in einem eindimensionalen Array (<i>bitsInput1</i> und <i>bitsInput2</i>)
+            gespeichert.
+            Die Bits der beiden Eingaben werden nun verglichen. Falls sie gleich sind (<i>if</i>) wird in einem
+            zweidimensionalen Array (<i>XOR-Bits</i>) eine 0 gespeichert, falls nicht (<i>else</i>) wird in
+            <i>XOR-Bits</i> eine 1 gespeichert.
+            Dieser Vorgang wird durch zwei <i>for</i>-Schleifen so lange wiederholt, bis alle Bits von allen Bytes
+            XOR-verrechnet wurden. Da mehrere Bytes verrechnet werden und alle Bits separat ausgegeben werden sollen
+            durch die <i>return</i>-Funktion, ist <i>XOR-Bits</i> ein zweidimensionales Array.</p>
+        <h5>Funktion S-Box Simple-DES</h5>
+        <p>Eine weitere funktionelle JavaScript-Funktion ist die Funktion zum Abgleich mit den S-Boxen. Das Prinzip ist
+            bei Simple-DES und bei Trösch’s Verschlüsselungstechnik gleich. Hier wird der Prozess anhand der S-Box des
+            Simple-DES erklärt.</p>
+        <p>Die beiden S-Boxen des Simple-DES sind in einem zweidimensionalen Array gespeichert (<i>sBox0</i> und <i>sBox1</i>).
+            Das Prinzip der S-Boxen auf theoretischer Ebene kann unter <a
+                    href="grundlagen.html#S-BoxenExplanation_header">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+        <pre><samp class="language-javascript">let sBox0 = [["01","11","00","11"],["00","10","10","01"],["11","01","01","11"],
 ["10","00","11","10"]]
 let sBox1 = [["00","10","11","10"],["01","00","00","01"],["10","01","01","00"],
 ["11","11","00","11"]]
     </samp></pre>
-    <p>Daneben gibt es zwei eindimensionale Arrays. In <i>bitsAfterSBox</i> werden die einzelnen errechneten Bits pro Durchgang temporär gespeichert.
-        Dann werden sie mit <i>concat</i> zusammengefügt, im zweiten Array, <i>bitcodeAfterSBox</i>, gespeichert und schlussendlich mit der <i>return-Funktion</i> wiedergegeben.</p>
-    <pre><samp class="language-javascript">let bitsAfterSBox = []
+        <p>Daneben gibt es zwei eindimensionale Arrays. In <i>bitsAfterSBox</i> werden die einzelnen errechneten Bits
+            pro Durchgang temporär gespeichert.
+            Dann werden sie mit <i>concat</i> zusammengefügt, im zweiten Array, <i>bitcodeAfterSBox</i>, gespeichert und
+            schlussendlich mit der <i>return-Funktion</i> wiedergegeben.</p>
+        <pre><samp class="language-javascript">let bitsAfterSBox = []
 let bitcodeAfterSBox = []
 bitcodeAfterSBox[i] = bitsAfterSBox[0].concat(bitsAfterSBox[1])
 return bitcodeAfterSBox
     </samp></pre>
-    <p>Die einzelnen Bits aus einem zweidimensionalen <i>Input</i>-Array (Array, das beim Aufrufen der Funktion eingeben wird) werden innerhalb einer <i>for</i>-Schleife mit einer <i>if</i>/<i>else</i> if-Struktur systematisch mit den S-Boxen abgeglichen und so werden die &laquo;neuen&raquo; vier Bits errechnet.</p>
-    <pre><samp class="language-javascript">function sBoxSDES(Input) {
+        <p>Die einzelnen Bits aus einem zweidimensionalen <i>Input</i>-Array (Array, das beim Aufrufen der Funktion
+            eingeben wird) werden innerhalb einer <i>for</i>-Schleife mit einer <i>if</i>/<i>else</i> if-Struktur
+            systematisch mit den S-Boxen abgeglichen und so werden die &laquo;neuen&raquo; vier Bits errechnet.</p>
+        <pre><samp class="language-javascript">function sBoxSDES(Input) {
 …
 for (let i = 0; i < Input.length; i++) {
     if (Input[i][0].toString().concat(Input[i][3].toString()) === "00" &&         Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
@@ -207,8 +260,9 @@ if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5
 …
 
     </samp></pre>
-    <h3 id="beginCSSExplanation">CSS</h3>
-</div>
+        <h3 id="beginCSSExplanation">CSS</h3>
+
+    </div>
     <div class="container">
         <hr class="featurette-divider last-divider">
     </div>
@@ -217,6 +271,8 @@ if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5
 <footer class="container" id="footer">
     <p class="float-end"><a href="#">Back to top</a></p>
     <p class="float-md-end"></p>
-    <p>&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · <a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a></p>
-</footer></body>
+    <p>&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · <a href="mailto:info@melvintroesch.ch">info@melvintroesch.ch</a>
+    </p>
+</footer>
+</body>
 </html>
