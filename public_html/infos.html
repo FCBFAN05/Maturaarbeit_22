@@ -22,51 +22,60 @@
 </head>
 <body>
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+            id="header_infos">
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         </a>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a>
-            </li>
-            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a>
-            </li>
-            <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-secondary">Infos zur Website</a></li>
-            <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
-        </ul>
+        <nav>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
+                <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und
+                    Begriffe</a>
+                </li>
+                <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a>
+                </li>
+                <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-secondary">Infos zur Website</a>
+                </li>
+                <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
+            </ul>
+        </nav>
         <div class="col-md-3 text-end">
         </div>
     </header>
 </div>
 <main>
     <div class="container" id="infos-header_division">
-        <h2>Infos zur Website</h2>
-        <h3>Allgemeines</h3>
+        <h2>Allgemeines</h2>
         <p>Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich Informatik erstellt worden.
             Es handelt sich um ein Open-Source-Projekt. Der gesamte Code ist auf GitHub unter dem folgenden Link
-            öffentlich zugänglich:<a href="https://github.com/FCBFAN05/Maturaarbeit_22.git" target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
+            öffentlich zugänglich: <a class="link-secondary" href="https://github.com/FCBFAN05/Maturaarbeit_22.git" target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
             Die Website soll eine Plattform bieten für die Veranschaulichung einer selbst entwickelten
             Verschlüsselungstechnik (Trösch's Verschlüsselungstechnik).
             Parallel dazu wird der Chiffrierungsprozess von Simple-DES veranschaulicht. Denn Simple-DES lieferte die
             Grundlage für Trösch's Verschlüsselungstechnik.</p>
+        <figure class="figure">
+            <img class="figure-img" src="data/server-side-rendering.png" alt="Server-Side-Rendering-Grafik">
+            <figcaption class="figure-caption">Bildquelle: &copy; IONOS SE | ionos.de</figcaption>
+        </figure>
         <p>Es handelt sich hier um eine Clientseitige Programmierung. Das bedeutet im Groben, dass der Programmiercode
             (z.B. JavaScript-Funktionen) vom Webbrowser des Benutzers ausgeführt wird und nicht von einem externen
             Server.
             Falls z.B. auf einer Webseite die Uhrzeit abgefragt wird, wird die Uhrzeit des Gerätes des Nutzers
             eingelesen und die Anfrage wird nicht noch an eine externe Stelle weitergeleitet.</p>
-        <h4>Gender-Hinweis</h4>
+        <h3>Gender-Hinweis</h3>
         <p>Die Erläuterungen werden durch den vielschichtigen und anspruchsvollen Inhalt schnell komplex. Daher wird für
             einen möglichst guten Lesefluss und ein möglichst gutes Verständnis auf eine gendergerechte Sprache
             verzichtet.
             Mit Begriffen wie „Benutzer“ sind jeweils alle Geschlechter gemeint.</p>
-        <h3 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h3>
-        <h4>Homepage</h4>
-        <p>Falls man die Website unter <a href="https://wwww.melvintroesch.ch">melvintroesch.ch</a> aufruft gelangt man
-            auf die <a href="index.html">Homepage</a>.
+        <h2 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h2>
+        <h3>Homepage</h3>
+        <img src="data/Homepage.png" alt="Homepage">
+        <p><br>Falls man die Website unter <a class="link-primary" href="https://wwww.melvintroesch.ch" target="_blank">melvintroesch.ch</a> aufruft gelangt man
+            auf die <a class="link-secondary" href="index.html">Homepage</a>.
             Dort werden der Sinn und Zweck der Website erklärt und die verschiedenen Möglichkeiten erläutert. Die
             Menüleiste zeigt an, dass es noch weitere Unterseiten gibt.
             Auf diese Unterseiten wird nun im nächsten Kapitel genauer eingegangen.</p>
-        <h4>Unterseiten</h4>
+        <h3>Unterseiten</h3>
         <p>Auf der Webpage <a href="grundlagen.html">Grundlagen und Begriffe</a> können die allgemeinen Grundlagen zum
             Verständnis der Website und der Verschlüsselung erlernt werden.</p>
         <p>Auf der Webpage <a href="infos.html">Infos zur Website</a> finden sich allgemeine Informationen über die
@@ -76,12 +85,12 @@
         <p>Die Webpage Verschlüsselung bildet den Kern dieser Website. Denn dort kann ein Buchstabe oder ein Text
             mithilfe von Simple-DES und Trösch’s Verschlüsselungstechnik verschlüsselt und wieder entschlüsselt werden.
             Daher wird Aufbau dieser Webpage mit HTML und die dazugehörenden JavaScript-Funktionen separat erklärt.</p>
-        <h4>Websitebestandteile</h4>
-        <img src="data/" alt="Bild der Website mit Nummerierung der Bestandteile">
-        <!-- Bild der Website mit Nummerierung der Bestandteile -->
-        <h5>Kopfzeile</h5>
-        <p>Die Kopfzeile, in HTML angezeigt durch den header-Tag, ist bei allen Unterseiten analog aufgebaut.
-            Er beinhaltet einen Titellink (href), der immer zur <a href="index.html">Startseite</a> (index.html)
+        <h3>Websitebestandteile</h3>
+        <h4>Kopfzeile</h4>
+        <img src="data/Kopfzeile.png" alt="Kopfzeile">
+        <p>Die <a href="infos.html#header_infos">Kopfzeile</a>, in HTML angezeigt durch den header-Tag, ist bei allen
+            Unterseiten analog aufgebaut.
+            Er beinhaltet einen Titellink (href), der immer zur <a class="link-secondary" href="index.html">Startseite</a> (index.html)
             zurückführt und die Navigationsleiste, womit die verschiedenen Webseiten miteinander verbunden sind.
             Die Menüleiste, angezeigt durch den nav-Tag, besteht aus einer ungeordneten Liste (ul) bestehend aus Links
             (href). Der folgende Codeabschnitt stammt aus der Datei index.html, also der Homepage.
@@ -92,44 +101,55 @@
             &lt;ul&gt;
                 &lt;li&gt;&lt;a href="index.html" class="active"&gt;Start&lt;/a&gt;&lt;/li&gt;
                 &lt;li&gt;&lt;a href="grundlagen.html"&gt;Grundlagen und Begriffe&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="verschluesselung.html"&gt;Verschlüsseln&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="infos.html"&gt;Infos über Website&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="verschluesselung.html"&gt;Verschlüsselung&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="infos.html"&gt;Infos zur Website&lt;/a&gt;&lt;/li&gt;
                 &lt;li&gt;&lt;a href="about.html"&gt;Über mich&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
         &lt;/div&gt;
     &lt;/nav&gt;
-&lt;/header&gt;
-    </code></pre>
-        <h5>Inhaltsbereich</h5>
-        <p>Der Inhaltsbereich, angezeigt in HTML durch den main-Tag ist auf jeder Unterseite individuell gestaltet. Der
+&lt;/header&gt;</code></pre>
+        <h4>Inhaltsbereich</h4>
+        <figure class="figure">
+        <img class="figure-img" src="data/Inhalt.png" alt="Inhalt">
+            <figcaption class="figure-caption">Screenshot mit Ausschnitt aus dem Inhaltsbereich der Homepage</figcaption>
+        </figure>
+        <p>Der Inhaltsbereich, indem Sie sich gerade befinden, wird in HTML durch den main-Tag angezeigt. Dieser Bereich
+            ist auf jeder Unterseite individuell gestaltet, der
             Grundaufbau ist jedoch überall gleich.
             Jeder Abschnitt wird in verschiedene inhaltsbezogene Divisionen (div) aufgeteilt, die einerseits Titel (h2,
-            h3, h4) enthalten, andererseits Text eingeschränkt durch p-Tags sowie Bilder (img) enthalten.
+            h2, h3) enthalten, andererseits Text eingeschränkt durch p-Tags sowie Bilder (img) enthalten.
             <br>Hier ein Beispielcode:</p>
         <pre><code class="language-html">&lt;main&gt;
     &lt;div&gt;
         &lt;h2&gt;Lorem Ipsum&lt;/h2&gt;
         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
-        &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
+        &lt;h2&gt;Lorem Ipsum&lt;/h2&gt;
         &lt;img src="data/image.png" alt="Lorem Ipsum"&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;h4&gt;Lorem Ipsum&lt;/h4&gt;
+        &lt;h3&gt;Lorem Ipsum&lt;/h3&gt;
         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
     &lt;/div&gt;
-&lt;/main&gt;
-    </code></pre>
-        <h5>Fusszeile</h5>
-        <!-- Noch in Bearbeitung TODO-->
-        <p></p>
-        <pre><code class="language-html">
-    </code></pre>
-        <h4>Webpage Verschlüsselung</h4>
+&lt;/main&gt;</code></pre>
+        <h4>Fusszeile</h4>
+        <img src="data/Fusszeile.png">
+        <p>Die <a href="infos.html#footer">Fusszeile</a>, angezeigt durch den footer-Tag, sieht bei allen Webpages genau
+            gleich aus Innerhalb des footer-Bereichs gibt es zwei p-Tags. Der erste p-Tag ent-hält einen Link, der zum
+            Anfang der Webseite führt. Dieser wird über eine Klasse (class) mit CSS rechts angeordnet. Der zweite p-Tag
+            enthält das Copyright bzw. Urheberrecht, den Zweck der Arbeit und einen mailto-Link. Beim Klicken auf der
+            Webseite auf diesen Link öffnet sich ein neues E-Mail-Fenster.</p>
+        <pre><code class="language-html">&lt;footer class="container" id="footer"&gt;
+    &lt;p class="float-end"&gt;&lt;a href="#"&gt;Back to top&lt;/a&gt;&lt;/p&gt;
+    &lt;p class="float-md-end"&gt;&lt;/p&gt;
+    &lt;p&gt;&copy; 2022 Melvin Trösch · Maturaarbeit Fach Informatik · &lt;a href="mailto:info@melvintroesch.ch"&gt;info@melvintroesch.ch&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        <h3>Webpage Verschlüsselung</h3>
         <p>Die Webseite <i>Verschlüsselung</i> ist die Wichtigste aller Webseiten dieser Website. Denn hier sieht man
             die Veranschaulichung des Verschlüsselungsprozesses.
             Aus diesem Grund wird der Webpage <i>Verschlüsselung</i> an dieser Stelle auch ein eigenes Kapitel gewidmet.
         </p>
-        <h5>Eingabefelder und Buttons</h5>
+        <h4>Eingabefelder und Buttons</h4>
         <p>Beim Betrachten dieser Webseite erkennt man beispielsweise Texteingabefelder (<i>textarea</i>) und Buttons
             (<i>input</i> <i>type</i><i>=“button“</i>) zum Draufklicken.
             Diese sind jeweils mit einer JavaScript-Funktion (<i>onclick</i>=“JS-Funktion“) verbunden, die beim
@@ -142,9 +162,8 @@
         <pre><code class="language-html">&lt;input type="button" value="Umwandeln" onclick="JS-Funktion"&gt;
 &lt;br&gt;
 &lt;label for="bits_S-DES_textarea"&gt;Ausgabe der Bits&lt;/label&gt;
-&lt;textarea id="bits_S-DES_textarea"&gt;&lt;/textarea&gt;
-    </code></pre>
-        <h5>JavaScript-Funktionen verbunden mit HTML</h5>
+&lt;textarea id="bits_S-DES_textarea"&gt;&lt;/textarea&gt;</code></pre>
+        <h4>JavaScript-Funktionen verbunden mit HTML</h4>
         <p>Beim Draufklicken auf einen Button wird, wie oben bereits erwähnt, eine JavaScript-Funktion aufgerufen. In
             JavaScript sind die Funktionen für die verschiedenen Buttons innerhalb einer Funktion in einer
             Switch-Case-Verzweigung zusammengefasst.
@@ -163,9 +182,8 @@
             break
         ...
     }
-}
-    </samp></pre>
-        <h6 id="beginJavaScriptExplanation">Erklärung einer Funktion:</h6>
+}</samp></pre>
+        <h5 id="beginJavaScriptExplanation">Erklärung einer Funktion:</h5>
         <p>Eine Funktion innerhalb eines <i>case</i>-Tags kann wie folgt aussehen:</p>
         <pre><samp class="language-javascript">let eingabeText = document.getElementById("Id des Textfelds").value
 // Text wird in Binärcode umgewandelt
@@ -175,19 +193,18 @@ switch (Funktion) {
         for (let i = 0; i < eingabeText.length; i++) {
             <b><i>document</i></b>.getElementById("Id des Textfelds").value += (bitcode-EingabeText[i] + " ")
         }
-break
-    </samp></pre>
+break</samp></pre>
         <p>In dieser Funktion wird zuerst das Textfeld geleert, indem mit dem Befehl <b><i>document</i></b>.<i>getElementById</i>("Id
             des Textfelds").<i>value</i> der Inhalt des Textfelds aufgerufen wird.
             Danach wird der in Bitcode umgewandelte Eingabetext durch eine <i>for-Schleife</i> ausgegeben. Die Anzahl
             Wiederholungen des Prozesses hängen von der Anzahl Buchstaben ab, die verschlüsselt werden sollen.
             Um zwischen den Buchstaben in Binärzahlen einen Abstand zu erhalten, wird immer ein Leerzeichen dazu
             addiert.</p>
-        <h4>Funktionelle Java-Script-Funktionen</h4>
+        <h3>Funktionelle Java-Script-Funktionen</h3>
         <p>Um die verschiedenen Chiffrierungsprozesse von Simple-DES und Trösch’s Verschlüsselungstechnik durchzuführen
             braucht es noch gewisse JavaScript-Funktionen, die nur innerhalb des JavasScript-Codes wieder aufgerufen
             werden und keine Verwendung haben innerhalb des HTML-Codes.</p>
-        <h5>XOR-Funktion</h5>
+        <h4>XOR-Funktion</h4>
         <p>Eine dieser im obigen Text erwähnten Funktionen ist die XOR-Funktion, die auf theoretischer Ebene im Kapitel
             1.2.5 in der Einleitung erklärt wird.
             <br>Der Code dieser Funktion sieht wie folgt aus:</p>
@@ -207,8 +224,7 @@ break
         }
     }
     return XORBits
-}
-   </samp></pre>
+}</samp></pre>
         <p><i>Input1</i> und <i>Input2</i> werden in die XOR-Funktion, eingegeben und durch die <i>substring</i>-Funktion
             in einzelne Bits aufgeteilt und in einem eindimensionalen Array (<i>bitsInput1</i> und <i>bitsInput2</i>)
             gespeichert.
@@ -218,18 +234,17 @@ break
             Dieser Vorgang wird durch zwei <i>for</i>-Schleifen so lange wiederholt, bis alle Bits von allen Bytes
             XOR-verrechnet wurden. Da mehrere Bytes verrechnet werden und alle Bits separat ausgegeben werden sollen
             durch die <i>return</i>-Funktion, ist <i>XOR-Bits</i> ein zweidimensionales Array.</p>
-        <h5>Funktion S-Box Simple-DES</h5>
+        <h4>Funktion S-Box Simple-DES</h4>
         <p>Eine weitere funktionelle JavaScript-Funktion ist die Funktion zum Abgleich mit den S-Boxen. Das Prinzip ist
             bei Simple-DES und bei Trösch’s Verschlüsselungstechnik gleich. Hier wird der Prozess anhand der S-Box des
             Simple-DES erklärt.</p>
         <p>Die beiden S-Boxen des Simple-DES sind in einem zweidimensionalen Array gespeichert (<i>sBox0</i> und <i>sBox1</i>).
             Das Prinzip der S-Boxen auf theoretischer Ebene kann unter <a
-                    href="grundlagen.html#S-BoxenExplanation_header">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+                    href="grundlagen.html#S-BoxenExplanation_header" target="_blank" class="link-info">Grundlagen und Begriffe</a> nachgelesen werden.</p>
         <pre><samp class="language-javascript">let sBox0 = [["01","11","00","11"],["00","10","10","01"],["11","01","01","11"],
 ["10","00","11","10"]]
 let sBox1 = [["00","10","11","10"],["01","00","00","01"],["10","01","01","00"],
-["11","11","00","11"]]
-    </samp></pre>
+["11","11","00","11"]]</samp></pre>
         <p>Daneben gibt es zwei eindimensionale Arrays. In <i>bitsAfterSBox</i> werden die einzelnen errechneten Bits
             pro Durchgang temporär gespeichert.
             Dann werden sie mit <i>concat</i> zusammengefügt, im zweiten Array, <i>bitcodeAfterSBox</i>, gespeichert und
@@ -237,8 +252,7 @@ let sBox1 = [["00","10","11","10"],["01","00","00","01"],["10","01","01","00"],
         <pre><samp class="language-javascript">let bitsAfterSBox = []
 let bitcodeAfterSBox = []
 bitcodeAfterSBox[i] = bitsAfterSBox[0].concat(bitsAfterSBox[1])
-return bitcodeAfterSBox
-    </samp></pre>
+return bitcodeAfterSBox</samp></pre>
         <p>Die einzelnen Bits aus einem zweidimensionalen <i>Input</i>-Array (Array, das beim Aufrufen der Funktion
             eingeben wird) werden innerhalb einer <i>for</i>-Schleife mit einer <i>if</i>/<i>else</i> if-Struktur
             systematisch mit den S-Boxen abgeglichen und so werden die &laquo;neuen&raquo; vier Bits errechnet.</p>
@@ -249,19 +263,73 @@ for (let i = 0; i < Input.length; i++) {
         bitsAfterSBox[0] = sBox0[0][0]
     } else if (Input[i][0].toString().concat(Input[i][3].toString()) === "01" && Input[i][1].toString().concat(Input[i][2].toString()) === "00") {
         bitsAfterSBox[0] = sBox0[0][1]
-} …
+    } …
 
-if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
+    if (Input[i][4].toString().concat(Input[i][7].toString()) === "00" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
     bitsAfterSBox[1] = sBox1[0][0]
-} else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
+    } else if (Input[i][4].toString().concat(Input[i][7].toString()) === "01" && Input[i][5].toString().concat(Input[i][6].toString()) === "00") {
     bitsAfterSBox[1] = sBox1[0][1]
-} …
-}
-…
-
-    </samp></pre>
-        <h3 id="beginCSSExplanation">CSS</h3>
-
+    } …
+    }
+    …</samp></pre>
+        <h2 id="beginCSSExplanation">CSS</h2>
+        <p>Die Website würde ganz anders aussehen ohne CSS. Denn HTML liefert das Grundgerüst und JavaScript die
+            Funktionalität. Erst durch CSS wird das Erscheinungsbild der Website ansehnlich gestaltet. In diesem Kapitel
+            geht es darum einen Einblick in die Gestaltung mit CSS zu geben und aufzuzeigen, was der Code auslöst. Zur
+            Professionalisierung der Gestaltung ohne unverhältnismässigen Zeit-aufwand wurde die Bibliothek von <a
+                    href="https://getbootstrap.com/" target="_blank" class="link-dark">Bootstrap</a> hinzugezogen.</p>
+        <h3>Syntax</h3>
+        <pre><code class="language-css">h1 {
+    font-family: "Broadway", sans-serif;
+    font-size: xxx-large;
+    color: darkblue;
+}</code></pre>
+        <p>HTML-Elemente (z.B. h1, das für den grössten Titel steht) können in CSS allge-mein aufgerufen werden, um
+            ihnen Attribute, wie die Farbe (color) oder die Schriftgrösse (font-size) und die Schriftart (font-family)
+            zuzuweisen. Diese Attribu-te werden dann im gesamten Dokument für alle h1-Elemente übernommen. </p>
+        <p>Eine spezifische Gruppe von Elementen, dies können auch verschiedene HTML-Elemente (z.B. p und br) sein, kann
+            durch eine Klasse (class) ausgewählt werden. In HTML sieht das wie folgt aus:</p>
+        <pre><code class="language-html">&lt;br class="example"&gt;
+&lt;p class="example">Hello World!&lt;/p></code></pre>
+        <p>In CSS werden die Klassen aufgerufen, indem ein Punkt vor den Namen gesetzt wird:</p>
+        <pre><code class="language-css">.example {
+    display: none;
+}</code></pre>
+        <p>Das Attribut display: none; führt dazu, dass der Absatz (br) und «Hello World!» ausgeblendet werden.</p>
+        <h3>Vorher-Nachher</h3>
+        <p>Die folgenden Ausschnitte aus der Website sollen illustrieren, wie gross die Auswirkungen auf das Aussehen der Website sind bei einer Anwendung von CSS. </p>
+        <figure class="figure">
+            <img src="data/nav_without.png" class="figure-img" alt="navwithout">
+            <figcaption class="figure-caption">Navigationsleiste ohne CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/Kopfzeile.png" class="figure-img" alt="navwith">
+            <figcaption class="figure-caption">Navigationsleiste mit CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/footer_without.png" class="figure-img" alt="footerwithout">
+            <figcaption class="figure-caption">Fusszeile ohne CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/Fusszeile.png" class="figure-img" alt="footerwith">
+            <figcaption class="figure-caption">Fusszeile mit CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/content_wihtout.png" class="figure-img" alt="navwithout">
+            <figcaption class="figure-caption">Ausschnitt aus dem Inhaltsbereich der Homepage ohne CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/content_with.png" class="figure-img" alt="navwithout">
+            <figcaption class="figure-caption">Ausschnitt aus dem Inhaltsbereich der Homepage mit CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/carousel_without.png" class="figure-img" alt="navwithout">
+            <figcaption class="figure-caption">Karussell der Homepage ohne CSS</figcaption>
+        </figure>
+        <figure class="figure">
+            <img src="data/carousel_with.png" class="figure-img" alt="navwithout">
+            <figcaption class="figure-caption">Karussell der Homepage mit CSS</figcaption>
+        </figure>
     </div>
     <div class="container">
         <hr class="featurette-divider last-divider">

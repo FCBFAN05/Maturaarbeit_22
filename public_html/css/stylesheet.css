@@ -38,7 +38,8 @@ body {
 }
 
 p {
-    font-family: "Droid Sans Mono Dotted", serif;
+    font-family: "Droid Sans Mono Dotted", sans-serif;
+    font-size: 1.1rem;
     font-optical-sizing: auto;
 }
 
@@ -52,19 +53,19 @@ h1 {
 
 h2 {
     text-align: center;
-    font-family: "Britannic Bold", sans-serif;
+    font-family: "Arial Rounded MT Bold", serif;
     font-size: xx-large;
     font-optical-sizing: auto;
 }
 
 h3 {
-    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-family: "Arial Rounded MT Bold", serif;
     font-size: x-large;
     font-optical-sizing: auto;
 }
 
 h4, h5, h6 {
-    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-family: "Arial Rounded MT Bold", serif;
     font-size: inherit;
     font-optical-sizing: auto;
 }
@@ -523,4 +524,41 @@ samp {
 
 .evolution_div {
     margin-top: 1rem;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    display: inline-block;
+    text-align: left;
+}
+
+.box {
+    width: 50vw;
+    height: 90vh;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box h1 {
+    margin: 0;
+}
+
+.content {
+    overflow-y: auto;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+}
+
+.content.is-top-overflowing {
+    --top-mask-size: 48px;
+}
+
+.content.is-bottom-overflowing {
+    --bottom-mask-size: 48px;
 }
