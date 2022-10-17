@@ -56,18 +56,24 @@ h2 {
     font-family: "Arial Rounded MT Bold", serif;
     font-size: xx-large;
     font-optical-sizing: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 h3 {
     font-family: "Arial Rounded MT Bold", serif;
     font-size: x-large;
     font-optical-sizing: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 h4, h5, h6 {
     font-family: "Arial Rounded MT Bold", serif;
     font-size: inherit;
     font-optical-sizing: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .ghost {
@@ -535,30 +541,48 @@ figcaption {
     text-align: left;
 }
 
-.box {
-    width: 50vw;
-    height: 90vh;
-    background-color: #fff;
-    border-radius: 16px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
+.biggermargin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.box h1 {
-    margin: 0;
+.bigmargin-top {
+    margin-top: 5rem;
 }
 
-.content {
-    overflow-y: auto;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+.biggermargin-bottom {
+    margin-bottom: 2rem;
 }
 
-.content.is-top-overflowing {
-    --top-mask-size: 48px;
+.biggermargin-top {
+    margin-top: 3rem;
 }
 
-.content.is-bottom-overflowing {
-    --bottom-mask-size: 48px;
+input, select, textarea, button {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+textarea.normal{
+    width: 20rem;
+    height: 5rem;
+}
+
+textarea {
+    background-color: #f3f3f5;
+    width: 60rem;
+    height: 20rem;
+    overflow-y: scroll;
+}
+
+textarea::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: auto;
+    height: auto;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 1rem solid gray;
+    background-color: rgba(0, 0, 0, .5);
 }
