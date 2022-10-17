@@ -46,9 +46,11 @@
 <main>
     <div class="container" id="infos-header_division">
         <h2>Allgemeines</h2>
-        <p class="biggermargin-bottom">Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich Informatik erstellt worden.
+        <p class="biggermargin-bottom">Diese Website ist im Rahmen der Maturaarbeit von Melvin Trösch im Fachbereich
+            Informatik erstellt worden.
             Es handelt sich um ein Open-Source-Projekt. Der gesamte Code ist auf GitHub unter dem folgenden Link
-            öffentlich zugänglich: <a class="link-secondary" href="https://github.com/FCBFAN05/Maturaarbeit_22.git" target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
+            öffentlich zugänglich: <a class="link-secondary" href="https://github.com/FCBFAN05/Maturaarbeit_22.git"
+                                      target="_blank">https://github.com/FCBFAN05/Maturaarbeit_22.git</a>
             Die Website soll eine Plattform bieten für die Veranschaulichung einer selbst entwickelten
             Verschlüsselungstechnik (Trösch's Verschlüsselungstechnik).
             Parallel dazu wird der Chiffrierungsprozess von Simple-DES veranschaulicht. Denn Simple-DES lieferte die
@@ -70,7 +72,8 @@
         <h2 id="beginHTMLExplanation">Erklärung des Aufbaus und des Codes dieser Website</h2>
         <h3>Homepage</h3>
         <img src="data/Homepage.png" alt="Homepage" class="biggermargin-bottom">
-        <p><br>Falls man die Website unter <a class="link-primary" href="https://wwww.melvintroesch.ch" target="_blank">melvintroesch.ch</a> aufruft gelangt man
+        <p><br>Falls man die Website unter <a class="link-primary" href="https://wwww.melvintroesch.ch" target="_blank">melvintroesch.ch</a>
+            aufruft gelangt man
             auf die <a class="link-secondary" href="index.html">Homepage</a>.
             Dort werden der Sinn und Zweck der Website erklärt und die verschiedenen Möglichkeiten erläutert. Die
             Menüleiste zeigt an, dass es noch weitere Unterseiten gibt.
@@ -90,7 +93,8 @@
         <img src="data/Kopfzeile.png" alt="Kopfzeile" class="biggermargin-bottom">
         <p>Die <a href="infos.html#header_infos">Kopfzeile</a>, in HTML angezeigt durch den header-Tag, ist bei allen
             Unterseiten analog aufgebaut.
-            Er beinhaltet einen Titellink (href), der immer zur <a class="link-secondary" href="index.html">Startseite</a> (index.html)
+            Er beinhaltet einen Titellink (href), der immer zur <a class="link-secondary"
+                                                                   href="index.html">Startseite</a> (index.html)
             zurückführt und die Navigationsleiste, womit die verschiedenen Webseiten miteinander verbunden sind.
             Die Menüleiste, angezeigt durch den nav-Tag, besteht aus einer ungeordneten Liste (ul) bestehend aus Links
             (href). Der folgende Codeabschnitt stammt aus der Datei index.html, also der Homepage.
@@ -110,8 +114,9 @@
 &lt;/header&gt;</code></pre>
         <h4>Inhaltsbereich</h4>
         <figure class="figure">
-        <img class="figure-img" src="data/Inhalt.png" alt="Inhalt">
-            <figcaption class="figure-caption">Screenshot mit Ausschnitt aus dem Inhaltsbereich der Homepage</figcaption>
+            <img class="figure-img" src="data/Inhalt.png" alt="Inhalt">
+            <figcaption class="figure-caption">Screenshot mit Ausschnitt aus dem Inhaltsbereich der Homepage
+            </figcaption>
         </figure>
         <p>Der Inhaltsbereich, indem Sie sich gerade befinden, wird in HTML durch den main-Tag angezeigt. Dieser Bereich
             ist auf jeder Unterseite individuell gestaltet, der
@@ -240,7 +245,8 @@ break</samp></pre>
             Simple-DES erklärt.</p>
         <p>Die beiden S-Boxen des Simple-DES sind in einem zweidimensionalen Array gespeichert (<i>sBox0</i> und <i>sBox1</i>).
             Das Prinzip der S-Boxen auf theoretischer Ebene kann unter <a
-                    href="grundlagen.html#S-BoxenExplanation_header" target="_blank" class="link-info">Grundlagen und Begriffe</a> nachgelesen werden.</p>
+                    href="grundlagen.html#S-BoxenExplanation_header" target="_blank" class="link-info">Grundlagen und
+                Begriffe</a> nachgelesen werden.</p>
         <pre><samp class="language-javascript">let sBox0 = [["01","11","00","11"],["00","10","10","01"],["11","01","01","11"],
 ["10","00","11","10"]]
 let sBox1 = [["00","10","11","10"],["01","00","00","01"],["10","01","01","00"],
@@ -297,7 +303,8 @@ for (let i = 0; i < Input.length; i++) {
 }</code></pre>
         <p>Das Attribut display: none; führt dazu, dass der Absatz (br) und «Hello World!» ausgeblendet werden.</p>
         <h3>Vorher-Nachher</h3>
-        <p>Die folgenden Ausschnitte aus der Website sollen illustrieren, wie gross die Auswirkungen auf das Aussehen der Website sind bei einer Anwendung von CSS. </p>
+        <p>Die folgenden Ausschnitte aus der Website sollen illustrieren, wie gross die Auswirkungen auf das Aussehen
+            der Website sind bei einer Anwendung von CSS. </p>
         <figure class="biggermargin figure">
             <img src="data/nav_without.png" class="figure-img" alt="navwithout">
             <figcaption class="figure-caption">Navigationsleiste ohne CSS</figcaption>
@@ -330,6 +337,41 @@ for (let i = 0; i < Input.length; i++) {
             <img src="data/carousel_with.png" class="figure-img" alt="navwithout">
             <figcaption class="figure-caption">Karussell der Homepage mit CSS</figcaption>
         </figure>
+        <br>
+        <h2 class="align-content-sm-start">Quellen/ Literatur</h2>
+        <h3>Infos zur Website</h3>
+        <ul>
+            <li>Server- und clientseitig: PHP-Programmierung: <a
+                    href="https://www.edv-lehrgang.de/serverseitige-clientseitige-programmierung/"
+                    target="_blank" class="link-dark">edv-lehrgang.de</a></li>
+        </ul>
+        <h3>Bilder Startseite</h3>
+        <ul>
+            <li>Verschlüsselung: <a
+                    href="https://spirit21.com/verschluesselung"
+                    target="_blank" class="link-dark">spirit21.com</a></li>
+            <li>Infos zur Website: <a
+                    href="https://www.en.sitew.com/Block/widget-block-html-code"
+                    target="_blank" class="link-dark">SiteW.com</a></li>
+            <li>Über Mich: <a
+                    href="https://bikerevier.ch/wp-content/uploads/2022/04/enduro-mountainbike-1.jpg"
+                    target="_blank" class="link-dark">bikerevier.ch</a></li>
+            <li>Grundlagen und Begriffe: Die Einführung: <a
+                    href="https://info.thermomix.com.au/images/basics.png"
+                    target="_blank" class="link-dark">thermomix.com.au</a></li>
+        </ul>
+        <h3>Bilder Über Mich</h3>
+        <ul>
+            <li>Uhr: <a
+                    href="https://www.pngall.com/time-png"
+                    target="_blank" class="link-dark">PNGAll.com</a></li>
+            <li>FCB-Logo: <a
+                    href="https://www.fcb.ch/aktuell/news/1-mannschaft/2021/06/die-eckdaten-der-vorbereitung"
+                    target="_blank" class="link-dark">fcb.ch</a></li>
+            <li>Laptop mit Schloss: <a
+                    href="https://creative-medienagentur.de/"
+                    target="_blank" class="link-dark">creative-medienagentur.de</a></li>
+        </ul>
     </div>
     <div class="container">
         <hr class="featurette-divider last-divider">

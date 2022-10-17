@@ -1,9 +1,16 @@
 /* Stylesheet für Webseite */
 input[type='button'] {
-    background-color: #c2eafc;
-    border-radius: 7px;
-    box-shadow: 3px 3px 5px #555555;
-    margin: 0 1% 0 0;
+    background-color: #A5C261;
+    border-radius: 0.46rem;
+    box-shadow: 0.2rem 0.2rem 0.3rem #555555;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-left: 1.1rem;
+    padding: 1.3rem 1.3rem;
+}
+
+input[type='button']:hover {
+    background-color: #657e2a;
 }
 
 /* ul.navigationbar {
@@ -558,7 +565,7 @@ figcaption {
     margin-top: 3rem;
 }
 
-input, select, textarea, button {
+input, select, textarea, button, li {
     font-size: inherit;
     font-family: inherit;
 }
@@ -570,10 +577,16 @@ textarea.normal{
 
 textarea {
     background-color: #f3f3f5;
-    width: 60rem;
-    height: 20rem;
     overflow-y: scroll;
+    width: 100%;
+    height: 15rem;
+    font-weight: lighter;
+    border-radius: 0.3rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.5rem;
 }
+
+
 
 textarea::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -586,3 +599,12 @@ textarea::-webkit-scrollbar-thumb {
     border: 1rem solid gray;
     background-color: rgba(0, 0, 0, .5);
 }
+
+label {
+    display: block;
+    color: darkslategray;
+    font-style: oblique;
+    font-size: 1.1em;
+    font-family: inherit;
+}
+
