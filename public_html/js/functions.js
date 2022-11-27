@@ -327,7 +327,7 @@ function SDES(Funktion) {
                 document.getElementById("chiffrentext_S-DES_textarea").value += String.fromCharCode(parseInt(encryptedBitcode[j], 2))
             }
             break
-        case 10:
+        case 10: // Entschlüsselung
             document.getElementById("bitcodeDechiffriert_S-DES_textarea").value = ""
             encryptedBitcode = SDES(8)
             bitcodeAfterInitialPermutation = permute(encryptedBitcode, "IP_S-DES")
@@ -356,7 +356,7 @@ function SDES(Funktion) {
             }
             console.log(decryptedBitcode)
             return decryptedBitcode
-        case 11:
+        case 11: // Ausgabe entschlüsselte Zeichen
             document.getElementById("textDechiffriert_S-DES_textarea").value = ""
             decryptedBitcode = SDES(10)
             for (let j = 0; j < textInput.length; j++) {
@@ -484,6 +484,7 @@ function troesch(Funktion) {
     let bitcodeAfterInitialPermutation = []
     let XORBits = []
     let XORBits2 = []
+    let XORBits3 = []
     let bitcodeAfterSBox = []
     let encryptedBitcode = []
     let firstDefiniteKeyBitcode = []
@@ -513,7 +514,7 @@ function troesch(Funktion) {
             document.getElementById("initialpermutation_troesch_verschluesselungstechnik_textarea").value = ""
             document.getElementById("L-Half_troesch_verschluesselungstechnik_textarea").value = ""
             document.getElementById("R-Half_troesch_verschluesselungstechnik_textarea").value = ""
-            bitcodeAfterInitialPermutation = permute(bitcodeInputText, "IP_S-DES")
+            bitcodeAfterInitialPermutation = permute(bitcodeInputText, "IP_troesch")
             for (let j = 0; j < textInput.length; j++) {
                 document.getElementById("initialpermutation_troesch_verschluesselungstechnik_textarea").value += (bitcodeAfterInitialPermutation[j] + " ")
                 document.getElementById("L-Half_troesch_verschluesselungstechnik_textarea").value += (bitcodeAfterInitialPermutation[j].substring(0, 4) + " ")
@@ -544,6 +545,7 @@ function troesch(Funktion) {
             }
             return XORBits
         case 5: // 8-bit-Permutation
+            document.getElementById("permutation8bit_troesch_verschluesselungstechnik_textarea").value = ""
             XORBits = troesch(4)
             for (let j = 0; j < textInput.length; j++) {
                 bitcodeAfter8bit[j] = XORBits[j][1].concat(XORBits[j][6]).concat(XORBits[j][4]).concat(XORBits[j][2]).concat(XORBits[j][7]).concat(XORBits[j][0]).concat(XORBits[j][5]).concat(XORBits[j][3])
@@ -585,18 +587,18 @@ function troesch(Funktion) {
             for (let j = 0; j < textInput.length; j++) {
                 // Expansion 2. Durchgang (nur expandedBitcode)
                 expandedBitcode[j] = XORBits[j][3].toString().concat(XORBits[j][0].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][1].toString()).concat(XORBits[j][2].toString()).concat(XORBits[j][3].toString()).concat(XORBits[j][0].toString())
-                secondDefiniteKeyBitcode[j] = keyTroesch(4)
-                bitcodeRightHalf[j] = bitcodeAfterInitialPermutation[j].toString().substring(4, 8)
+                secondDefiniteKeyBitcode[j] = keyTroesch(5)
+                bitcodeLeftHalf[j] = bitcodeAfterInitialPermutation[j].toString().substring(4, 8)
             }
-            XORBits = XOR(expandedBitcode, secondDefiniteKeyBitcode) // XOR-Verrechnung mit Schlüssel
+            XORBits2 = XOR(expandedBitcode, secondDefiniteKeyBitcode) // XOR-Verrechnung mit Schlüssel
             for (let j = 0; j < textInput.length; j++) {
-                bitcodeAfter8bit[j] = XORBits[j][1].concat(XORBits[j][6]).concat(XORBits[j][4]).concat(XORBits[j][2]).concat(XORBits[j][7]).concat(XORBits[j][0]).concat(XORBits[j][5]).concat(XORBits[j][3])
+                bitcodeAfter8bit[j] = XORBits2[j][1].concat(XORBits2[j][6]).concat(XORBits2[j][4]).concat(XORBits2[j][2]).concat(XORBits2[j][7]).concat(XORBits2[j][0]).concat(XORBits2[j][5]).concat(XORBits2[j][3])
             }
             bitcodeAfterSBox = sBoxTroesch(bitcodeAfter8bit) // S-Box-Verrechnung
             bitcodeAfterSecondTurn = permute(bitcodeAfterSBox, "P4_troesch")
-            XORBits2 = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
+            XORBits3 = XOR(bitcodeAfterSecondTurn, bitcodeLeftHalf) // XOR-Verrechnung mit R-Half-S-DES
             for (let m = 0; m < textInput.length; m++) { // Inverse Initiale Permutation
-                encryptedBitcode[m] = XORBits2[m][2].concat(XORBits[m][2]).concat(XORBits[m][0]).concat(XORBits2[m][0]).concat(XORBits[m][3]).concat(XORBits2[m][3]).concat(XORBits[m][1]).concat(XORBits2[m][1])
+                encryptedBitcode[m] = XORBits[m][2].concat(XORBits3[m][2]).concat(XORBits3[m][0]).concat(XORBits[m][0]).concat(XORBits3[m][3]).concat(XORBits[m][3]).concat(XORBits3[m][1]).concat(XORBits[m][1])
                 document.getElementById("inverseinitialpermutation_troesch_verschluesselungstechnik_textarea").value += (encryptedBitcode[m] + " ")
             }
             return encryptedBitcode
@@ -607,7 +609,7 @@ function troesch(Funktion) {
                 document.getElementById("chiffrentext_troesch_verschluesselungstechnik_textarea").value += String.fromCharCode(parseInt(encryptedBitcode[j], 2))
             }
             break
-        case 11:
+        case 11: // Entschlüsselung
             document.getElementById("bitcodeDechiffriert_troesch_verschluesselungstechnik_textarea").value = ""
             encryptedBitcode = troesch(9);
             bitcodeAfterInitialPermutation = permute(encryptedBitcode, "IP_troesch");
@@ -623,13 +625,12 @@ function troesch(Funktion) {
             bitcodeAfterSBox = sBoxTroesch(bitcodeAfter8bit);
             bitcodeAfterFirstTurn = permute(bitcodeAfterSBox, "P4_troesch");
             for (let j = 0; j < textInput.length; j++) {
-                bitcodeLeftHalf[j] = encryptedBitcode[j].toString().substring(0, 4);
+                bitcodeLeftHalf[j] = bitcodeAfterInitialPermutation[j].substring(0, 4);
             }
             XORBits = XOR(bitcodeAfterFirstTurn, bitcodeLeftHalf)
             for (let k = 0; k < textInput.length; k++) {
                 expandedBitcode[k] = XORBits[k][3].toString().concat(XORBits[k][0].toString()).concat(XORBits[k][1].toString()).concat(XORBits[k][2].toString()).concat(XORBits[k][1].toString()).concat(XORBits[k][2].toString()).concat(XORBits[k][3].toString()).concat(XORBits[k][0].toString())
-                bitcodeRightHalf[k] = bitcodeAfterInitialPermutation[k].toString().substring(4, 8)
-                firstDefiniteKeyBitcode[k] = keySDES(3)
+                firstDefiniteKeyBitcode[k] = keyTroesch(4)
             }
             XORBits2 = XOR(expandedBitcode, firstDefiniteKeyBitcode)
             for (let j = 0; j < textInput.length; j++) {
@@ -637,15 +638,15 @@ function troesch(Funktion) {
             }
             bitcodeAfterSBox = sBoxTroesch(bitcodeAfter8bit) // S-Box-Verrechnung und XOR-Verrechnung mit Schlüssel
             bitcodeAfterSecondTurn = permute(bitcodeAfterSBox, "P4_troesch")
-            let XORBits3 = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
+            XORBits3 = XOR(bitcodeAfterSecondTurn, bitcodeRightHalf) // XOR-Verrechnung mit R-Half-S-DES
             for (let m = 0; m < textInput.length; m++) { // Inverse Initiale Permutation
-                decryptedBitcode[m] = XORBits3[m][2].concat(XORBits[m][2]).concat(XORBits[m][0]).concat(XORBits3[m][0]).concat(XORBits[m][3]).concat(XORBits3[m][3]).concat(XORBits[m][1]).concat(XORBits3[m][1])
+                decryptedBitcode[m] = XORBits[m][2].concat(XORBits3[m][2]).concat(XORBits3[m][0]).concat(XORBits[m][0]).concat(XORBits3[m][3]).concat(XORBits[m][3]).concat(XORBits3[m][1]).concat(XORBits[m][1])
                 document.getElementById("bitcodeDechiffriert_troesch_verschluesselungstechnik_textarea").value += (decryptedBitcode[m] + " ")
             }
             return decryptedBitcode
-        case 12:
+        case 12: // Ausgabe entschlüsselter Buchstabe
             document.getElementById("textDechiffriert_troesch_verschluesselungstechnik_textarea").value = ""
-            decryptedBitcode = SDES(10)
+            decryptedBitcode = troesch(11)
             for (let j = 0; j < textInput.length; j++) {
                 document.getElementById("textDechiffriert_troesch_verschluesselungstechnik_textarea").value += String.fromCharCode(parseInt(decryptedBitcode[j], 2))
             }
@@ -683,8 +684,7 @@ function keyTroesch(Funktion) { // Schlüsselerzeugung
         case 5: // Ausgabe Zweiter Schlüssel (Bits nach der 12-Bit-Permutation schriftlich rotiert und invers expandiert(s.unten) und danach die 8-Bit-Permutation durchgeführt
             // Nach der Rotation: 0,8,1,3,2,6, 11,5,10,7,9,4
             // Nach inverser Expansion: 8,1,3,2, 5,10,7,9
-            console.log(keyBits[9].concat(keyBits[2]).concat(keyBits[1]).concat(keyBits[5]).concat(keyBits[10]).concat(keyBits[8]).concat(keyBits[10]).concat(keyBits[3]))
-            return keyBits[9].concat(keyBits[2]).concat(keyBits[1]).concat(keyBits[5]).concat(keyBits[10]).concat(keyBits[8]).concat(keyBits[10]).concat(keyBits[3])
+            return keyBits[9].concat(keyBits[2]).concat(keyBits[1]).concat(keyBits[5]).concat(keyBits[7]).concat(keyBits[8]).concat(keyBits[10]).concat(keyBits[3])
     }
 }
 
@@ -781,7 +781,7 @@ function runAllKeySDES() {
 }
 
 function runAllTroesch() {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 13; i++) {
         troesch(i)
     }
 }
