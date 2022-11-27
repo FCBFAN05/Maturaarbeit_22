@@ -38,7 +38,7 @@
     </header>
 </div>
 <main>
-    <div id="verschlüsselung_division">
+    <div id="verschlüsselung_division"> <!-- Verschlüsselung erklärt -->
         <div class="container">
             <h1>Verschlüsselung</h1>
             <p>Auf dieser Webpage können <a href="#Simple-DES_division">Simple-DES</a> und <a
@@ -70,17 +70,13 @@
                 sichergestellt werden, dass die Daten auch wirklich vom vermeintlichen Absender stammen.</p>
         </div>
         <div id="Simple-DES_division">
-            <!--<div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white position-sticky"
-                 style="width: 278px;">
-                <img class="background-scroll" alt="Schema S-DES" src="data/Schema_SDES.png">
-            </div>-->
-            <div class="container">
+            <div class="container"> <!-- Simple-DES -->
                 <h2>Simple-DES</h2>
                 <img id="schema S-DES_image" src="data/Schema_SDES.png" alt="Schema Simple-DES">
-                <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
+                <!-- Verbesserungsmöglichkeit: rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
                 <p>Schema Simple-DES</p>
                 <div id="K1_S-DES_division">
-                    <h3>Schlüsselerzeugung</h3>
+                    <h3>Schlüsselerzeugung</h3> <!-- Schlüsselerzeugung Simple-DES -->
                     <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung_SDES.png"
                          alt="Schema Schlüsselerzeugung">
                     <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
@@ -94,7 +90,7 @@
                     <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" class="form-check-input"
                            onchange="checkBoxHideText('hideSteps_key_SDES_input','#steps_key_SDES_division','.hideButtonForKeySDES')">
                     <br>
-                    <div id="steps_key_SDES_division" class="ghost">
+                    <div id="steps_key_SDES_division" class="ghost"> <!-- Einzelne Schritte Schlüsselerzeugung Simple-DES -->
                         <input id="runAllKeySDES" type="button" value="Alles ausführen lassen" class=""
                                onclick="runAllKeySDES()">
                         <h4>Permutation</h4>
@@ -132,7 +128,7 @@
                     <textarea id="permutation8bit_S-DES_key_textarea" class="normal"></textarea>
                     <p>Dies ist nun der erste Schlüssel.</p>
                 </div>
-                <h3>Verschlüsselung</h3>
+                <h3>Verschlüsselung</h3> <!-- Simple-DES erklärt -->
                 <h4>Klartext</h4>
                 <label for="klartext_S-DES_textarea">Eingabe:</label>
                 <br>
@@ -142,19 +138,17 @@
                 <h4>Umwandlung in Bits</h4>
                 <input type="button" value="Umwandeln" onclick="SDES(1)">
                 <p>Pro eingegebenem ASCII druckbaren Zeichen werden im Textfeld 8 Bits ausgegeben.</p>
-                <!-- Mehrere Buchstaben → Aufreihung von 8 Bits → for-Loop -->
                 <p>Wie die Umwandlung von Text in Binärzahlen (Bits) funktioniert und was ASCII druckbare Zeichen sind,
                     kann unter <a href="grundlagen.html#definition ASCII_header" target="_blank" class="link-info">Grundlagen
                         und
                         Begriffe</a> nachgelesen werden.</p>
-                <!-- Schön darstellen und Scroll-Balken immer anzeigen -->
                 <label for="bits_S-DES_textarea"></label><textarea id="bits_S-DES_textarea"></textarea>
                 <br>
                 <label for="hideSteps_SDES_input" class="form-check-label form-check-inline">Schritte
                     einblenden:</label>
                 <input id="hideSteps_SDES_input" type="checkbox" value="hide" class="form-check-input"
                        onchange="checkBoxHideText('hideSteps_SDES_input','#steps_SDES_division')">
-                <div id="steps_SDES_division" class="ghost">
+                <div id="steps_SDES_division" class="ghost"> <!-- Einzelne Schritte Simple-DES -->
                     <h4>Initiale Permutation</h4>
                     <input type="button" value="Permutieren" onclick="SDES(2)">
                     <p>Eine Begriffserklärung der Permutation kann unter <a class="link-info"
@@ -289,14 +283,14 @@
                 </div>
             </div>
         </div>
-        <div id="troesch_verschluesselungstechnik_division">
+        <div id="troesch_verschluesselungstechnik_division"> <!-- Trösch's Verschlüsselungstechnik -->
             <div class="container">
                 <h2>Trösch's Verschlüsselungstechnik</h2>
                 <img id="schema_troesch_verschluesselungstechnik_image"
                      src="data/schema_troesch_verschluesselungstechnik.png"
                      alt="Schema Trösch's Verschlüsselungstechnik">
-                <!-- rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
-                <div id="K1_troesch_verschluesselungstechnik_division">
+                <!-- Erweiterungsmöglichkeit: rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
+                <div id="K1_troesch_verschluesselungstechnik_division"> <!-- Schlüsselerzeugung -->
                     <h3>Schlüsselerzeugung</h3>
                     <img id="schema_schluesselerzeugung_troesch_verschluesselungstechnik_image"
                          src="data/schema_schlüsselerzeugung_troesch_verschluesselungstechnik.png"
@@ -355,7 +349,7 @@
                         <p>Die entstandenen 8 Bits werden nun an folgende Positionen gebracht:</p>
                         <p>8,4,2,5,7,1,6,3</p>
                     </div>
-                    <input id="makeKey_button_troesch_verschluesselungstechnik" class="hideButtonForKeyTroesch"
+                    <input id="makeKey_button_troesch_verschluesselungstechnik" class="hideButtonForKeyTroeschVerschluesselungstechnik"
                            type="button" value="Schlüssel erstellen" onclick="runAllKeyTroesch()">
                     <br class="hideButtonForKeyTroeschVerschluesselungstechnik">
                     <label for="permutation8bit_troesch_verschluesselungstechnik_key_textarea" class="normal"><b>Ausgabe
@@ -366,7 +360,7 @@
                               class="normal"></textarea>
                     <p>Dies ist nun der erste Schlüssel.</p>
                 </div>
-                <h3>Verschlüsselung</h3>
+                <h3>Verschlüsselung</h3> <!-- Trösch's Verschlüsselungstechnik erklärt -->
                 <h4>Klartext</h4>
                 <label for="klartext_troesch_verschluesselungstechnik_textarea">Eingabe:</label>
                 <br>
@@ -389,7 +383,7 @@
                 <input id="hideSteps_troesch_verschluesselungstechnik_input" type="checkbox" value="hide"
                        class="form-check-input"
                        onchange="checkBoxHideText('hideSteps_troesch_verschluesselungstechnik_input','#steps_troesch_verschluesselungstechnik_division')">
-                <div id="steps_troesch_verschluesselungstechnik_division" class="ghost">
+                <div id="steps_troesch_verschluesselungstechnik_division" class="ghost"> <!-- Einzelne Schritte Trösch's Verschlüsselungstechnik -->
                     <h4>Initiale Permutation</h4>
                     <input type="button" value="Permutieren" onclick="troesch(2)">
                     <p>Eine Begriffserklärung der Permutation kann unter <a class="link-info"

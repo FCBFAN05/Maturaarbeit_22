@@ -768,31 +768,31 @@ function sBoxTroesch(Input) { // Verrechnung mit den beiden S-Boxen des Simple-D
     return bitcodeAfterSBox
 }
 
-function runAllSDES() {
+function runAllSDES() { // Alle Schritte der Simple-DES-Verschlüsselung ausführen
     for (let i = 0; i < 12; i++) {
         SDES(i)
     }
 }
 
-function runAllKeySDES() {
+function runAllKeySDES() { // Alle Schritte der Schlüsselerzeung für Simple-DES ausführen
     for (let i = 0; i < 5; i++) {
         keySDES(i)
     }
 }
 
-function runAllTroesch() {
+function runAllTroesch() { // Alle Schritte von Trösch's Verschlüsselungstechnik ausführen
     for (let i = 0; i < 13; i++) {
         troesch(i)
     }
 }
 
-function runAllKeyTroesch() {
+function runAllKeyTroesch() { // Alle Schritte der Schlüsselerzeung für Trösch's Verschlüsselungstechnik ausführen
     for (let i = 0; i < 5; i++) {
         keyTroesch(i)
     }
 }
 
-function checkBoxHideText(input, division, button) {
+function checkBoxHideText(input, division, button) { // Text per Checkbox ein- und ausblenden lassen
     if (document.getElementById(input).checked) {
         $(division).css("display", "contents")
         $(button).css("display", "none")
@@ -802,12 +802,4 @@ function checkBoxHideText(input, division, button) {
     }
 }
 
-
-/* function run(checkbox[true]) {
-
-} // Mit Checkboxes anwählen was angezeigt/ ausgeführt wird und was nicht
-
-
- */
-
-// Mails verschicken für Kommunikation miteinander
+// Erweiterungsidee: Mails verschicken für Kommunikation miteinander
