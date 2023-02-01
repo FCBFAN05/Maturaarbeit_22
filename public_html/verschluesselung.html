@@ -50,7 +50,8 @@
                 Dieses kann auf der Webpage <a class="link-info" href="grundlagen.html">Grundlagen und Begriffe</a>
                 erworben werden.</p>
             <figure class="figure biggermargin-top">
-                <img src="data/encrypted-data.jpg" alt="verschlüsseln" class="figure-img">
+                <img src="data/encrypted-data.jpg" alt="verschlüsseln"
+                     class="figure-img img-fluid rounded mx-auto d-block">
                 <figcaption class="figure-caption">Bildquelle: &copy; Tutanota &boxv; tutanota.com</figcaption>
             </figure>
             <h2>Was ist Verschlüsselung überhaupt?</h2>
@@ -72,13 +73,13 @@
         <div id="Simple-DES_division">
             <div class="container"> <!-- Simple-DES -->
                 <h2>Simple-DES</h2>
-                <img id="schema S-DES_image" src="data/Schema_SDES.png" alt="Schema Simple-DES">
                 <!-- Verbesserungsmöglichkeit: rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
-                <p>Schema Simple-DES</p>
+                <img id="schema S-DES_image" src="data/Schema_SDES.png" alt="Schema Simple-DES"
+                     class="figure-img img-fluid rounded mx-auto d-block">
                 <div id="K1_S-DES_division">
                     <h3>Schlüsselerzeugung</h3> <!-- Schlüsselerzeugung Simple-DES -->
                     <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung_SDES.png"
-                         alt="Schema Schlüsselerzeugung">
+                         alt="Schema Schlüsselerzeugung" class="img-fluid">
                     <p>Eingabe von selbstgewählten 10 Bits ohne Abstand</p>
                     <p>Bsp. 0110011011</p>
                     <label for="main key_S-DES_textarea_input"><b>Eingabe Hauptschlüssel:</b></label>
@@ -90,7 +91,8 @@
                     <input id="hideSteps_key_SDES_input" type="checkbox" value="hide" class="form-check-input"
                            onchange="checkBoxHideText('hideSteps_key_SDES_input','#steps_key_SDES_division','.hideButtonForKeySDES')">
                     <br>
-                    <div id="steps_key_SDES_division" class="ghost"> <!-- Einzelne Schritte Schlüsselerzeugung Simple-DES -->
+                    <div id="steps_key_SDES_division" class="ghost">
+                        <!-- Einzelne Schritte Schlüsselerzeugung Simple-DES -->
                         <input id="runAllKeySDES" type="button" value="Alles ausführen lassen" class=""
                                onclick="runAllKeySDES()">
                         <h4>Permutation</h4>
@@ -107,7 +109,7 @@
                         <input type="button" value="Rotieren" onclick="keySDES(2)">
                         <p>Ein Beispiel für einen 1-Bit-Links-Shift mit 8 Bits:</p>
                         <img id="1-Bit-LeftShift_rotation_image" src="data/1-Bit-L-Shift.png"
-                             alt="1-Bit-Links-Shift/ Rotation">
+                             alt="1-Bit-Links-Shift/ Rotation" class="img-fluid">
                         <p>Eine genaue Erklärung kann unter <a href="grundlagen.html#cyclicShift_header"
                                                                class="link-info"
                                                                target="_blank">Grundlagen und Begriffe</a> nachgelesen
@@ -157,7 +159,7 @@
                         Begriffe</a> gefunden werden.</p>
                     <p>Positionen nach Permutation: 2,6,3,1,4,8,5,7</p>
                     <label for="initialpermutation_S-DES_textarea"></label><textarea
-                        id="initialpermutation_S-DES_textarea"></textarea>
+                            id="initialpermutation_S-DES_textarea"></textarea>
                     <br>
                     <h4>Linke Hälfte der permutierten 8 Bits</h4>
                     <label for="L-Half_S-DES_textarea"></label><textarea id="L-Half_S-DES_textarea"></textarea>
@@ -167,7 +169,7 @@
                     <input type="button" value="Expandieren" onclick="SDES(3)">
                     <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
                     <p>Eine Veranschaulichung der Expansion von 4 auf 8 Bits:</p>
-                    <img id="Expansion_8bit_image" src="data/Expansion.png" alt="Expansion 8 bit">
+                    <img id="Expansion_8bit_image" src="data/Expansion.png" alt="Expansion 8 bit" class="img-fluid">
                     <p>Eine genaue Erklärung kann unter <a href="grundlagen.html#expansion_header" target="_blank"
                                                            class="link-info">Grundlagen
                         und Begriffe</a> nachgelesen werden.</p>
@@ -221,8 +223,8 @@
                                                            target="_blank">Grundlagen und Begriffe</a> nachgelesen
                         werden.</p>
                     <p>Dies sind die zwei S-Boxen des Simple-DES:</p>
-                    <img id="s-box0_S-DES_image" src="data/S-Box0_Simple-DES.png" alt="S-Box 0 S-DES">
-                    <img id="s-box1_S-DES_image" src="data/S-Box1_Simple-DES.png" alt="S-Box 1 S-DES">
+                    <img id="s-box0_S-DES_image" src="data/S-Box0_Simple-DES.png" alt="S-Box 0 S-DES" class="img-fluid">
+                    <img id="s-box1_S-DES_image" src="data/S-Box1_Simple-DES.png" alt="S-Box 1 S-DES" class="img-fluid">
                     <label for="s-box_S-DES_textarea"></label><textarea id="s-box_S-DES_textarea"></textarea>
                     <br>
                     <h4>Permutation</h4>
@@ -231,7 +233,7 @@
                         permutiert:</p>
                     <p>2,4,3,1</p>
                     <label for="permutation4bit_S-DES_textarea"></label><textarea
-                        id="permutation4bit_S-DES_textarea"></textarea>
+                            id="permutation4bit_S-DES_textarea"></textarea>
                     <h4>XOR-Verrechnung mit linker Hälfte</h4>
                     <input type="button" value="Verrechnen" onclick="SDES(7)">
                     <p>Der Wert nach der Permutation wird mit der linken Hälfte vom Anfang XOR-verrechnet.</p>
@@ -288,13 +290,13 @@
                 <h2>Trösch's Verschlüsselungstechnik</h2>
                 <img id="schema_troesch_verschluesselungstechnik_image"
                      src="data/schema_troesch_verschluesselungstechnik.png"
-                     alt="Schema Trösch's Verschlüsselungstechnik">
+                     alt="Schema Trösch's Verschlüsselungstechnik" class="img-fluid mx-auto d-block">
                 <!-- Erweiterungsmöglichkeit: rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
                 <div id="K1_troesch_verschluesselungstechnik_division"> <!-- Schlüsselerzeugung -->
                     <h3>Schlüsselerzeugung</h3>
                     <img id="schema_schluesselerzeugung_troesch_verschluesselungstechnik_image"
                          src="data/schema_schlüsselerzeugung_troesch_verschluesselungstechnik.png"
-                         alt="Schema Schlüsselerzeugung Trösch's Verschlüsselungstechnik">
+                         alt="Schema Schlüsselerzeugung Trösch's Verschlüsselungstechnik" class="img-fluid">
                     <p>Eingabe von selbstgewählten 12 Bits ohne Abstand</p>
                     <p>Bsp. 011001101100</p>
                     <label for="main key_troesch_verschluesselungstechnik_textarea_input"><b>Eingabe Hauptschlüssel:</b></label>
@@ -328,7 +330,7 @@
                             miteinander verschoben werden und nicht nur eins.
                             Die ersten beiden Bits wandern also ans Ende der Bitreihe.</p>
                         <img id="1-Bit-LeftShift_rotation_for2bit_image" src="data/1-Bit-L-Shift.png"
-                             alt="1-Bit-Links-Shift/ Rotation">
+                             alt="1-Bit-Links-Shift/ Rotation" class="img-fluid">
                         <br>
                         <label for="2-L-Shift_troesch_verschluesselungstechnik_key_textarea"></label><textarea
                             class="normal"
@@ -339,7 +341,8 @@
                             Länge bekommt wie der restliche Bitcode.
                             Dies geschieht, indem eine umgekehrte Expansion durchgeführt wird. Das bedeutet, anstatt
                             dass der Bitcode durch die Expansion vergrössert wird, wird er verkleinert.</p>
-                        <img id="Expansion_8bit_inversed_image" src="data/InversedExpansion.png" alt="Expansion 8 bit">
+                        <img id="Expansion_8bit_inversed_image" src="data/InversedExpansion.png" alt="Expansion 8 bit"
+                             class="img-fluid">
                         <br>
                         <label for="inversedexpansion_troesch_verschluesselungstechnik_textarea"></label><textarea
                             class="normal"
@@ -349,7 +352,8 @@
                         <p>Die entstandenen 8 Bits werden nun an folgende Positionen gebracht:</p>
                         <p>8,4,2,5,7,1,6,3</p>
                     </div>
-                    <input id="makeKey_button_troesch_verschluesselungstechnik" class="hideButtonForKeyTroeschVerschluesselungstechnik"
+                    <input id="makeKey_button_troesch_verschluesselungstechnik"
+                           class="hideButtonForKeyTroeschVerschluesselungstechnik"
                            type="button" value="Schlüssel erstellen" onclick="runAllKeyTroesch()">
                     <br class="hideButtonForKeyTroeschVerschluesselungstechnik">
                     <label for="permutation8bit_troesch_verschluesselungstechnik_key_textarea" class="normal"><b>Ausgabe
@@ -383,7 +387,8 @@
                 <input id="hideSteps_troesch_verschluesselungstechnik_input" type="checkbox" value="hide"
                        class="form-check-input"
                        onchange="checkBoxHideText('hideSteps_troesch_verschluesselungstechnik_input','#steps_troesch_verschluesselungstechnik_division')">
-                <div id="steps_troesch_verschluesselungstechnik_division" class="ghost"> <!-- Einzelne Schritte Trösch's Verschlüsselungstechnik -->
+                <div id="steps_troesch_verschluesselungstechnik_division" class="ghost">
+                    <!-- Einzelne Schritte Trösch's Verschlüsselungstechnik -->
                     <h4>Initiale Permutation</h4>
                     <input type="button" value="Permutieren" onclick="troesch(2)">
                     <p>Eine Begriffserklärung der Permutation kann unter <a class="link-info"
@@ -404,7 +409,7 @@
                     <input type="button" value="Expandieren" onclick="troesch(3)">
                     <p>Die rechte Hälfte der permutierten 8 Bits wird expandiert.</p>
                     <p>Eine Veranschaulichung der Expansion von 4 auf 8 Bits:</p>
-                    <img id="Expansion_8bit_image_2" src="data/Expansion.png" alt="Expansion 8 bit">
+                    <img id="Expansion_8bit_image_2" src="data/Expansion.png" alt="Expansion 8 bit" class="img-fluid">
                     <p>Eine genaue Erklärung kann unter <a href="grundlagen.html#expansion_header" target="_blank"
                                                            class="link-info">Grundlagen
                         und Begriffe</a> nachgelesen werden.</p>
@@ -468,10 +473,10 @@
                     <p>Dies sind die zwei S-Boxen von Trösch's Verschlüsselungstechnik:</p>
                     <img id="s-box1_troesch_verschluesselungstechnik_image"
                          src="data/S-Box1_troesch_verschluesselungstechnik.png"
-                         alt="S-Box 1 troesch_verschluesselungstechnik">
+                         alt="S-Box 1 troesch_verschluesselungstechnik" class="img-fluid">
                     <img id="s-box2_troesch_verschluesselungstechnik_image"
                          src="data/S-Box2_troesch_verschluesselungstechnik.png"
-                         alt="S-Box 2 troesch_verschluesselungstechnik">
+                         alt="S-Box 2 troesch_verschluesselungstechnik" class="img-fluid">
                     <br>
                     <label for="s-box_troesch_verschluesselungstechnik_textarea"></label><textarea
                         id="s-box_troesch_verschluesselungstechnik_textarea"></textarea>
