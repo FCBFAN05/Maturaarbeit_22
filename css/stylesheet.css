@@ -458,6 +458,12 @@ samp {
     color: #073e90;
 }
 
+@media (max-width: 440px) {
+    .carousel-header {
+        font-size: 2rem;
+    }
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
