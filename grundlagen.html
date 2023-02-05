@@ -20,30 +20,45 @@
     <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
-<div class="container-fluid mw-100">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        </a>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-secondary">Grundlagen und
-                Begriffe</a></li>
-            <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a>
-            </li>
-            <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-dark">Infos zur Website</a></li>
-            <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
-        </ul>
-        <div class="col-md-3 text-end">
+<header>
+    <!-- Animated navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active link-secondary" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grundlagen.html">Grundlagen und Begriffe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verschluesselung.html">Verschlüsselung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="infos.html">Infos zur Website</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Über mich</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-</div>
+    </nav>
+</header>
 <main class="mw-100">
     <div class="container" id="grundlagen_verschluesselung_division">
         <h2>Grundlagen und Begriffe zum Verständnis der Verschlüsselung</h2>
         <p>Auf dieser Webseite geht es darum, das nötige Grundwissen an Fachbegriffen zu erlangen, das
             vorausgesetzt wird, um die Chiffrierungsprozesse von Simple-DES und Trösch’s Verschlüsselungstechnik zu
             verstehen. Das Grundwissen bezüglich Programmieren kann weiter unten erworben werden.</p>
-        <figure class="figure bigmargin-top">
+        <figure class="figure bigmargin-top mw-100">
             <img src="data/The_Basics_blue_NO_WE_logo-1300x600-1-1024x473.png" alt="basics"
                  class="figure-img img-fluid mx-auto d-block">
             <figcaption class="figure-caption">Bildquelle: &copy; Wine Enthusiast &boxv; winemag.com</figcaption>
@@ -74,7 +89,7 @@
             werden können.</p>
         <p>Die Charaktere 0 -31 im Binärcode sind nicht druckbare Steuerungscodes und werden beispielsweise dafür
             benutzt, um Drucker zu steuern.</p>
-        <table class="tableASCIINonPrintable">
+        <table class="tableASCIINonPrintable mw-100">
             <colgroup>
                 <col id="col1TableASCIINonPrintable">
                 <col id="col2TableASCIINonPrintable">
@@ -114,7 +129,7 @@
         </table>
         <br>
         <p>Die Charaktere 32 -127 im Binärcode sind druckbare Zeichen, wie Buchstaben, Ziffern oder Textzeichen.</p>
-        <table class="tableASCIIPrintable">
+        <table class="tableASCIIPrintable mw-100">
             <colgroup>
                 <col id="col1TableASCIIPrintable">
                 <col id="col2TableASCIIPrintable">
@@ -187,7 +202,7 @@
             Vorgaben werden jeweils in Ziffern angegeben.</p>
         <p>Bei einer Permutation von 4 Bits wird z.B. 2,4,3,1 als Neuordnung nach der Permutation angegeben.</p>
         <p>Dies ist folgendermassen zu verstehen:</p>
-        <table class="tablePermutation">
+        <table class="tablePermutation mw-100">
             <colgroup>
                 <col class="col1TablePermutation">
                 <col class="col2TablePermutation">
@@ -243,7 +258,7 @@
         <p>Ein Exklusiv-Oder-Gatter, auch XOR-Gatter, ist ein Gatter mit zwei Eingaben und einer Ausgabe.
             Wenn von zwei Bits, die vergleicht werden, genau eines davon eine 1 ist, ist die Ausgabe auch eine 1,
             ansonsten ist sie 0.</p>
-        <table class="tableXOR">
+        <table class="tableXOR mw-100">
             <colgroup>
                 <col class="col1TableXOR">
                 <col class="col2TableXOR">
@@ -321,7 +336,7 @@
             In der Programmierung beginnt die Nummerierung immer bei 0. Das erste Feld ist beim Aufrufen also das Feld
             0.</p>
         <p>Hier ein Beispiel für ein eindimensionales Array:</p>
-        <table class="tableOneDimensionalArray">
+        <table class="tableOneDimensionalArray mw-100">
             <colgroup>
                 <col class="col1TableOneDimensionalArray">
                 <col class="col2TableOneDimensionalArray">
@@ -342,7 +357,7 @@
             </tr>
         </table>
         <p>... und noch ein Beispiel für ein zweidimensionales Array:</p>
-        <table class="tableOneDimensionalArray">
+        <table class="tableOneDimensionalArray mw-100">
             <colgroup>
                 <col class="col1TableOneDimensionalArray">
                 <col class="col2TableOneDimensionalArray">

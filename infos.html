@@ -21,28 +21,38 @@
     <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
-<div class="container-fluid mw-100">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
-            id="header_infos">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        </a>
-        <nav>
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
-                <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und
-                    Begriffe</a>
-                </li>
-                <li class="nav-list"><a href="verschluesselung.html" class="nav-link px-2 link-dark">Verschlüsselung</a>
-                </li>
-                <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-secondary">Infos zur Website</a>
-                </li>
-                <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
-            </ul>
-        </nav>
-        <div class="col-md-3 text-end">
+<header id="header_infos">
+    <!-- Animated navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active link-secondary" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grundlagen.html">Grundlagen und Begriffe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verschluesselung.html">Verschlüsselung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="infos.html">Infos zur Website</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Über mich</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-</div>
+    </nav>
+</header>
 <main class="mw-100">
     <div class="container" id="infos-header_division">
         <h2>Allgemeines</h2>
@@ -55,7 +65,7 @@
             Verschlüsselungstechnik (Trösch's Verschlüsselungstechnik).
             Parallel dazu wird der Chiffrierungsprozess von Simple-DES veranschaulicht. Denn Simple-DES lieferte die
             Grundlage für Trösch's Verschlüsselungstechnik.</p>
-        <figure class="figure">
+        <figure class="figure mw-100">
             <img class="figure-img img-fluid rounded mx-auto d-block" src="data/server-side-rendering.png"
                  alt="Server-Side-Rendering-Grafik">
             <figcaption class="figure-caption">Bildquelle: &copy; IONOS SE &boxv; ionos.de</figcaption>
@@ -114,7 +124,7 @@
     &lt;/nav&gt;
 &lt;/header&gt;</code></pre>
         <h4>Inhaltsbereich</h4>
-        <figure class="figure">
+        <figure class="figure mw-100">
             <img class="figure-img img-fluid mx-auto d-block" src="data/Inhalt.png" alt="Inhalt">
             <figcaption class="figure-caption">Screenshot mit Ausschnitt aus dem Inhaltsbereich der Homepage
             </figcaption>
@@ -306,35 +316,35 @@ for (let i = 0; i < Input.length; i++) {
         <h3>Vorher-Nachher</h3>
         <p>Die folgenden Ausschnitte aus der Website sollen illustrieren, wie gross die Auswirkungen auf das Aussehen
             der Website sind bei einer Anwendung von CSS. </p>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/nav_without.png" class="figure-img img-fluid mx-auto d-block" alt="navwithout">
             <figcaption class="figure-caption">Navigationsleiste ohne CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/Kopfzeile.png" class="figure-img img-fluid mx-auto d-block" alt="navwith">
             <figcaption class="figure-caption">Navigationsleiste mit CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/footer_without.png" class="figure-img img-fluid mx-auto d-block" alt="footerwithout">
             <figcaption class="figure-caption">Fusszeile ohne CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/Fusszeile.png" class="figure-img img-fluid mx-auto d-block" alt="footerwith">
             <figcaption class="figure-caption">Fusszeile mit CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/content_wihtout.png" class="figure-img img-fluid mx-auto d-block" alt="navwithout">
             <figcaption class="figure-caption">Ausschnitt aus dem Inhaltsbereich der Homepage ohne CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/content_with.png" class="figure-img img-fluid mx-auto d-block" alt="navwithout">
             <figcaption class="figure-caption">Ausschnitt aus dem Inhaltsbereich der Homepage mit CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/carousel_without.png" class="figure-img img-fluid mx-auto d-block" alt="navwithout">
             <figcaption class="figure-caption">Karussell der Homepage ohne CSS</figcaption>
         </figure>
-        <figure class="biggermargin figure">
+        <figure class="biggermargin figure mw-100">
             <img src="data/carousel_with.png" class="figure-img img-fluid mx-auto d-block" alt="navwithout">
             <figcaption class="figure-caption">Karussell der Homepage mit CSS</figcaption>
         </figure>

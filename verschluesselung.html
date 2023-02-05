@@ -20,27 +20,42 @@
     <meta name="msapplication-TileColor" content="#ffffff">
 </head>
 <body>
-<div class="container-fluid mw-100">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        </a>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="nav-list"><a href="index.html" class="nav-link px-2 link-dark">Start</a></li>
-            <li class="nav-list"><a href="grundlagen.html" class="nav-link px-2 link-dark">Grundlagen und Begriffe</a>
-            </li>
-            <li class="nav-list"><a href="verschluesselung.html"
-                                    class="nav-link px-2 link-secondary">Verschlüsselung</a></li>
-            <li class="nav-list"><a href="infos.html" class="nav-link px-2 link-dark">Infos zur Website</a></li>
-            <li class="nav-list"><a href="about.html" class="nav-link px-2 link-dark">Über mich</a></li>
-        </ul>
-        <div class="col-md-3 text-end">
+<header>
+    <!-- Animated navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active link-secondary" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grundlagen.html">Grundlagen und Begriffe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verschluesselung.html">Verschlüsselung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="infos.html">Infos zur Website</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Über mich</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-</div>
+    </nav>
+</header>
 <main class="mw-100">
     <div id="verschlüsselung_division"> <!-- Verschlüsselung erklärt -->
         <div class="container">
-            <h1>Verschlüsselung</h1>
+            <h1 class="py-4">Verschlüsselung</h1>
             <p>Auf dieser Webpage können <a href="#Simple-DES_division">Simple-DES</a> und <a
                     href="#troesch_verschluesselungstechnik_division">Trösch's Verschlüsselungstechnik</a> interaktiv
                 erfahren werden.
@@ -49,7 +64,7 @@
             <p>Trotzdem ist ein gewisses Mass an Vorwissen erforderlich zum Verständnis der Chiffrierungsprozesse.
                 Dieses kann auf der Webpage <a class="link-info" href="grundlagen.html">Grundlagen und Begriffe</a>
                 erworben werden.</p>
-            <figure class="figure biggermargin-top">
+            <figure class="figure biggermargin-top mw-100">
                 <img src="data/encrypted-data.jpg" alt="verschlüsseln"
                      class="figure-img img-fluid rounded mx-auto d-block">
                 <figcaption class="figure-caption">Bildquelle: &copy; Tutanota &boxv; tutanota.com</figcaption>
@@ -75,7 +90,7 @@
                 <h2>Simple-DES</h2>
                 <!-- Verbesserungsmöglichkeit: rechts mitfahren lassen → Mit Abdunkeln lassen → Wissen wo man ist -->
                 <img id="schema S-DES_image" src="data/Schema_SDES.png" alt="Schema Simple-DES"
-                     class="figure-img img-fluid rounded mx-auto d-block">
+                     class="figure-img img-fluid rounded mx-auto d-block mw-100">
                 <div id="K1_S-DES_division">
                     <h3>Schlüsselerzeugung</h3> <!-- Schlüsselerzeugung Simple-DES -->
                     <img id="schema_schluesselerzeugung_image" src="data/Schema_Schluesselerzeugung_SDES.png"
@@ -177,7 +192,7 @@
                     <h4>XOR-Verrechnung mit Schlüssel</h4>
                     <input type="button" value="Verrechnen" onclick="SDES(4)">
                     <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
-                    <table id="tableXOR_S-DES" class="tableXOR">
+                    <table id="tableXOR_S-DES" class="tableXOR mw-100">
                         <colgroup>
                             <col class="col1TableXOR">
                             <col class="col2TableXOR">
@@ -418,7 +433,7 @@
                     <h4>XOR-Verrechnung mit Schlüssel</h4>
                     <input type="button" value="Verrechnen" onclick="troesch(4)">
                     <p>Hier ein Beispiel der XOR-Verrechnung mit 4 Bits:</p>
-                    <table id="tableXOR_troesch" class="tableXOR">
+                    <table id="tableXOR_troesch" class="tableXOR mw-100">
                         <colgroup>
                             <col class="col1TableXOR">
                             <col class="col2TableXOR">

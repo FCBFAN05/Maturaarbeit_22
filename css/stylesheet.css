@@ -91,80 +91,84 @@ h4, h5, h6 {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 21.3125rem;
+    width: 30rem;
 }
 
 .tablePermutation td {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .tablePermutation th {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: normal;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .col1TablePermutation {
-    width: 13.1875rem
+    width: 14rem
 }
 
 .col2TablePermutation {
-    width: 3.9375rem
+    width: 8rem
 }
 
 .col3TablePermutation {
-    width: 4.1875rem
+    width: 8rem
 }
 
 .tableASCIINonPrintable {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 29.76rem;
+    width: 44rem;
 }
 
 .tableASCIINonPrintable td {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .tableASCIINonPrintable th {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: normal;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 #col1TableASCIINonPrintable {
-    width: 6.19rem
+    width: 11rem
 }
 
 #col2TableASCIINonPrintable {
-    width: 7.13rem
+    width: 11rem
 }
 
 #col3TableASCIINonPrintable {
-    width: 5.44rem
+    width: 11rem
 }
 
 #col4TableASCIINonPrintable {
@@ -175,40 +179,42 @@ h4, h5, h6 {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 29.76rem;
+    width: 44rem;
 }
 
 .tableASCIIPrintable td {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .tableASCIIPrintable th {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: normal;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 #col1TableASCIIPrintable {
-    width: 6.19rem
+    width: 11rem
 }
 
 #col2TableASCIIPrintable {
-    width: 7.13em
+    width:11rem
 }
 
 #col3TableASCIIPrintable {
-    width: 5.44rem
+    width: 11rem
 }
 
 #col4TableASCIIPrintable {
@@ -219,94 +225,93 @@ h4, h5, h6 {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 20.45rem;
+    width: 40rem;
 }
 
 .tableXOR td {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .tableXOR th {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: normal;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .col1TableXOR {
-    width: 14.69rem
+    width: 10rem
 }
 
 .col2TableXOR {
-    width: 1.44rem
+    width: 10rem
 }
 
 .col3TableXOR {
-    width: 1.44rem
+    width: 10rem
 }
 
 .col4TableXOR {
-    width: 1.44rem
-}
-
-.col4TableXOR {
-    width: 1.44rem
+    width: 10rem
 }
 
 .tableOneDimensionalArray {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 10.08rem;
+    width: 21rem;
 }
 
 .tableOneDimensionalArray th {
     font-family: "Droid Sans Mono Dotted", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-weight: normal;
     padding: 0.625rem 0.3125rem;
     border-style: solid;
     border-width: 0.0625rem;
     overflow: hidden;
     word-break: normal;
+    text-align: center;
 }
 
 .col1TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col2TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col3TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col4TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col5TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col6TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 .col7TableOneDimensionalArray {
-    width: 1.44rem
+    width: 2.5rem
 }
 
 code {
@@ -654,5 +659,13 @@ label {
 .navbar.navbar-scroll.navbar-scrolled {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+main {
+    padding-top: 5rem;
+}
+
+.padding-top-4 {
+    padding-top: 4rem;
 }
 
