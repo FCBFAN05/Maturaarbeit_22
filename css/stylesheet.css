@@ -222,7 +222,7 @@ h4, h5, h6 {
 }
 
 #col2TableASCIIPrintable {
-    width:11rem
+    width: 11rem
 }
 
 #col3TableASCIIPrintable {
@@ -602,7 +602,7 @@ input, select, textarea, button, li {
     font-family: inherit;
 }
 
-textarea.normal{
+textarea.normal {
     width: 20rem;
     height: 5rem;
 }
@@ -617,7 +617,6 @@ textarea {
     margin-top: 1.2rem;
     margin-bottom: 1.5rem;
 }
-
 
 
 textarea::-webkit-scrollbar {
