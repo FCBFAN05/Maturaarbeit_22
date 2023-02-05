@@ -461,6 +461,7 @@ samp {
 
 .carousel-header {
     color: #073e90;
+    word-break: break-word;
 }
 
 @media (max-width: 440px) {
