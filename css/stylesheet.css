@@ -435,7 +435,7 @@ samp {
 }
 
 .carousel-img {
-    font-size: 1.125rem;
+    font-size: 2rem;
     text-anchor: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -532,7 +532,7 @@ samp {
 }
 
 @media (min-width: 1300px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-fluid {
         max-width: 1240px;
     }
 }
@@ -616,5 +616,19 @@ label {
 
 .nav-list {
     font-size: inherit;
+}
+
+.p-foot {
+    font-size: 1.3rem;
+}
+
+.p-featurette {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.language-css, .language-html, .language-javascript {
+    font-size: 1.7rem;
+    font-family: "Source Code Pro", Consolas, "Courier New", serif;
 }
 
