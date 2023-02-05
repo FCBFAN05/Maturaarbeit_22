@@ -48,6 +48,7 @@ p {
     font-family: "Droid Sans Mono Dotted", sans-serif;
     font-size: 1.8rem;
     font-optical-sizing: auto;
+    word-break: break-word;
 }
 
 h1 {
@@ -56,6 +57,8 @@ h1 {
     font-size: 3rem;
     font-optical-sizing: auto;
     color: darkblue;
+    max-width: 100%;
+    word-break: break-word;
 }
 
 h2 {
@@ -65,6 +68,7 @@ h2 {
     font-optical-sizing: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
+    word-break: break-word;
 }
 
 h3 {
@@ -73,6 +77,7 @@ h3 {
     font-optical-sizing: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
+    word-break: break-word;
 }
 
 h4, h5, h6 {
@@ -81,6 +86,7 @@ h4, h5, h6 {
     font-optical-sizing: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
+    word-break: break-word;
 }
 
 .ghost {
@@ -92,6 +98,8 @@ h4, h5, h6 {
     border-spacing: 0;
     table-layout: fixed;
     width: 30rem;
+    display: block;
+    overflow-x: auto;
 }
 
 .tablePermutation td {
@@ -134,6 +142,8 @@ h4, h5, h6 {
     border-spacing: 0;
     table-layout: fixed;
     width: 44rem;
+    display: block;
+    overflow-x: auto;
 }
 
 .tableASCIINonPrintable td {
@@ -180,6 +190,8 @@ h4, h5, h6 {
     border-spacing: 0;
     table-layout: fixed;
     width: 44rem;
+    display: block;
+    overflow-x: auto;
 }
 
 .tableASCIIPrintable td {
@@ -226,6 +238,8 @@ h4, h5, h6 {
     border-spacing: 0;
     table-layout: fixed;
     width: 40rem;
+    display: block;
+    overflow-x: auto;
 }
 
 .tableXOR td {
@@ -267,11 +281,17 @@ h4, h5, h6 {
     width: 10rem
 }
 
+.col5TableXOR {
+    width: 10rem;
+}
+
 .tableOneDimensionalArray {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
     width: 21rem;
+    display: block;
+    overflow-x: auto;
 }
 
 .tableOneDimensionalArray th {
