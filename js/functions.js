@@ -226,14 +226,11 @@ function SDES(Funktion) {
     let bitcodeLeftHalf = []
     let decryptedBitcode = []
 
-    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mit Hilfe des ASCII-Codes (Buchstabe für Buchstabe)
-        if (textInput.charCodeAt(i).toString(10) < 64)
-            bitcodeInputText[i] = "00".concat(textInput.charCodeAt(i).toString(2)) // Funktionen/ Methoden von Grund auf machen
-        else if (textInput.charCodeAt(i).toString(10) < 128)
-            bitcodeInputText[i] = "0".concat(textInput.charCodeAt(i).toString(2))
-        else
-            bitcodeInputText[i] = "not defined"
+    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mithilfe des ASCII-Codes (Buchstabe für Buchstabe)
+        let unicodeValue = textInput.codePointAt(i) // Die codePointAt()-Funktion gibt den Unicode-Wert eines Zeichens zurück. So werden auch alle Zeichen des erweiterten ASCII-Zeichensatzes zurückgegeben.
+        bitcodeInputText[i] = unicodeValue.toString(2).padStart(8, "0")
     }
+    console.log(bitcodeInputText)
     switch (Funktion) {
         case 1: // Ausgabe des Klartexts in Bits
             document.getElementById("bits_S-DES_textarea").value = ""
@@ -354,13 +351,12 @@ function SDES(Funktion) {
                 decryptedBitcode[m] = XORBits2[m][3].toString().concat(XORBits2[m][0].toString()).concat(XORBits2[m][2].toString()).concat(XORBits[m][0]).concat(XORBits[m][2]).concat(XORBits2[m][1].toString()).concat(XORBits[m][3]).concat(XORBits[m][1])
                 document.getElementById("bitcodeDechiffriert_S-DES_textarea").value += (decryptedBitcode[m] + " ")
             }
-            console.log(decryptedBitcode)
             return decryptedBitcode
         case 11: // Ausgabe entschlüsselte Zeichen
             document.getElementById("textDechiffriert_S-DES_textarea").value = ""
             decryptedBitcode = SDES(10)
             for (let j = 0; j < textInput.length; j++) {
-                document.getElementById("textDechiffriert_S-DES_textarea").value += String.fromCharCode(parseInt(decryptedBitcode[j], 2))
+                document.getElementById("textDechiffriert_S-DES_textarea").value += String.fromCodePoint(parseInt(decryptedBitcode[j], 2))
             }
             break
     }
@@ -368,7 +364,7 @@ function SDES(Funktion) {
 
 
 function keySDES(Funktion) { // Schlüsselerzeugung
-    let mainKey = document.getElementById("main key_S-DES_textarea_input").value
+    let mainKey = document.getElementById("main key_S-DES_textarea_input").value.padStart(10,"0")
     let keyBits = []
 
     for (let j = 0; j < 10; j++) {
@@ -390,7 +386,6 @@ function keySDES(Funktion) { // Schlüsselerzeugung
             return firstDefiniteKeyBitcode
         case 4: // Ausgabe Zweiter Schlüssel (Bits nach der 10-Bit-Permutation schriftlich rotiert (s.unten) und danach die 8-Bit-Permutation durchgeführt
             // Nach der 2. Rotation: 6,3,2,4,1, 7,5,9,0,8
-            console.log(keyBits[7].toString().concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[9].toString()).concat(keyBits[1].toString()).concat(keyBits[8].toString()).concat(keyBits[0].toString()))
             return keyBits[7].toString().concat(keyBits[2].toString()).concat(keyBits[5].toString()).concat(keyBits[4].toString()).concat(keyBits[9].toString()).concat(keyBits[1].toString()).concat(keyBits[8].toString()).concat(keyBits[0].toString())
     }
 }
@@ -495,13 +490,9 @@ function troesch(Funktion) {
     let bitcodeLeftHalf = []
     let decryptedBitcode = []
 
-    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mit Hilfe des ASCII-Codes (Buchstabe für Buchstabe) und Erzeugung des Paritätsbits
-        if (textInput.charCodeAt(i).toString(10) < 64)
-            bitcodeInputText[i] = "00".concat(textInput.charCodeAt(i).toString(2)) // Funktionen/ Methoden von Grund auf machen
-        else if (textInput.charCodeAt(i).toString(10) < 128)
-            bitcodeInputText[i] = "0".concat(textInput.charCodeAt(i).toString(2))
-        else
-            bitcodeInputText[i] = "not defined"
+    for (let i = 0; i < textInput.length; i++) { // Umwandlung des Texts in Bits mithilfe des ASCII-Codes (Buchstabe für Buchstabe) und Erzeugung des Paritätsbits
+        let unicodeValue = textInput.codePointAt(i) // Die codePointAt()-Funktion gibt den Unicode-Wert eines Zeichens zurück. So werden auch alle Zeichen des erweiterten ASCII-Zeichensatzes zurückgegeben.
+        bitcodeInputText[i] = unicodeValue.toString(2).padStart(8, "0")
     }
     switch (Funktion) {
         case 1: // Ausgabe des Klartexts in Bits
@@ -648,7 +639,7 @@ function troesch(Funktion) {
             document.getElementById("textDechiffriert_troesch_verschluesselungstechnik_textarea").value = ""
             decryptedBitcode = troesch(11)
             for (let j = 0; j < textInput.length; j++) {
-                document.getElementById("textDechiffriert_troesch_verschluesselungstechnik_textarea").value += String.fromCharCode(parseInt(decryptedBitcode[j], 2))
+                document.getElementById("textDechiffriert_troesch_verschluesselungstechnik_textarea").value += String.fromCodePoint(parseInt(decryptedBitcode[j], 2))
             }
             break
     }
@@ -656,7 +647,7 @@ function troesch(Funktion) {
 
 
 function keyTroesch(Funktion) { // Schlüsselerzeugung
-    let mainKey = document.getElementById("main key_troesch_verschluesselungstechnik_textarea_input").value
+    let mainKey = document.getElementById("main key_troesch_verschluesselungstechnik_textarea_input").value.padStart(12,"0")
     let keyBits = []
 
     for (let j = 0; j < 12; j++) {
